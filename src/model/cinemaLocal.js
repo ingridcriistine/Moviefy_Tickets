@@ -16,6 +16,10 @@ const cinemaLocal = database.define('CinemaLocal', {
     Preco: {
         type: Sequelize.FLOAT,
         allowNull: false
+    },
+    Foto: {
+        type: Sequelize.STRING(50),
+        allowNull: false
     }
 });
 

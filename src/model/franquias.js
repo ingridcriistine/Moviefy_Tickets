@@ -11,6 +11,10 @@ const franquia = database.define('Franquia', {
     Nome: {
         type: Sequelize.STRING(100),
         allowNull: false
+    },
+    Foto: {
+        type: Sequelize.STRING(50),
+        allowNull: false
     }
 });
 

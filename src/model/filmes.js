@@ -25,6 +25,10 @@ const filme = database.define('Filmes', {
     Duracao: {
         type: Sequelize.STRING(10),
         allowNull: false
+    },
+    Foto: {
+        type: Sequelize.STRING(50),
+        allowNull: false
     }
 })
 

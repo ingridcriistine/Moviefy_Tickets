@@ -28,6 +28,10 @@ const cliente = database.define('Clientes', {
     Senha: {
         type: Sequelize.STRING(20),
         allowNull: false
+    },
+    Foto: {
+        type: Sequelize.STRING(50),
+        allowNull: false
     }
 })
 
