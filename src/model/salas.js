@@ -1,0 +1,23 @@
+const Sequelize = require('sequelize');
+const database = require('../config/bd');
+const cinema = require('../model/cinemaLocal');
+
+const sala = database.define('Salas', {
+    IDSala: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        allowNull: false,
+        primaryKey: true
+    },
+    Numero: {
+        type: Sequelize.STRING(10),
+        allowNull: false
+    }
+})
+
+sala.belongsTo(cinema, {
+    constraint: true,
+    foreignKey: 'IDCinema'
+});
+
+module.exports = sala;
