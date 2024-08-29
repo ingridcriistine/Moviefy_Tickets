@@ -1,0 +1,40 @@
+body {
+    
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#carrossel {
+    width: 100%;
+}
+
+.carousel-geral {
+    height: 400px;
+    margin-bottom: 20px;
+    background-color: rgb(70, 103, 124);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#home-filmes {
+    width: 100%;
+}
+
+.carousel-filmes {
+    height: 400px;
+    margin-bottom: 20px;
+    background-color: rgb(70, 103, 124);
+    display: flex;
+    align-items: center;
+}
+
+.carousel-item  {
+    display: flex;
+    justify-content: space-between;
+}

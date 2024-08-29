@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/*---------------NAVBAR-------------------*/
+.menu {
+    background-color: #001C46;
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titulo {
+    color: #953C4C;
+    margin-left: 50px;
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+.titulo:hover {
+    cursor: pointer;
+}
+
+.nav-login {
+    color: white;
+    display: flex;
+    gap: 10px;
+    margin-right: 50px;
+    width: 12%;
+}
+
+.nav-login img {
+    width: 32px;
+    height: 32px;
+}
+
+.nav-login a {
+    text-decoration: none;
+    color: white;
+    padding-top: 1.5%;
+}
+
+.sub-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #953C4C;
+    color: white;
+    height: 60px;
+    margin: 20px 0 20px 0;
+}
+
+.titulos {
+    display: flex;
+    gap: 50px;
+    margin-left: 50px;
+    font-size: 25px;
+}
+
+.localidades {
+    display: flex;
+    margin-right: 50px;
+    align-items: center;
+    width: 15%;
+}
+
+.localidades img {
+    width: 9%;
+    margin-right: 10px;
+}
+
+.form-select {
+    height: 32px;
+}
+
+select:hover {
+    background-color: rgb(255, 248, 248);
+    cursor: pointer;
+}
+
+.form-select option {
+    font-size: 15px;
+}
+
+.menu a:hover, .sub-menu .titulos a:hover {
+    cursor: pointer;
+    color: rgb(201, 198, 198);
+}
+
+
+/*---------------FOOTER-------------------*/
+footer {
+    background-color: #001C46;
+    height: 500px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.inicio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 18%;
+    margin-top: 1%;
+}
+
+.redes {
+    margin-right: 50px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.redes img {
+    width: 5%;
+}
+
+footer hr {
+    width: 96%;
+    align-self: center;
+}
+
+.links-rodape {
+    display: flex;
+    justify-content: space-around;
+}
+
+.rodape-menu, .rodape-institucional, .rodape-politicas, .rodape-central {
+    display: flex;
+    flex-direction: column;
+    margin: 50px 100px 0 100px;
+    gap: 15px;
+} 
+
+.copyright {
+    align-self: center;
+    margin-top: 130px;
+    font-size: 12px;
+}
+
+.links-rodape a:hover {
+    color: #953C4C;
+    cursor: pointer;
+}
+
+.redes img:hover {
+
+}
