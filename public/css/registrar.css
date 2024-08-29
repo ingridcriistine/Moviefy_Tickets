@@ -1,0 +1,16 @@
+.titulos p {
+    margin: 0px;
+}
+
+img {
+    background-color: aqua;
+    width: 20%;
+    height: 400px;
+    margin: 2%;
+    margin-left: 10%;
+}
+
+form {
+    width: 100%;
+    display: flex;
+}
