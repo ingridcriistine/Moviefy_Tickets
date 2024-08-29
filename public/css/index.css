@@ -26,15 +26,40 @@ main {
     width: 100%;
 }
 
-.carousel-filmes {
-    height: 400px;
-    margin-bottom: 20px;
-    background-color: rgb(70, 103, 124);
-    display: flex;
-    align-items: center;
-}
-
-.carousel-item  {
+.lista-filmes {
     display: flex;
     justify-content: space-between;
+    margin: 8% 5% 8% 5%;
+}
+
+.cards-filmes {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0 5% 0 5%;
+}
+
+.card-filme {
+    width: 250px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-img-top {
+    background-color: antiquewhite;
+    width: 90%;
+    height: 85%;
+    align-self: center;
+    margin: 5px;
+}
+
+.card-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.classificacao {
+    width: 10%;
+    background-color: antiquewhite;
 }
