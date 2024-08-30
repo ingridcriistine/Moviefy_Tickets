@@ -4,6 +4,10 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+a {
+    cursor: pointer;
+}
+
 /*---------------NAVBAR-------------------*/
 .menu {
     background-color: #001C46;
