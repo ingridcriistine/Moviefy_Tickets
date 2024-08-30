@@ -1,16 +1,116 @@
+
+
 .titulos p {
     margin: 0px;
 }
 
-img {
-    background-color: aqua;
-    width: 20%;
+#perfil-filme {
+    width: 15%;
     height: 400px;
-    margin: 2%;
-    margin-left: 10%;
+}
+
+#labelFilme {
+    width: 100%;
 }
 
 form {
     width: 100%;
     display: flex;
+    justify-content: space-evenly;
+    padding: 2% 0px 5% 0px;
+    font-size: 20px;
+    align-items: center;
+}
+
+.sections {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.select {
+    width: 49%;
+    margin-bottom: 2%;
+}
+
+
+.select select {
+    border: 1px solid gray;
+    height: 40px;
+}
+
+.perguntas {
+    width: 50%;
+}
+
+input {
+    height: 40px;
+    padding: 0.5%;
+    border: 1px solid gray;
+    border-radius: 7px;
+    margin-bottom: 2%;
+}
+
+.question {
+    width: 40%;
+}
+
+.data {
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2%;
+}
+
+
+.endereco {
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2%;
+}
+
+#duration {
+    width: 50%;
+}
+
+#registro {
+    width: 40%;
+    color: white;
+    background-color: #2ebb21;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 2%;
+}
+
+#registro:hover {
+    background-color: #4dce49;
+}
+
+#butaoun {
+    display: flex;
+    justify-content: center;
+}
+
+input[type=file] {
+    display: none;
+}
+
+#perfil-cinema {
+    width: 15%;
+    height: 200px;
+    margin-bottom: 5%;
+}
+
+#labelCinema {
+    width: 100%;
+}
+
+#logradouro {
+    width: 60%;
+}
+
+#cep {
+    width: 38%;
 }

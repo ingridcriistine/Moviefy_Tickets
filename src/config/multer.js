@@ -2,7 +2,7 @@ const multer = require('multer');
 
 const multerConfig = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'public/imagens');
+        cb(null, 'public/img');
     },
     filename: (req, file, cb) => {
         const fileName = `${new Date().getTime()}-${file.originalname}`;
@@ -10,5 +10,4 @@ const multerConfig = multer.diskStorage({
     }
 });
 
-// Exportando configurações
 module.exports = { storage:multerConfig };
