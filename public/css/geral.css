@@ -97,6 +97,37 @@ select:hover {
     color: rgb(201, 198, 198);
 }
 
+.card-filme {
+    width: 220px;
+    height: 400px; 
+    display: flex;
+    margin: 1%;
+    flex-direction: column;
+}
+
+.card-img-top {
+    background-color: antiquewhite;
+    width: 90%;
+    height: 85%;
+    align-self: center;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.card-title {
+    margin: 20px 0px 0px 15px;
+}
+
+.card-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.classificacao {
+    width: 10%;
+    background-color: antiquewhite;
+}
+
 
 /*---------------FOOTER-------------------*/
 footer {
@@ -105,6 +136,7 @@ footer {
     color: white;
     display: flex;
     flex-direction: column;
+    margin-top: 130px;
 }
 
 footer a {
@@ -127,7 +159,7 @@ footer a {
     gap: 20px;
 }
 
-.redes img {
+.redes img{
     width: 5%;
 }
 
@@ -159,6 +191,5 @@ footer hr {
     cursor: pointer;
 }
 
-.redes img:hover {
 
-}
+/*---------------FOOTER SIMPLES-------------------*/

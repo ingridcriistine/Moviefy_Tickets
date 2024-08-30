@@ -67,29 +67,130 @@
                     </button>
                   </div>
             </section>
-
-            <div id="container-botoes">
-            </div>
             
             <section id="home-filmes">
                 <div class="home-section-titulo">
-                    <a href="">Em Cartaz</a>
-                    <img src="" alt="/public/img/icone-seta.png">
+                    <a href="">
+                        <h3><b>Em Cartaz</b></h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-chevron-right seta" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                        </svg>
+                    </a>
                 </div>
-                
-                <div class="lista-filmes">
-                    <button><i class="bi bi bi-caret-left-fill" onclick="proximo()"></i></button>
-                    <div class="cards-filmes">
-                        <div class="card card-filme">
-                            <img src="..." class="card-img-top" alt="...">
-                            <h5 class="card-title">Card title</h5>
-                            <div class="card-body">
-                                <p class="card-text">Some quick</p>
-                                <p class="classificacao">L</a>
+
+                <div id="carouselExampleCards" class="carousel carousel-filmes carousel-dark slide" data-bs-ride="false">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <div class="lista-filmes row" >
+                            <div class="cards-filmes">
+                                <a href="">
+                                    <div class="card card-filme">
+                                        <img src="" class="card-img-top" alt="...">
+                                        <h5 class="card-title">Card title</h5>
+                                        <div class="card-body">
+                                            <p class="card-text">Some quick</p>
+                                            <p class="classificacao">L</a>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="card card-filme">
+                                        <img src="" class="card-img-top" alt="...">
+                                        <h5 class="card-title">Card title</h5>
+                                        <div class="card-body">
+                                            <p class="card-text">Some quick</p>
+                                            <p class="classificacao">L</a>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="card card-filme">
+                                        <img src="" class="card-img-top" alt="...">
+                                        <h5 class="card-title">Card title</h5>
+                                        <div class="card-body">
+                                            <p class="card-text">Some quick</p>
+                                            <p class="classificacao">L</a>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="card card-filme">
+                                        <img src="" class="card-img-top" alt="...">
+                                        <h5 class="card-title">Card title</h5>
+                                        <div class="card-body">
+                                            <p class="card-text">Some quick</p>
+                                            <p class="classificacao">L</a>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                        </div>  
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="lista-filmes row" >
+                            <div class="cards-filmes">
+                                <a href="">
+                                    <div class="card card-filme ">
+                                        <img src="" class="card-img-top" alt="...">
+                                        <h5 class="card-title">Card title</h5>
+                                        <div class="card-body">
+                                            <p class="card-text">Some quick</p>
+                                            <p class="classificacao">L</a>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="">
+                                    <div class="card card-filme ">
+                                        <img src="" class="card-img-top" alt="...">
+                                        <h5 class="card-title">Card title</h5>
+                                        <div class="card-body">
+                                            <p class="card-text">Some quick</p>
+                                            <p class="classificacao">L</a>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                      </div>
                     </div>
-                    <button><i class="bi bi-caret-right-fill" onclick="proximo()"></i></button>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCards" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCards" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+            </section>
+
+            <section id="home-franquias">
+                <div class="home-section-titulo">
+                    <a href="">
+                        <h3><b>Franquias</b></h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-chevron-right seta" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="lista-franquias">
+                    <div class="box-franquia">
+                        <a href="">
+                            <div class="box-img-franquia">
+                                <img src="" alt="">
+                            </div>
+                        </a>
+                        <h3>Franquia</h3>
+                    </div>
+                    <div class="box-franquia">
+                        <a href="">
+                            <div class="box-img-franquia">
+                                <img src="" alt="">
+                            </div>
+                        </a>
+                        <h3>Franquia</h3>
+                    </div>
                 </div>
             </section>
 
