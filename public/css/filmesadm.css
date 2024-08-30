@@ -1,3 +1,22 @@
 #selected {
     text-decoration: underline;
 }
+
+h3 {
+    font-weight: 600;
+    margin-left: 6%;
+}
+
+.buttonSessa{
+    width: 20%;
+    align-self: flex-start;
+    margin-right: 6%;
+}
+
+.tituloButton {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    justify-content: space-between;
+    margin: 2% 0px 2% 0px;
+}

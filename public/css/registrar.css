@@ -17,9 +17,10 @@ form {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    padding: 2% 0px 5% 0px;
+    padding-top: 2%;
     font-size: 20px;
     align-items: center;
+    margin-top: 4%;
 }
 
 .sections {
@@ -92,6 +93,7 @@ input {
 #butaoun {
     display: flex;
     justify-content: center;
+    margin-top:4%;
 }
 
 input[type=file] {
