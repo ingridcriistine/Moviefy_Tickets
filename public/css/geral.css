@@ -88,7 +88,6 @@ a {
 }
 
 select:hover {
-    background-color: rgb(255, 248, 248);
     cursor: pointer;
 }
 

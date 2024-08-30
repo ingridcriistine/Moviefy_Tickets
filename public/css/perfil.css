@@ -1,0 +1,77 @@
+#perfil {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo-perfil {
+    align-self: flex-start;
+    margin: 2% 5% 2% 5%;
+    border: 1px solid black;
+    width: 90%;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.titulo-perfil h3 {
+    font-size: 25px;
+}
+
+.user {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.menu-perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+}
+
+.menu-perfil a {
+    text-decoration: none;
+    color: #000;
+}
+
+.a-red {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.a-red a {
+    color: red;
+}
+
+.img-perfil {
+    width: 180px;
+    height: 180px;
+    background-color: antiquewhite;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+.img-perfil img {
+    width: 90%;
+    border-radius: 100%;
+}
+
+.perguntas {
+    width: 100%;
+}
+
+.perguntas h3 {
+    margin: 20px 0 50px 0;
+}
