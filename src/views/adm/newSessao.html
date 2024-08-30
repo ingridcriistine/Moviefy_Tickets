@@ -73,10 +73,35 @@
                         </div>   
                     </div>
 
-                    <div >
-                        <label for="">Horário</label><br>
-                        <input id="duration" type="time" placeholder="Duração do filme em mminutos">
-                    </div>
+                    <div class="sections lastLine">
+                        <div class="select sessaochecks">
+                            <label for="">Horário</label>
+                            <input style="text-align: center;" id="duration" type="time" placeholder="Duração do filme em mminutos">
+                        </div>
+                        <div class="select sessaochecks">
+                            <label>Categoria:</label>
+                            
+                            <div>
+                                <input type="radio" class="btn-check" name="options-base" id="optionD1" autocomplete="off" checked>
+                                <label class="btn" for="optionD1">3D</label>
+                                
+                                <input type="radio" class="btn-check" name="options-base" id="optionD2" autocomplete="off">
+                                <label class="btn" for="optionD2">2D</label>
+                            </div>
+                        </div>
+
+                        <div class="select sessaochecks">
+                            <label>Linguagem:</label>
+    
+                            <div>
+                                <input type="radio" class="btn-check" name="options-linguagem" id="optionLinguagem1" autocomplete="off" checked>
+                                <label class="btn" for="optionLinguagem1">Legendado</label>
+        
+                                <input type="radio" class="btn-check" name="options-linguagem" id="optionLinguagem2" autocomplete="off">
+                                <label class="btn" for="optionLinguagem2">Dublado</label>
+                            </div>
+                        </div>
+                    </div>    
                     
                     <div id="butaoun">
                         <button id="registro">Registrar</button>

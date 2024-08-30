@@ -115,3 +115,20 @@ input[type=file] {
 #cep {
     width: 38%;
 }
+.lastLine {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    
+}
+
+.sessaochecks {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sessaochecks label {
+    margin-bottom: 2%;
+}
