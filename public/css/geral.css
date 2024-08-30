@@ -194,5 +194,13 @@ footer hr {
 
 /*---------------FOOTER SIMPLES-------------------*/
 .footer-simples {
+    display: flex;
+    justify-content: center;
     height: 100px;
+}
+
+.footer-simples .copyright {
+    align-self: center;
+    margin-top: 10px;
+    font-size: 12px;
 }
