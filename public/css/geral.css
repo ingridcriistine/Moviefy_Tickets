@@ -128,6 +128,37 @@ select:hover {
     background-color: antiquewhite;
 }
 
+/*---------------BOTÃO FIXO-------------------*/
+.btns-fixos {
+    position: fixed;
+    left: 97%;
+    top: 90%;
+    background-color: #953C4C;
+    width: 2%;
+    height: 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.btns-fixos a {
+    text-decoration: none;
+}
+/* 
+#btn-back, #btn-theme {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    border: 0.5px solid black;
+}  */
+
 
 /*---------------FOOTER-------------------*/
 footer {
