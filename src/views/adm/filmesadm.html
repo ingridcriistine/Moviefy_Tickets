@@ -9,30 +9,30 @@
         <link rel="stylesheet" href="/public/css/geral.css">
         <link rel="stylesheet" href="/public/css/index.css">
         <link rel="stylesheet" href="/public/css/indexadm.css">
+        <link rel="stylesheet" href="/public/css/filmesadm.css">
         <script src="public/js/script.js" defer></script>
     </head>
 
     <body>
         <header>
             <nav class="menu">
-                <a href="/index"><h2 class="titulo"><i>Moviefy Tickets</i></h2></a>
+                <a href="indexadm.html"><h2 class="titulo"><i>Moviefy Tickets</i></h2></a>
                 <div class="nav-login">
-                    <img src="/public/img/login.png" alt="Ícone de login">
-                    <a href="">Entre ou cadastre-se</a>
+                    <a href="">Nome adm</a>
                 </div>
             </nav>
             <nav class="sub-menu">
                 <div class="titulos">
-                    <a>FILMES</a>
+                    <a id="selected">FILMES</a>
                     <a>CINEMAS</a>
                     <a>FRANQUIAS</a>
                 </div>
             </nav>
         </header>
         <main>
-            <div class="registros">
+            <form class="registros" action="newSessao.html">
                 <button>Nova Sessão</button>
-            </div>
+            </form>
 
             <div class="filmes">
             </div>

@@ -49,6 +49,7 @@ input {
     border: 1px solid gray;
     border-radius: 7px;
     margin-bottom: 2%;
+    font-size: 15px;
 }
 
 .question {
