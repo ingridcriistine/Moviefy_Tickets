@@ -128,6 +128,10 @@ select:hover {
     background-color: antiquewhite;
 }
 
+#carouselExampleCards {
+    width: 100%;
+}
+
 /*---------------BOTÃO FIXO-------------------*/
 .btns-fixos {
     position: fixed;
@@ -237,6 +241,3 @@ footer hr {
 }
 
 
-#carouselExampleCards {
-    width: 100%;
-}

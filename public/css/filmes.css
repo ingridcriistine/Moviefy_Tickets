@@ -34,16 +34,26 @@ input:focus {
     outline: none;
 }
 
-hr {
+.linha {
     padding: 0px;
+    display: flex;
+    height: 50px;
+}
+
+.linha .linha-cartaz, .linha .linha-breve {
+    width: 6%;
+}
+
+.linha hr {
+    width: 94%;
 }
 
 .cards-filmes {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     width: 100%;
-    padding: 2% 1% 0 0;
     flex-wrap: wrap;
+    margin: 3% 1% 0 3%;
 }
 
 .cards-filmes a {
@@ -53,3 +63,4 @@ hr {
     text-decoration: none;
     color: black;
 }
+
