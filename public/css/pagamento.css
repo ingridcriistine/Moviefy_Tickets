@@ -1,0 +1,36 @@
+#pagamento {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titulo-pag, .total {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titulo-pag {
+    margin-top: 200px;
+    margin-bottom: 20px;
+}
+
+.titulo-pag p, .total p {
+    font-size: 20px;
+    padding: 50px;
+}
+
+.total {
+    margin-top: 100px;
+}
+
+.qr-code {
+    width: 250px;
+    height: 250px;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    padding: 50px;
+}

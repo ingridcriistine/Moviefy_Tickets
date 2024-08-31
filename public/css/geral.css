@@ -4,6 +4,10 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+a {
+    cursor: pointer;
+}
+
 /*---------------NAVBAR-------------------*/
 .menu {
     background-color: #001C46;
@@ -11,6 +15,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    top: 0;
 }
 
 .titulo {
@@ -52,7 +60,8 @@
     background-color: #953C4C;
     color: white;
     height: 60px;
-    margin: 20px 0 20px 0;
+    margin: 140px 0 20px 0;
+    width: 100%;
 }
 
 .titulos {
@@ -84,7 +93,6 @@
 }
 
 select:hover {
-    background-color: rgb(255, 248, 248);
     cursor: pointer;
 }
 
@@ -126,6 +134,10 @@ select:hover {
 .classificacao {
     width: 10%;
     background-color: antiquewhite;
+}
+
+#carouselExampleCards {
+    width: 100%;
 }
 
 /*---------------BOTÃO FIXO-------------------*/
@@ -236,7 +248,19 @@ footer hr {
     font-size: 12px;
 }
 
-
-#carouselExampleCards {
+/*---------------MENU SIMPLES-------------------*/
+.menu-simples {
+    background-color: #001C46;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
     width: 100%;
+    top: 0;
+}
+
+.menu-simples a {
+    text-decoration: none;
 }
