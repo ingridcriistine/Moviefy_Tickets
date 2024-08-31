@@ -1,0 +1,60 @@
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.cinemas {
+    display: flex;
+    flex-direction: row;
+    background-color: lightgray;
+    padding: 3% 0 3% 0;
+    align-items: center;
+    justify-content: space-around;
+    margin-right: 2%;
+    margin-bottom: 2%;
+}
+
+section {
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+#imagem-cinema {
+    border-radius: 20px;
+    width: 20%;
+    border-radius: 100%;
+}
+
+.cinemas p {
+    color: black;
+}
+
+#editar-texto {
+    font-weight: 900;
+}
+
+#trash {
+    margin-bottom: 100%;
+}
+
+#lapis:hover {
+    width: 220%;
+}
+
+#trash:hover {
+    width: 220%;
+}
+
+.imagens-editar a{
+    margin: 50% 0 50% 0;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
+.link-cinema {
+    width: 100%;
+}

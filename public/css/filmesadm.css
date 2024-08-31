@@ -20,3 +20,28 @@ h3 {
     justify-content: space-between;
     margin: 2% 0px 2% 0px;
 }
+
+.edicoes {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20% 5% 20%;
+}
+
+.edicoes img {
+    width: 70%;
+}
+
+.edicoes img:hover {
+    width: 80%;
+}
+
+#button-editar {
+    color: white;
+    background-color: rgb(62, 134, 196);
+    padding: 0 15% 0 15%;
+    border-radius: 20px;
+}
+
+#button-editar:hover {
+    background-color: rgb(100, 169, 228);
+}
