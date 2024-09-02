@@ -31,7 +31,7 @@ module.exports = {
         });
 
 
-        res.render('../views/adm/indexadm', {franquias, cinemasLocal});
+        res.render('../views/adm/registrarCinema', {franquias, cinemasLocal});
     },
 
     async cinemaLocalInsert(req, res) {
@@ -51,7 +51,7 @@ module.exports = {
             IDFranquia: dados.franquia
         });
 
-        res.redirect('/');
+        res.redirect('../views/adm/cinemasAdm');
     },
 
     async cliente(req, res) {
@@ -66,7 +66,7 @@ module.exports = {
             attributes: ['IDTipoCliente', 'Tipo']
         });
 
-        res.render('../views/adm/indexadm', {clientes, tiposCliente});
+        res.render('../views/login', {clientes, tiposCliente});
     },
 
     async clienteInsert(req, res) {
@@ -109,7 +109,7 @@ module.exports = {
             attributes: ['IDCompra', 'IDPagamento', 'IDCliente']
         });
        
-        res.render('../views/adm/indexadm', {compras, pagamentos, clientes});
+        res.render('../views/adm/comprarIngresso', {compras, pagamentos, clientes});
     },
 
     async compraInsert(req, res) {
@@ -120,7 +120,7 @@ module.exports = {
             IDCliente: dados.cliente
         });
 
-        res.redirect('/');
+        res.redirect('/pagamentoConcluido');
     },
 
     async sessao(req, res) {
@@ -145,7 +145,7 @@ module.exports = {
             attributes: ['IDSessao', 'TresD', 'Ativa', 'Data','Hora', 'IDCinemaLocal', 'IDLinguagem', 'IDSala']
         });
        
-        res.render('../views/adm/indexadm', {sessoes, cinemas, linguagens, salas});
+        res.render('../views/adm/newSessao', {sessoes, cinemas, linguagens, salas});
     },
 
     async sessaoInsert(req, res) {
@@ -175,7 +175,7 @@ module.exports = {
             attributes: ['IDEndereco', 'Logradouro', 'Numero', 'CEP', 'Cidade']
         })
 
-        res.render('../views/adm/indexadm', {enderecos, cinemas});
+        res.render('../views/adm/registrarCinema', {enderecos, cinemas});
     },
 
     async enderecoInsert () {
@@ -189,7 +189,7 @@ module.exports = {
             IDCinemaLocal: dados.cinema
         })
 
-        res.redirect('/');
+        res.redirect('../views/cinemasAdm');
     },
 
     async filme (req, res) {
@@ -209,7 +209,7 @@ module.exports = {
             attributes: ['IDFilme', 'Titulo', 'DataEstreia', 'DataSaida', 'Duracao', 'Foto', 'IDGenero', 'IDClassificacao']
         })
 
-        res.render('../views/adm/indexadm', {generos, classificacoes, filmes});
+        res.render('../views/adm/registrarFilme', {generos, classificacoes, filmes});
     },
 
     async filmeInsert () {
@@ -231,7 +231,7 @@ module.exports = {
             IDClassificacao: dados.classificacao
         })
 
-        res.redirect('/');
+        res.redirect('../views/adm/filmesAdm');
     },
 
     async ingresso (req, res) {
@@ -261,7 +261,7 @@ module.exports = {
             attributes: ['IDAssento', 'Numero']
         })
         
-        res.render('../views/adm/indexadm', {ingressos, tiposIngresso, sessoes, compras, assentos});
+        res.render('../views/comprarIngresso', {ingressos, tiposIngresso, sessoes, compras, assentos});
     },
 
     async ingressoInsert (req, res) {
@@ -274,8 +274,9 @@ module.exports = {
             NumeroCompra: dados.numero
         })
         
-        res.redirect('/');
+        res.redirect('../views/pagamentoConcluido');
     },
+
     async sala (req, res) {
         
         const cinemas = await cinemaLocal.findAll({
@@ -288,7 +289,7 @@ module.exports = {
             attributes: ['IDSala', 'Numero']
         })
         
-        res.render('../views/adm/indexadm', {salas, cinemas});
+        res.render('../views/adm/registrarSala', {salas, cinemas});
     },
     
     async salaInsert (req, res) {
@@ -299,6 +300,6 @@ module.exports = {
             Numero: dados.numero
         })
 
-        res.redirect('/');
+        res.redirect('../views/adm/cinemasAdm');
     }
 }
