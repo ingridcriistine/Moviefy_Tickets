@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const database = require('../config/bd');
-const genero = require('./generos');
-const classificacao = require('../model/classificacao');
+const genero = require('./genero');
+const classificacao = require('./classificacao');
 
 const filme = database.define('Filmes', {
     IDFilme: {

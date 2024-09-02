@@ -1,8 +1,9 @@
 const Sequelize = require('sequelize');
 const database = require('../config/bd');
 const tipo = require('./tipoIngresso');
-const sessao = require('./Sessao');
+const sessao = require('./sessao');
 const assento = require('./assentos');
+const compra = require('./compra');
 
 const ingresso = database.define('Ingresso', {
     IDIngresso: {
@@ -10,10 +11,6 @@ const ingresso = database.define('Ingresso', {
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
-    },
-    NumeroCompra: {
-        type: Sequelize.STRING(10),
-        allowNull: false
     }
 })
 
@@ -28,6 +25,10 @@ ingresso.belongsTo(tipo, {
     sessao, {
         constraint: true,
         foreignKey: 'IDSessao'
+    },
+    compra, {
+        constraint: true,
+        foreignKey: 'NumeroCompra'
     }
 );
 
