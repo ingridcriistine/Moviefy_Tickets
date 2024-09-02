@@ -8,6 +8,10 @@ a {
     cursor: pointer;
 }
 
+#selected {
+    text-decoration: underline;
+}
+
 /*---------------NAVBAR-------------------*/
 .menu {
     background-color: #001C46;

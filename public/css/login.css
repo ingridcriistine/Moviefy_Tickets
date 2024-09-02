@@ -99,8 +99,9 @@ main {
     height: 40px;
 }
 
-form {
+.form-login {
     margin-bottom: 50px;
+    justify-content: flex-start;
 }
 
 .user button {

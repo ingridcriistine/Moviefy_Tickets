@@ -1,7 +1,3 @@
-#selected {
-    text-decoration: underline;
-}
-
 h3 {
     font-weight: 600;
     margin-left: 6%;
@@ -44,4 +40,15 @@ h3 {
 
 #button-editar:hover {
     background-color: rgb(100, 169, 228);
+}
+
+.registros {
+    width: 40%;
+    display: flex;
+    margin: 3% 0px 3% 0px;
+}
+
+.cards-filmes {
+    
+    padding: 1% 7% 4% 7%;
 }
