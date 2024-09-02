@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const database = require('../config/bd');
-const franquia = require('./franquias');
+const franquia = require('./franquia');
 
 const cinemaLocal = database.define('CinemaLocal', {
     IDCinemaLocal: {

@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const database = require('../config/bd');
-const pagamento = require('./pagamentos');
+const pagamento = require('./pagamento');
 const cliente = require('./clientes');
 
 const compra = database.define('Compras', {
