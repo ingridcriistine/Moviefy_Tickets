@@ -6,12 +6,13 @@ a {
 .cinemas {
     display: flex;
     flex-direction: row;
-    background-color: lightgray;
+    background-color: #ffdae0;
     padding: 3% 0 3% 0;
     align-items: center;
     justify-content: space-around;
     margin-right: 2%;
     margin-bottom: 2%;
+    border-radius: 10px;
 }
 
 section {
@@ -21,9 +22,8 @@ section {
 }
 
 #imagem-cinema {
-    border-radius: 20px;
     width: 20%;
-    border-radius: 100%;
+    border-radius: 10%;
 }
 
 .cinemas p {
@@ -34,16 +34,17 @@ section {
     font-weight: 900;
 }
 
+#lapis {
+    width: 150%;
+}
+
 #trash {
-    margin-bottom: 100%;
+    width: 150%;
+    margin-bottom: 15px;
 }
 
-#lapis:hover {
-    width: 220%;
-}
-
-#trash:hover {
-    width: 220%;
+#lapis:hover, #trash:hover  {
+    width: 180%;
 }
 
 .imagens-editar a{
