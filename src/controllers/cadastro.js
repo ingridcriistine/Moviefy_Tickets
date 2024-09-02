@@ -162,6 +162,7 @@ module.exports = {
 
         res.redirect('/');
     },
+
     async endereco (req, res) {
 
         const cinemas = await cinemaLocal.findAll({
@@ -176,6 +177,7 @@ module.exports = {
 
         res.render('../views/adm/indexadm', {enderecos, cinemas});
     },
+
     async enderecoInsert () {
         const dados = req.body;
 
@@ -189,6 +191,7 @@ module.exports = {
 
         res.redirect('/');
     },
+
     async filme (req, res) {
 
         const generos = await genero.findAll({
@@ -208,7 +211,8 @@ module.exports = {
 
         res.render('../views/adm/indexadm', {generos, classificacoes, filmes});
     },
-    async fimeInsert () {
+
+    async filmeInsert () {
         const dados = req.body;
 
         let foto = 'usuario.png';
@@ -229,6 +233,7 @@ module.exports = {
 
         res.redirect('/');
     },
+
     async ingresso (req, res) {
         
         const ingressos = await ingresso.findAll({
@@ -258,6 +263,7 @@ module.exports = {
         
         res.render('../views/adm/indexadm', {ingressos, tiposIngresso, sessoes, compras, assentos});
     },
+
     async ingressoInsert (req, res) {
         const dados = req.body;
 
@@ -284,6 +290,7 @@ module.exports = {
         
         res.render('../views/adm/indexadm', {salas, cinemas});
     },
+    
     async salaInsert (req, res) {
         
         const dados = req.body;
