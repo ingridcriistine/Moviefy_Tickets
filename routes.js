@@ -14,6 +14,12 @@ route.post('/', home.pagInicialPost);
 route.post('/index', home.pagInicialPost);
 
 route.get('/franquia', padrao.franquia);
-
+route.get('/genero', padrao.genero);
+route.get('/assento', padrao.assento);
+route.get('/classificao', padrao.classificacao);
+route.get('/linguagem', padrao.linguagem);
+route.get('/pagamento', padrao.pagamento);
+route.get('/tipoCliente', padrao.tipoCliente);
+route.get('/tipoIngresso', padrao.tipoIngresso);
 
 module.exports = route;
