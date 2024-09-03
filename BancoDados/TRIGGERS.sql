@@ -14,6 +14,8 @@ begin
 end;
 // DELIMITER ;
 
+
+
 DELIMITER //
 create trigger log_cliente_removido
 before delete on Cliente
