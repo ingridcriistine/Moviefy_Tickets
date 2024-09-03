@@ -6,7 +6,7 @@ const multer = require("multer");
 const config = require('./src/config/multer');
 const home = require('./src/controllers/home');
 const padrao = require('./src/controllers/padrao');
-const padrao = require('./src/controllers/cadastro');
+const cadastro = require('./src/controllers/cadastro');
 
 route.get('/', home.pagInicialGet);
 route.get('/index', home.pagInicialGet);
@@ -24,8 +24,8 @@ route.get('/tipoCliente', padrao.tipoCliente);
 route.get('/tipoIngresso', padrao.tipoIngresso);
 
 /*Cadastros*/
-route.get('/cinemaLocal', cadastro.cinemaLocal);
-route.post('/cinemaLocal', multer(config).single('foto'), cadastro.cinemaLocalInsert);
+route.get('/registrarCinema', cadastro.cinemaLocal);
+route.post('/registrarCinema', cadastro.cinemaLocalInsert);
 
 route.get('/cliente', cadastro.cliente);
 route.post('/cliente', multer(config).single('foto'), cadastro.clienteInsert);
@@ -36,8 +36,8 @@ route.post('/compra', cadastro.compraInsert);
 route.get('/endereco', cadastro.endereco);
 route.post('/endereco', cadastro.enderecoInsert);
 
-route.get('/filme', cadastro.filme);
-route.post('/filme', multer(config).single('foto'), cadastro.filmeInsert);
+route.get('/registrarFilme', cadastro.filme);
+route.post('/registrarFilme', cadastro.filmeInsert);
 
 route.get('/ingresso', cadastro.ingresso);
 route.post('/ingresso', cadastro.ingressoInsert);
@@ -45,7 +45,7 @@ route.post('/ingresso', cadastro.ingressoInsert);
 route.get('/sala', cadastro.sala);
 route.post('/sala', cadastro.salaInsert);
 
-route.get('/sessao', cadastro.sessao);
-route.post('/sessao', cadastro.sessaoInsert);
+route.get('/newSessao', cadastro.sessao);
+route.post('/newSessao', cadastro.sessaoInsert);
 
 module.exports = route;

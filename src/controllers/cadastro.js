@@ -27,7 +27,7 @@ module.exports = {
 
         const cinemasLocal = await cinemaLocal.findAll({
             raw: true,
-            attributes: ['IDCinemaLocal', 'Nome', 'Preco', 'Foto', 'IDFranquia']
+            attributes: ['IDCinemaLocal', 'Nome']
         });
 
 
@@ -37,21 +37,14 @@ module.exports = {
     async cinemaLocalInsert(req, res) {
         const dados = req.body;
 
-        let foto = '../imgs/icon-default.png';
-
-         if (req.file) {
-            foto = req.file.filename;
-         }
- 
-
         await cinemaLocal.create({
             Nome: dados.nome,
             Preco: dados.preco,
-            Foto: foto,
+            Foto: 'padrao-cinema.png',
             IDFranquia: dados.franquia
         });
 
-        res.redirect('../views/adm/cinemasAdm');
+        res.redirect('/');
     },
 
     async cliente(req, res) {
@@ -66,7 +59,7 @@ module.exports = {
             attributes: ['IDTipoCliente', 'Tipo']
         });
 
-        res.render('../views/login', {clientes, tiposCliente});
+        res.render('../views/index', {clientes, tiposCliente});
     },
 
     async clienteInsert(req, res) {
@@ -140,12 +133,17 @@ module.exports = {
             attributes: ['IDSala', 'Numero']
         });
 
-        const sessoes = await compra.findAll({
+        const filmes = await filme.findAll({
             raw: true,
-            attributes: ['IDSessao', 'TresD', 'Ativa', 'Data','Hora', 'IDCinemaLocal', 'IDLinguagem', 'IDSala']
+            attributes: ['IDFilme', 'Titulo']
+        })
+
+        const sessoes = await sessao.findAll({
+            raw: true,
+            attributes: ['IDSessao']
         });
        
-        res.render('../views/adm/newSessao', {sessoes, cinemas, linguagens, salas});
+        res.render('../views/adm/newSessao', {sessoes, cinemas, linguagens, salas, filmes});
     },
 
     async sessaoInsert(req, res) {
@@ -206,32 +204,26 @@ module.exports = {
 
         const filmes = await filme.findAll({
             raw: true,
-            attributes: ['IDFilme', 'Titulo', 'DataEstreia', 'DataSaida', 'Duracao', 'Foto', 'IDGenero', 'IDClassificacao']
+            attributes: ['IDFilme', 'Titulo']
         })
 
-        res.render('../views/adm/registrarFilme', {generos, classificacoes, filmes});
+        res.render('../views/adm/registrarFilme', {classificacoes, generos, filmes});
     },
 
-    async filmeInsert () {
+    async filmeInsert (req, res) {
         const dados = req.body;
-
-        let foto = 'usuario.png';
-
-        if (req.file) {
-            foto = req.file.filename;
-        }
 
         await filme.create({
             Titulo: dados.titulo,
             DataEstreia: dados.dataEstreia,
             DataSaida: dados.dataSaida,
             Duracao: dados.duracao,
-            Foto: foto,
+            Foto: 'padrao-filme.jfif',
             IDGenero: dados.genero,
             IDClassificacao: dados.classificacao
         })
 
-        res.redirect('../views/adm/filmesAdm');
+        res.redirect('/');
     },
 
     async ingresso (req, res) {

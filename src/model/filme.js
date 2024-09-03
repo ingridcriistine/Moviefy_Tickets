@@ -15,11 +15,11 @@ const filme = database.define('Filmes', {
         allowNull: false
     },
     DataEstreia: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false
     }, 
     DataSaida: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false
     },
     Duracao: {
