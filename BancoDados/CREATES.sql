@@ -2,33 +2,33 @@ create database Moviefy_Tickets;
 use Moviefy_Tickets;
 
 CREATE TABLE Genero (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
     Nome VARCHAR(255)
 ) DEFAULT CHARSET = utf8;
 
 CREATE TABLE ClassificacaoIndicativa (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
     Idade VARCHAR(10)
 ) DEFAULT CHARSET = utf8;
 
 CREATE TABLE TipoIngresso (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
     Tipo VARCHAR(20),
     Porcentagem INTEGER
 ) DEFAULT CHARSET = utf8;
 
 CREATE TABLE Salas (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
     numeroSala VARCHAR(10)
 ) DEFAULT CHARSET = utf8;
 
 CREATE TABLE Pagamento (
-    id INTEGER PRIMARY KEY,
-    Tipo VARCHAR(20)
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    Tipo INTEGER
 ) DEFAULT CHARSET = utf8;
 
 CREATE TABLE Cliente (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
     Nome VARCHAR(255),
     Sobrenome VARCHAR(255),
     Senha VARCHAR(255),
@@ -38,7 +38,7 @@ CREATE TABLE Cliente (
 ) DEFAULT CHARSET = utf8;
 
 CREATE TABLE Endereco (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
     numero VARCHAR(10),
     cep VARCHAR(20),
     logradouro VARCHAR(255),
@@ -46,7 +46,7 @@ CREATE TABLE Endereco (
 ) DEFAULT CHARSET = utf8;
 
 CREATE TABLE Cinema (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
     NomeLocal VARCHAR(255),
     PrecoIngresso FLOAT,
     
@@ -58,11 +58,11 @@ CREATE TABLE Cinema (
 ) DEFAULT CHARSET = utf8;
 
 CREATE TABLE Filme (
-	id INTEGER PRIMARY KEY,
+	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    titulo VARCHAR(255),
     data_estreia DATE,
     duracao VARCHAR(10),
     data_saida DATE,
-    titulo VARCHAR(255),
    
     fk_ClassificacaoIndicativa_id INTEGER,
     FOREIGN KEY (fk_ClassificacaoIndicativa_id)
@@ -78,7 +78,7 @@ CREATE TABLE Filme (
 ) DEFAULT CHARSET = utf8;
 
 CREATE TABLE Assentos (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
     numero VARCHAR(10),
     fk_Salas_id INTEGER,
     
@@ -89,7 +89,7 @@ CREATE TABLE Assentos (
 ) DEFAULT CHARSET = utf8;
 
 CREATE TABLE Sessao (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
     tresD BIT,
     DataHorario DATETIME,
     
@@ -114,7 +114,7 @@ CREATE TABLE Sessao (
 ) DEFAULT CHARSET = utf8;
 
 CREATE TABLE Ingresso (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
     
     fk_Compra_Numero VARCHAR(10),
     FOREIGN KEY (fk_Compra_Numero)
@@ -136,7 +136,7 @@ CREATE TABLE Ingresso (
 ) DEFAULT CHARSET = utf8;
 
 CREATE TABLE Compra (
-    Numero VARCHAR(10) PRIMARY KEY,
+    Numero VARCHAR(10) PRIMARY KEY AUTO_INCREMENT,
 
 	fk_Cliente_id INTEGER,
     FOREIGN KEY (fk_Cliente_id)
