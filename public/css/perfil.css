@@ -84,3 +84,16 @@
     margin: 5% 5% 10% 0;
     padding: 5%;
 }
+
+.form-adm {
+    padding: 0px;
+    margin: 0px;
+}
+
+.h3-perfil-adm {
+    margin: 0px !important;
+}
+
+.adm-bloco {
+    padding: 2%;
+}

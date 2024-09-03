@@ -20,8 +20,5 @@ ADMINISTRADOR
 0- Adicionar cinema
 0- Editar filme
 0- Editar cinema
-- Tela de perfil adm
-- Usuários cadastrados
-- Compras
-- Sessões
-- Salas por cinema
+0- Tela de perfil adm
+0- Sessões
