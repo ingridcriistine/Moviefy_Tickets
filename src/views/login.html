@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="/public/css/geral.css">
         <link rel="stylesheet" href="/public/css/login.css">
         <link rel="stylesheet" href="/public/css/registrar.css">
-        <script src="public/js/script.js" defer></script>
+        <script src="/public/js/script.js" defer></script>
     </head>
 
     <body>
@@ -66,11 +66,17 @@
                             </div>
                             <div class="data">
                                 <label for="">Senha</label>
-                                <input type="password">
+                                <div class="password" style="position: relative;">
+                                    <input type="password" placeholder="Insira sua senha" id="senha1">
+                                    <img src="/public/img/hide.png" alt="" onclick="mostrarSenha(1)" id="img-senha1" >
+                                </div>
                             </div>
                             <div class="data">
                                 <label for="">Confirmar senha</label>
-                                <input type="password">
+                                <div class="password" style="position: relative;">
+                                    <input type="password" placeholder="Confirme sua senha" id="senha2">
+                                    <img src="/public/img/hide.png" alt="" onclick="mostrarSenha(2)" id="img-senha2">
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -93,7 +99,10 @@
                             </div>
                             <div class="data">
                                 <label for="">Senha</label>
-                                <input type="password">
+                                <div class="password" style="position: relative;">
+                                    <input type="password" placeholder="Insira sua senha" id="senha3">
+                                    <img src="/public/img/hide.png" alt="" onclick="mostrarSenha(3)" id="img-senha3">
+                                </div>
                             </div>
                         </div>
                     </form>

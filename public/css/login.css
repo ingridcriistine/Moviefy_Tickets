@@ -133,3 +133,11 @@ main {
 .btn-google:hover {
     background-color: rgb(255, 88, 88);
 }
+
+.data img {
+    width: 6%;
+    position: absolute;
+    top: 25%;
+    right: 5%;
+    cursor: pointer;
+}
