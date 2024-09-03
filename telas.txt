@@ -24,5 +24,4 @@ ADMINISTRADOR
 - Usuários cadastrados
 - Compras
 - Sessões
-- Endereços
 - Salas por cinema
