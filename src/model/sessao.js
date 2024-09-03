@@ -2,8 +2,8 @@ const Sequelize = require('sequelize');
 const database = require('../config/bd');
 const filme = require('./filme');
 const cinema = require('./cinemaLocal');
-const linguagem = require('./linguagens');
-const sala = require('./salas');
+const linguagem = require('./linguagem');
+const sala = require('./sala');
 
 const sessao = database.define('Sessao', {
     IDSessao: {

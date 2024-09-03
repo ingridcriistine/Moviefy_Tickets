@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const database = require('../config/bd');
 const pagamento = require('./pagamento');
-const cliente = require('./clientes');
+const cliente = require('./cliente');
 
 const compra = database.define('Compras', {
     IDCompra: {

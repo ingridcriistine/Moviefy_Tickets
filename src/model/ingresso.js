@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const database = require('../config/bd');
 const tipo = require('./tipoIngresso');
 const sessao = require('./sessao');
-const assento = require('./assentos');
+const assento = require('./assento');
 const compra = require('./compra');
 
 const ingresso = database.define('Ingresso', {
