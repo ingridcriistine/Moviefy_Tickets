@@ -24,7 +24,7 @@ CREATE TABLE Salas (
 
 CREATE TABLE Pagamento (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
-    Tipo INTEGER
+    Tipo VARCHAR(20)
 ) DEFAULT CHARSET = utf8;
 
 CREATE TABLE Cliente (
@@ -88,6 +88,8 @@ CREATE TABLE Assentos (
 		ON UPDATE CASCADE
 ) DEFAULT CHARSET = utf8;
 
+drop table Sessao;
+
 CREATE TABLE Sessao (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
     tresD BIT,
@@ -116,7 +118,7 @@ CREATE TABLE Sessao (
 CREATE TABLE Ingresso (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
     
-    fk_Compra_Numero VARCHAR(10),
+    fk_Compra_Numero INTEGER,
     FOREIGN KEY (fk_Compra_Numero)
     REFERENCES Compra (Numero)
 		ON DELETE CASCADE 
@@ -136,7 +138,7 @@ CREATE TABLE Ingresso (
 ) DEFAULT CHARSET = utf8;
 
 CREATE TABLE Compra (
-    Numero VARCHAR(10) PRIMARY KEY AUTO_INCREMENT,
+    Numero INTEGER PRIMARY KEY AUTO_INCREMENT,
 
 	fk_Cliente_id INTEGER,
     FOREIGN KEY (fk_Cliente_id)
