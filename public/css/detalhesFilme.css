@@ -1,0 +1,153 @@
+#filme, #sessoes {
+    display: flex;
+    flex-direction: column;
+}
+
+.box-filme {
+    display: flex;
+    justify-content: space-between;
+    width: 55%;
+    height: 320px;
+    margin: 5% 0 0 15%;
+}
+
+.box-filme img {
+    width: 50%;
+    margin-right: 10%;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.detalhes-filme {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+
+.caracteristicas-filme {
+    display: flex;
+    width: 50%;
+    align-self: start;
+}
+
+.caracteristicas-filme img {
+    width: 5%;
+}
+
+.caracteristicas-filme h4 {
+    font-size: 20px;
+}
+
+.btn-trailer {
+    background-color: #001C46;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 10px;
+    color: white;
+}
+
+#sessoes {
+    margin: 8%;
+}
+
+#sessoes h3 b {
+    font-size: 22px;
+}
+
+hr {
+    align-self: center;
+    width: 100%;
+}
+
+.menu-datas {
+    display: flex;
+    align-items: center;
+    background-color: #c9dbf5;
+    padding: 30px 40px 20px 50px;
+    margin: 20px 0px 60px 0px;
+}
+
+.data {
+    cursor: pointer;
+    margin-right: 5%;
+}
+
+.data h4 {
+    font-size: 20px;
+}
+
+.data h5 {
+    font-size: 18px;
+}
+
+.box-sessao {
+    background-color: #c9dbf5;
+    border-radius: 10px;
+    padding: 50px;
+}
+
+.sessao-titulos {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sessao-titulos h6 {
+    font-size: 20px;
+}
+
+.modal-sessao {
+    display: flex;
+}
+
+.modal-sessao p {
+    cursor: pointer;
+    margin-left: 30px;
+}
+
+.modal-sessao p:hover {
+    color: #953C4C;
+}
+
+.tipo-linguagem {
+    margin: 30px 0px 40px 0px;
+}
+
+.tipo-linguagem p {
+    width: 100px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #8bade0;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.box-horarios {
+    display: flex;
+    gap: 20px;
+}
+
+.hora {
+    width: 100px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.box-horarios a {
+    text-decoration: none;
+    color: black;
+}
+
+.hora {
+    font-size: 20px;
+}

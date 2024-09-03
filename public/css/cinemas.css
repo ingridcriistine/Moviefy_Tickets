@@ -1,0 +1,48 @@
+#cinemas {
+    width: 100%;
+    margin-top: 50px;
+    padding: 1% 7% 4% 7%;
+}
+
+.lista-cinemas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.pesquisa img {
+    width: 18px;
+    margin-right: 10px;
+}
+
+.pesquisa input {
+    width: 190px;
+    border:  none;
+}
+
+input:focus {
+    outline: none;
+}
+
+.cards-cinemas {
+    margin: 4% 2% 2% 2%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.cards-cinemas a {
+    text-decoration: none;
+    width: 45%;
+    margin: 1%;
+}
+
+.card-cinema {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 110px;
+    background-color: #dfe9f8;
+    padding-top: 20px;
+}
