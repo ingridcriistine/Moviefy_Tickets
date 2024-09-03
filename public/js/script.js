@@ -1,5 +1,6 @@
 let photo = document.getElementById('labelFilme');
 let file = document.getElementById('files-imagem');     
+let modal = false;
 
 file.addEventListener('change', () => {
 

@@ -43,9 +43,9 @@ h3 {
 }
 
 .registros {
-    width: 40%;
+    width: 60%;
     display: flex;
-    margin: 3% 0px 3% 0px;
+    margin: 3% 0px 3% 30%;
 }
 
 .cards-filmes {
