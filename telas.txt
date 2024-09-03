@@ -1,0 +1,28 @@
+CLIENTE
+0- Tela inicial
+0- Cadastro / login
+0- Filmes | em cartaz
+0- Filmes | em breve
+0- Filme individual
+0- Cinemas
+0- Cinema individual
+0- Tela de sessão (tipo de pagamento, assento, descrição da compra)
+0- Tela de pagamento
+0 - Tela de perfil do usuário
+- Modal de edição do perfil
+- Modal de ingressos
+
+ADMINISTRADOR
+0- Tela inicial 
+0- Filmes 
+0- Cinemas
+0- Adicionar filme
+0- Adicionar cinema
+0- Editar filme
+0- Editar cinema
+- Tela de perfil adm
+- Usuários cadastrados
+- Compras
+- Sessões
+- Endereços
+- Salas por cinema

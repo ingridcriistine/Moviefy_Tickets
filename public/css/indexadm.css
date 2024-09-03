@@ -1,0 +1,26 @@
+.registros {
+    width: 80%;
+    display: flex;
+    margin: 3% 0px 3% 0px;
+}
+
+.registros button {
+    border: none;
+    width: 90%;
+    background-color: #001C46;
+    color: white;
+    border: 1px solid #001C46;
+    padding: 1%;
+    font-size: 20px;
+    border-radius: 10px;
+    margin: 3%;
+}
+
+form {
+    width: 50%;
+}
+
+.registros button:hover {
+    background-color: white;
+    color: #001C46;
+}

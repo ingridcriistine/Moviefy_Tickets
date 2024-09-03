@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+a {
+    cursor: pointer;
+}
+
+#selected {
+    text-decoration: underline;
+}
+
+/*---------------NAVBAR-------------------*/
+.menu {
+    background-color: #001C46;
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    top: 0;
+}
+
+.titulo {
+    color: #953C4C;
+    margin-left: 50px;
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+.titulo:hover {
+    cursor: pointer;
+}
+
+.nav-login {
+    color: white;
+    display: flex;
+    gap: 10px;
+    margin-right: 50px;
+    width: 12%;
+}
+
+.nav-login img {
+    width: 32px;
+    height: 32px;
+}
+
+.nav-login a {
+    text-decoration: none;
+    color: white;
+    padding-top: 1.5%;
+}
+
+.sub-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #953C4C;
+    color: white;
+    height: 60px;
+    margin: 140px 0 20px 0;
+    width: 100%;
+}
+
+.titulos {
+    display: flex;
+    gap: 50px;
+    margin-left: 50px;
+    font-size: 25px;
+}
+
+.titulos a {
+    color: white;
+    text-decoration: none;
+}
+
+.localidades {
+    display: flex;
+    margin-right: 50px;
+    align-items: center;
+    width: 15%;
+}
+
+.localidades img {
+    width: 9%;
+    margin-right: 10px;
+}
+
+.form-select {
+    height: 32px;
+}
+
+select:hover {
+    cursor: pointer;
+}
+
+.form-select option {
+    font-size: 15px;
+}
+
+.menu a:hover, .sub-menu .titulos a:hover {
+    cursor: pointer;
+    color: rgb(201, 198, 198);
+}
+
+.card-filme {
+    width: 220px;
+    height: 400px; 
+    display: flex;
+    margin: 1%;
+    flex-direction: column;
+}
+
+.card-img-top {
+    background-color: antiquewhite;
+    width: 90%;
+    height: 85%;
+    align-self: center;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.card-title {
+    margin: 20px 0px 0px 15px;
+}
+
+.card-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.classificacao {
+    width: 10%;
+    background-color: antiquewhite;
+}
+
+#carouselExampleCards {
+    width: 100%;
+}
+
+/*---------------BOTÃO FIXO-------------------*/
+.btns-fixos {
+    position: fixed;
+    left: 97%;
+    top: 90%;
+    background-color: #953C4C;
+    width: 2%;
+    height: 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.btns-fixos a {
+    text-decoration: none;
+}
+/* 
+#btn-back, #btn-theme {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    border: 0.5px solid black;
+}  */
+
+
+/*---------------FOOTER-------------------*/
+footer {
+    background-color: #001C46;
+    height: 500px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin-top: 130px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.inicio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 18%;
+    margin-top: 1%;
+}
+
+.redes {
+    margin-right: 50px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.redes img{
+    width: 5%;
+}
+
+footer hr {
+    width: 96%;
+    align-self: center;
+}
+
+.links-rodape {
+    display: flex;
+    justify-content: space-around;
+}
+
+.rodape-menu, .rodape-institucional, .rodape-politicas, .rodape-central {
+    display: flex;
+    flex-direction: column;
+    margin: 50px 100px 0 100px;
+    gap: 15px;
+} 
+
+.copyright {
+    align-self: center;
+    margin-top: 130px;
+    font-size: 12px;
+}
+
+.links-rodape a:hover {
+    color: #953C4C;
+    cursor: pointer;
+}
+
+
+/*---------------FOOTER SIMPLES-------------------*/
+.footer-simples {
+    display: flex;
+    justify-content: center;
+    height: 100px;
+}
+
+.footer-simples .copyright {
+    align-self: center;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+/*---------------MENU SIMPLES-------------------*/
+.menu-simples {
+    background-color: #001C46;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    top: 0;
+}
+
+.menu-simples a {
+    text-decoration: none;
+}

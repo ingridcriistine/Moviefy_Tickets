@@ -1,0 +1,54 @@
+h3 {
+    font-weight: 600;
+    margin-left: 6%;
+}
+
+.buttonSessa{
+    width: 20%;
+    align-self: flex-start;
+    margin-right: 6%;
+}
+
+.tituloButton {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    justify-content: space-between;
+    margin: 2% 0px 2% 0px;
+}
+
+.edicoes {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20% 5% 20%;
+}
+
+.edicoes img {
+    width: 70%;
+}
+
+.edicoes img:hover {
+    width: 80%;
+}
+
+#button-editar {
+    color: white;
+    background-color: rgb(62, 134, 196);
+    padding: 0 15% 0 15%;
+    border-radius: 20px;
+}
+
+#button-editar:hover {
+    background-color: rgb(100, 169, 228);
+}
+
+.registros {
+    width: 40%;
+    display: flex;
+    margin: 3% 0px 3% 0px;
+}
+
+.cards-filmes {
+    
+    padding: 1% 7% 4% 7%;
+}
