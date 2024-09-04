@@ -47,8 +47,18 @@
                 </div>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <div class="lista-filmes row" >
+                    <div class="lista-filmes row">
                         <div class="cards-filmes">
+                            <a href="">
+                                <div class="card card-filme">
+                                    <img src="" class="card-img-top" alt="...">
+                                    <h5 class="card-title">Card title</h5>
+                                    <div class="card-body">
+                                        <p class="card-text">Some quick</p>
+                                        <p class="classificacao">L</a>
+                                    </div>
+                                </div>
+                            </a>
                             <a href="">
                                 <div class="card card-filme">
                                     <img src="" class="card-img-top" alt="...">
@@ -114,6 +124,70 @@
                                         <p class="classificacao">L</a>
                                     </div>
                                 </div>
+                            <a href="">
+                                <div class="card card-filme ">
+                                    <img src="" class="card-img-top" alt="...">
+                                    <h5 class="card-title">Card title</h5>
+                                    <div class="card-body">
+                                        <p class="card-text">Some quick</p>
+                                        <p class="classificacao">L</a>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="card card-filme ">
+                                    <img src="" class="card-img-top" alt="...">
+                                    <h5 class="card-title">Card title</h5>
+                                    <div class="card-body">
+                                        <p class="card-text">Some quick</p>
+                                        <p class="classificacao">L</a>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                  </div>
+                </div>
+                  <div class="carousel-item">
+                    <div class="lista-filmes row" >
+                        <div class="cards-filmes">
+                            <a href="">
+                                <div class="card card-filme ">
+                                    <img src="" class="card-img-top" alt="...">
+                                    <h5 class="card-title">Card title</h5>
+                                    <div class="card-body">
+                                        <p class="card-text">Some quick</p>
+                                        <p class="classificacao">L</a>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="card card-filme ">
+                                    <img src="" class="card-img-top" alt="...">
+                                    <h5 class="card-title">Card title</h5>
+                                    <div class="card-body">
+                                        <p class="card-text">Some quick</p>
+                                        <p class="classificacao">L</a>
+                                    </div>
+                                </div>
+                            <a href="">
+                                <div class="card card-filme ">
+                                    <img src="" class="card-img-top" alt="...">
+                                    <h5 class="card-title">Card title</h5>
+                                    <div class="card-body">
+                                        <p class="card-text">Some quick</p>
+                                        <p class="classificacao">L</a>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="card card-filme ">
+                                    <img src="" class="card-img-top" alt="...">
+                                    <h5 class="card-title">Card title</h5>
+                                    <div class="card-body">
+                                        <p class="card-text">Some quick</p>
+                                        <p class="classificacao">L</a>
+                                    </div>
+                                </div>
                             </a>
                         </div>
                   </div>
@@ -131,26 +205,20 @@
 
             <section id="home-franquias">
                 <div class="home-section-titulo">
-                    <h3><b>Franquias</b></h3>
+                    <h3><b>Cinemas</b></h3>
                 </div>
 
                 <div class="lista-franquias">
+                    <% for (let i = 0; i<cinemas.length; i++) {%>
                     <div class="box-franquia">
                         <a href="">
                             <div class="box-img-franquia">
-                                <img src="" alt="">
+                                <img src="img/padrao-cinema.jfif" alt="">
                             </div>
                         </a>
-                        <h3>Franquia</h3>
+                        <h3><%= cinemas[i].Nome %></h3>
                     </div>
-                    <div class="box-franquia">
-                        <a href="">
-                            <div class="box-img-franquia">
-                                <img src="" alt="">
-                            </div>
-                        </a>
-                        <h3>Franquia</h3>
-                    </div>
+                    <%}%>
                 </div>
             </section>
         </main>
