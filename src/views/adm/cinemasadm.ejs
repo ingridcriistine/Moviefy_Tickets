@@ -8,9 +8,10 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="../css/geral.css">
         <link rel="stylesheet" href="../css/index.css">
-        <link rel="stylesheet" href=../css/indexadm.css">
+        <link rel="stylesheet" href="../css/indexadm.css">
         <link rel="stylesheet" href="../css/cinemasadm.css">
         <link rel="stylesheet" href="../css/filmesadm.css">
+        <link rel="stylesheet" href="../css/cinemas.css">
         <script src="../js/script.js" defer></script>
     </head>
 
@@ -31,33 +32,37 @@
             </nav>
         </header>
         <main>
-
-            <div class="registros">
-                <form class="registros" action="/registrarcinema">
-                    <button>Registrar Cinema</button>
-                </form>
+            
+            <div class="tituloButton">
+                <h3>Cinemas</h3>
+                <div class="registros">
+                    <form class="registros" action="/registrarcinema">
+                        <button>Registrar Cinema</button>
+                    </form>
+                </div>
             </div>
-
-            <section>
-                <% for (let i =0; i < cinemas.length; i++) {%>
+            <section id="cinemas">
+                <div class="cards-cinemas">
+                    <% for (let i =0; i < cinemas.length; i++) {%>
                     <a class="link-cinema" href="">
-                        <div class="cinemas">
-                            <img id="imagem-cinema" src="<%= cinemas[i].Foto %>" alt="">
-                            <div>
-                                <p id="editar-texto"><%= cinemas[i].Nome %></p>
-                                <p><%= enderecos[i].Logradouro %></p>
+                        <div class="card card-cinema" style="display: flex; flex-direction: row; padding-top: 5px; justify-content: flex-start;">
+                                <img id="imagem-cinema" src="<%= cinemas[i].Foto %>" alt="">
+                                <div>
+                                    <h4 id="editar-texto"><b><%= cinemas[i].Nome %></b></h4>
+                                    <p id="editar-texto"><%= enderecos[i].Logradouro %></p>
+                                </div>
+                                <div>
+                                    <form action="" style="display: flex; flex-direction: row; padding-top: 0px;">
+                                        <button><img id="trash" src="../img/trash.png" alt=""></button>
+                                    </form>
+                                    <form action="/editarCinema">
+                                        <button><img  id="lapis" src="../img/vector.png" alt=""></button>
+                                    </form>
+                                </div>
                             </div>
-                            <div>
-                                <form action="">
-                                    <button><img id="trash" src="../img/trash.png" alt=""></button>
-                                </form>
-                                <form action="editarCinema.html">
-                                    <button><img  id="lapis"src="../img/vector.png" alt=""></button>
-                                </form>
-                            </div>
-                        </div>
-                    </a>
+                        </a>
                     <%}%>
+                </div>
             </section>
             
         </main>
