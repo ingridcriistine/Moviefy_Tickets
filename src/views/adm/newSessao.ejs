@@ -38,7 +38,7 @@
                             <label for="">Filme</label>
                             <select class="form-select">
                                 <option hidden>Selecionar</option>
-                                <% for (let i = 0; i < filmes.length) { %>
+                                <% for (let i = 0; i < filmes.length; i++) { %>
                                     <option value="<% filmes[i].IDFilme %>"><% filmes[i].Titulo %></option>
                                 <% } %>
                             </select>
@@ -47,7 +47,7 @@
                             <label for="">Local</label>
                             <select class="form-select">
                                 <option hidden>Selecioinar</option>
-                                <% for (let i = 0; i < cinemas.length) { %>
+                                <% for (let i = 0; i < cinemas.length; i++) { %>
                                     <option value="<% cinemas[i].IDCinemaLocal %>"><% cinemas[i].Nome %></option>
                                 <% } %>
                             </select>

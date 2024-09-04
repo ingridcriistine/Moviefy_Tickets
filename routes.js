@@ -20,6 +20,9 @@ route.post('/filmesAdm', home.pagfilmesadmPost);
 route.get('/cinemasAdm', home.pagcinemasadmGet);
 route.post('/cinemasAdm', home.pagcinemasadmPost);
 
+route.get('/sessoesAdm', home.pagsessaoadmGet);
+route.post('/sessoesAdm', home.pagsessaoadmPost);
+
 route.get('/franquia', padrao.franquia);
 route.get('/genero', padrao.genero);
 route.get('/assento', padrao.assento);
@@ -31,7 +34,7 @@ route.get('/tipoIngresso', padrao.tipoIngresso);
 
 /*Cadastros*/
 route.get('/registrarCinema', cadastro.cinemaLocal);
-route.post('/registrarCinema', cadastro.cinemaLocalInsert);
+route.post('/registrarCinema', multer(config).single('foto'), cadastro.cinemaLocalInsert);
 
 route.get('/cliente', cadastro.cliente);
 route.post('/cliente', multer(config).single('foto'), cadastro.clienteInsert);
