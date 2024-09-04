@@ -2,6 +2,7 @@ const filme = require('../model/filme');
 const classificacao = require('../model/classificacao');
 const cinemaLocal = require('../model/cinemaLocal');
 const endereco = require('../model/endereco');
+const sala = require('../model/sala');
 const { where } = require('sequelize');
 
 module.exports = {
@@ -71,7 +72,13 @@ module.exports = {
             raw: true,
             attributes: ['IDEndereco', 'Logradouro', 'Numero', 'CEP', 'Cidade']
         });
-        res.render('../views/adm/sessoes', {cinemas, enderecos});
+
+        const salas = await sala.findAll({
+            raw: true,
+            attributes: ['IDSala', 'Numero']
+        });
+
+        res.render('../views/adm/sessoes', {cinemas, enderecos, salas});
     },
     async pagsessaoadmPost(req, res){
         res.render('../views/adm/sessoes');

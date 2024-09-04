@@ -23,7 +23,7 @@
             </nav>
             <nav class="sub-menu">
                 <div class="titulos">
-                    <a href="filmesadm.html">◀</a>
+                    <a href="/sessoesAdm">◀</a>
                     <p>Registrar Sessão</p>
                 </div>
             </nav>
@@ -31,7 +31,7 @@
         <main>
             
             
-            <form action="filmesadm.html">
+            <form action="/newSessao" method="post">
                 <div class="perguntas">
                     <div class="sections">
                         <div class="select">
@@ -39,7 +39,7 @@
                             <select class="form-select">
                                 <option hidden>Selecionar</option>
                                 <% for (let i = 0; i < filmes.length; i++) { %>
-                                    <option value="<% filmes[i].IDFilme %>"><% filmes[i].Titulo %></option>
+                                    <option value="<% filmes[i].IDFilme %>"><%= filmes[i].Titulo %></option>
                                 <% } %>
                             </select>
                         </div>
@@ -48,7 +48,7 @@
                             <select class="form-select">
                                 <option hidden>Selecioinar</option>
                                 <% for (let i = 0; i < cinemas.length; i++) { %>
-                                    <option value="<% cinemas[i].IDCinemaLocal %>"><% cinemas[i].Nome %></option>
+                                    <option value="<% cinemas[i].IDCinemaLocal %>"><%= cinemas[i].Nome %></option>
                                 <% } %>
                             </select>
                         </div>
@@ -63,10 +63,9 @@
                             <label for="">Sala</label>
                             <select class="form-select">
                                 <option hidden>Selecionar</option>
-                                <option value="0">Curitiba</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <% for (let i = 0; i < salas.length; i++) { %>
+                                    <option value="<% salas[i].IDSala %>"><%= salas[i].Numero %></option>
+                                <% } %>
                             </select>
                         </div>   
                     </div>
@@ -92,10 +91,10 @@
                             <label>Linguagem:</label>
     
                             <div>
-                                <input type="radio" class="btn-check" name="options-linguagem" id="optionLinguagem1" autocomplete="off" checked>
+                                <input  value="0" type="radio" class="btn-check" name="options-linguagem" id="optionLinguagem1" autocomplete="off">
                                 <label class="btn" for="optionLinguagem1">Legendado</label>
         
-                                <input type="radio" class="btn-check" name="options-linguagem" id="optionLinguagem2" autocomplete="off">
+                                <input value="1" type="radio" class="btn-check" name="options-linguagem" id="optionLinguagem2" autocomplete="off">
                                 <label class="btn" for="optionLinguagem2">Dublado</label>
                             </div>
                         </div>

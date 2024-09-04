@@ -11,7 +11,6 @@ const franquia = require('../model/franquia')
 const genero = require('../model/genero')
 const assento = require('../model/assento')
 const classificacao = require('../model/classificacao')
-const linguagem = require('../model/linguagem')
 const pagamento = require('../model/pagamento')
 const tipoCliente = require('../model/tipoCliente')
 const tipoIngresso = require('../model/tipoIngresso');
@@ -143,11 +142,6 @@ module.exports = {
             attributes: ['IDCinemaLocal', 'Nome', 'Preco', 'Foto']
         });
 
-        const linguagens = await linguagem.findAll({
-            raw: true,
-            attributes: ['IDLinguagem', 'Linguagem']
-        });
-
         const salas = await sala.findAll({
             raw: true,
             attributes: ['IDSala', 'Numero']
@@ -163,18 +157,20 @@ module.exports = {
             attributes: ['IDSessao']
         });
        
-        res.render('../views/adm/newSessao', {sessoes, cinemas, linguagens, salas, filmes});
+        res.render('../views/adm/newSessao', {sessoes, cinemas, salas, filmes});
     },
 
     async sessaoInsert(req, res) {
         const dados = req.body;
 
+        console.log(dados)
+
         await sessao.create({
             TresD: dados.tresD,
+            Dublado: dados.linguagem,
             Ativa: dados.ativa,
             Data: dados.data,
             IDCinemaLocal: dados.cinemaLocal,
-            IDLinguagem: dados.linguagem,
             IDSala: dados.sala
         });
 
@@ -306,16 +302,5 @@ module.exports = {
         })
         
         res.render('../views/adm/registrarSala', {salas, cinemas});
-    },
-    
-    async salaInsert (req, res) {
-        
-        const dados = req.body;
-
-        await sala.create({
-            Numero: dados.numero
-        })
-
-        res.redirect('../views/adm/cinemasAdm');
     }
 }
