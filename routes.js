@@ -17,6 +17,9 @@ route.post('/index', home.pagInicialPost);
 route.get('/filmesAdm', home.pagfilmesadmGet);
 route.post('/filmesAdm', home.pagfilmesadmPost);
 
+route.get('/cinemasAdm', home.pagcinemasadmGet);
+route.post('/cinemasAdm', home.pagcinemasadmPost);
+
 route.get('/franquia', padrao.franquia);
 route.get('/genero', padrao.genero);
 route.get('/assento', padrao.assento);
@@ -37,7 +40,6 @@ route.get('/compra', cadastro.compra);
 route.post('/compra', cadastro.compraInsert);
 
 route.get('/endereco', cadastro.endereco);
-route.post('/endereco', cadastro.enderecoInsert);
 
 route.get('/registrarFilme', cadastro.filme);
 route.post('/registrarFilme', cadastro.filmeInsert);

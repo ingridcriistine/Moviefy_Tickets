@@ -1,6 +1,7 @@
 const filme = require('../model/filme');
 const classificacao = require('../model/classificacao');
 const cinemaLocal = require('../model/cinemaLocal');
+const endereco = require('../model/endereco');
 const { where } = require('sequelize');
 
 module.exports = {
@@ -39,5 +40,27 @@ module.exports = {
     
     async pagfilmesadmPost(req, res){
         res.render('../views/adm/filmesadm');
+    },
+    
+    async pagcinemasadmGet(req, res){
+
+        const cinemas = await cinemaLocal.findAll({
+            raw: true,
+            attributes: ['IDCinemaLocal', 'Nome', 'Preco', 'Foto']
+        });
+
+        const enderecos = await endereco.findAll({
+            raw: true,
+            attributes: ['IDEndereco', 'Logradouro', 'Numero', 'CEP', 'Cidade']
+        });
+
+        console.log(enderecos);
+
+
+        res.render('../views/adm/cinemasadm', {cinemas, enderecos});
+    },
+    
+    async pagcinemasadmPost(req, res){
+        res.render('../views/adm/cinemasadm');
     }
 }
