@@ -54,11 +54,11 @@ INSERT INTO Cinema VALUES
 (default, 'Cine Curitiba', 18.00, 5);
 
 INSERT INTO Filme VALUES
-(DEFAULT, '2024-01-01', '2h30m', '2024-06-01', 'O Grande Romance', 1, 1),
-(DEFAULT, '2024-02-15', '1h45m', '2024-07-15', 'Riso Certo', 2, 2),
-(DEFAULT, '2024-03-20', '1h40m', '2024-08-20', 'Medo Sobrenatural', 3, 3),
-(DEFAULT, '2024-04-25', '2h00m', '2024-09-25', 'Aventura no Espaço', 4, 6),
-(DEFAULT, '2024-05-30', '2h10m', '2024-10-30', 'Drama em Paris', 7, 7);
+(DEFAULT, 'O Grande Romance', '2024-01-01', '2h30m', '2024-06-01', 1, 1),
+(DEFAULT, 'Riso Certo', '2024-02-15', '1h45m', '2024-07-15', 2, 2),
+(DEFAULT, 'Medo Sobrenatural', '2024-03-20', '1h40m', '2024-08-20', 3, 3),
+(DEFAULT, 'Aventura no Espaço', '2024-04-25', '2h00m', '2024-09-25', 4, 6),
+(DEFAULT, 'Drama em Paris', '2024-05-30', '2h10m', '2024-10-30', 7, 7);
 
 INSERT INTO Assentos VALUES
 (DEFAULT, 'A1', 1),
@@ -91,4 +91,5 @@ INSERT INTO Ingresso VALUES
 (DEFAULT, '0002', 2, 2),
 (DEFAULT, '0003', 3, 3),
 (DEFAULT, '0004', 4, 4),
-(DEFAULT, '0005', 1, 2);
+(DEFAULT, '0005', 1, 2),
+(default, '0005', 1, 1);
