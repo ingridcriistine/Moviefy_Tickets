@@ -1,5 +1,7 @@
 use Moviefy_Tickets;
 
+SET SQL_SAFE_UPDATES = 0;
+
 --  CLIENTE ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 DELIMITER //
 create trigger log_cliente_inserido
@@ -10,11 +12,9 @@ begin
     (DEFAULT, CONCAT('Cliente ', new.Nome, ' ', new.Sobrenome, ' inserido.'), CURDATE());
     
     insert into log_historico_clientes values
-    (DEFAULT, new.IDCliente, new.Nome, new.Sobrenome, new.Email, 'Ativo');
+    (DEFAULT, new.Nome, new.Sobrenome, new.Email, 'Ativo');
 end;
 // DELIMITER ;
-
-
 
 DELIMITER //
 create trigger log_cliente_removido
@@ -42,10 +42,18 @@ begin
     set Nome = new.Nome,
     Sobrenome = new.Sobrenome,
     Email = new.Email,
-    Status_Cliente = new.Status_Cliente
+    Status_Cliente = 'Ativo'
     where Nome = old.Nome and Sobrenome = old.Sobrenome;
 end;
 // DELIMITER ;
+
+-- TESTE:
+select * from cliente;
+select * from log_notificacoes;
+select * from log_historico_clientes;
+insert into Cliente values (default, 'Ingrid', 'Rocha', 'senha123', 'ingrid.rocha@email.com', '123.789.789-00', '2005-01-15');
+delete from Cliente where id = 8;
+update Cliente set senha = 'senha000' where id = 1;
 
 
 -- FILME ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -88,10 +96,18 @@ begin
     set Titulo = new.Titulo,
     Data_Estreia = new.Data_Estreia,
     Data_Saida = new.Data_Saida,
-    Status_Filme = new.Status_Filme
+    Status_Filme = 'Licença ativa'
     where Titulo = old.Titulo;
 end;
 // DELIMITER ;
+
+-- TESTE:
+select * from filme;
+select * from log_notificacoes;
+select * from log_historico_filmes;
+INSERT INTO Filme VALUES (DEFAULT, 'Titanic', '2024-09-08', '3h00m', '2024-10-08', 1, 7);
+delete from Filme where id = 17;
+update Filme set duracao = '2h45m' where id = 11;
 
 
 -- CINEMA ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -104,6 +120,11 @@ begin
     (DEFAULT, CONCAT('As informações do cinema foram editadas.'), CURDATE());
 end;
 // DELIMITER ;
+
+-- TESTE:
+select * from cinema;
+select * from log_notificacoes;
+update cinema set PrecoIngresso = 50 where id = 1;
 
 
 -- ENDEREÇO ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -133,9 +154,16 @@ after update on Endereco
 for each row
 begin
 	insert into log_notificacoes values
-    (DEFAULT, CONCAT('Endereço ', new.Logradouro, 'CEP: ', new.Cep, ' editado.'), CURDATE());
+    (DEFAULT, CONCAT('Endereço ', new.Logradouro, ' CEP: ', new.Cep, ' editado.'), CURDATE());
 end;
 // DELIMITER ;
+
+-- TESTE:
+select * from endereco;
+select * from log_notificacoes;
+INSERT INTO Endereco VALUES (default, '131', '54321-678', 'Rua da rosa', 'Curitiba');
+delete from Endereco where id = 6;
+update Endereco set cep = '00000-000' where id = 1;
 
 
 -- SESSÃO ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -145,7 +173,7 @@ after insert on Sessao
 for each row
 begin
 	insert into log_notificacoes values
-    (DEFAULT, CONCAT('Nova sessão do filme ', new.Titulo, 'inserida para a data ', new.DataHorario, '.'), CURDATE());
+    (DEFAULT, CONCAT('Nova sessão do filme ', (select Titulo from filme where id = new.fk_Filme_id), ' inserida para a data ', new.DataHorario, '.'), CURDATE());
 end;
 // DELIMITER ;
 
@@ -155,7 +183,7 @@ before delete on Sessao
 for each row
 begin
 	insert into log_notificacoes values
-    (DEFAULT, CONCAT('Sessão do filme ', old.Titulo, ' na data ', old.DataHorario, ' removida.'), CURDATE());
+    (DEFAULT, CONCAT('Sessão do filme ', (select Titulo from filme where id = old.fk_Filme_id), ' na data ', old.DataHorario, ' removida.'), CURDATE());
 end;
 // DELIMITER ;
 
@@ -165,9 +193,16 @@ after update on Sessao
 for each row
 begin
 	insert into log_notificacoes values
-    (DEFAULT, CONCAT('Sessão do filme ', new.Titulo, ' na data ', new.DataHorario, ' editada.'), CURDATE());
+    (DEFAULT, CONCAT('Sessão do filme ', (select Titulo from filme where id = new.fk_Filme_id), ' na data ', new.DataHorario, ' editada.'), CURDATE());
 end;
 // DELIMITER ;
+
+-- TESTE:
+select * from sessao;
+select * from log_notificacoes;
+INSERT INTO Sessao VALUES (DEFAULT, 1, '2024-01-01 19:00:00', 11, 1, 3);
+delete from Sessao where id = 6;
+update Sessao set fk_Filme_id = 13 where id = 7;
 
 
 -- COMPRA ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -185,9 +220,9 @@ begin
     (DEFAULT, CONCAT('Nova compra registrada'), CURDATE());
     
 
-    SET @Nome_Cliente = (select Nome from Cliente where id = fk_Cliente_id);
-    SET @Sobrenome_Cliente = (select Sobrenome from Cliente where id = fk_Cliente_id);
-    SET @Email = (select Email from Cliente where id = fk_Cliente_id);
+    SET @Nome_Cliente = (select Nome from Cliente where id = new.fk_Cliente_id);
+    SET @Sobrenome_Cliente = (select Sobrenome from Cliente where id = new.fk_Cliente_id);
+    SET @Email = (select Email from Cliente where id = new.fk_Cliente_id);
     SET @Valor = (select sum(CN.PrecoIngresso*(TI.porcentagem/100)) from Ingresso I 
                     inner join Sessao S on S.id = I.fk_Sessao_id
                     inner join Cinema CN on S.fk_Cinema_id = CN.id
@@ -195,9 +230,15 @@ begin
 				where I.fk_Compra_Numero = new.numero);
     
     insert into log_historico_compras values
-    (DEFAULT, new.Numero_Compra, @Nome_Cliente, @Sobrenome_Cliente, @Email, @Valor);
+    (DEFAULT, new.Numero, @Nome_Cliente, @Sobrenome_Cliente, @Email, @Valor);
 end
 // DELIMITER ;
+
+-- TESTE:
+select * from compra;
+select * from log_notificacoes;
+select * from log_historico_compras;
+INSERT INTO Compra VALUES (0006, 1, 1);
 
 
 -- GÊNERO ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -210,6 +251,11 @@ begin
     (DEFAULT, CONCAT('Gênero ', new.Nome, ' inserido.'), CURDATE());
 end;
 // DELIMITER ;
+
+-- TESTE:
+select * from genero;
+select * from log_notificacoes;
+insert into Genero values (default, 'Comédia Romântica');
 
 
 -- INGRESSO ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -225,21 +271,31 @@ begin
     DECLARE Tres_D BIT;
     DECLARE DataHorario DATETIME;
     
-    SET @Numero_Compra = (select Numero from Compra where id = fk_Compra_Numero);
-    SET @Tipo_Ingresso = (select Tipo from TipoIngresso where id = fk_TipoIngresso_id);
+    SET @Numero_Compra = (select Numero from Compra where Numero = new.fk_Compra_Numero);
+    SET @Tipo_Ingresso = (select Tipo from TipoIngresso where id = new.fk_TipoIngresso_id);
     SET @Titulo_Filme = (select F.Titulo from Ingresso I
+						 inner join Sessao S
+                         on I.fk_Sessao_id = S.id
 						 inner join Filme F
-                         on F.id = I.fk_Filme_id);
+                         on F.id = S.fk_Filme_id
+                         where S.id = new.fk_Sessao_id);
     SET @Numero_Sala = (select Salas.NumeroSala from Ingresso I
 						 inner join Sessao S
                          on S.id = I.fk_Sessao_id
                          inner join Salas
-                         on Salas.id = S.fk_Salas_id);
-    SET @Tres_D = (select TresD from Sessao where id = fk_Sessao_id);
-    SET @DataHorario = (select DataHorario from Sessao where id = fk_Sessao_id);
-    
-    
+                         on Salas.id = S.fk_Salas_id
+                         where S.id = new.fk_Sessao_id);
+    SET @Tres_D = (select TresD from Sessao where id = new.fk_Sessao_id);
+    SET @DataHorario = (select DataHorario from Sessao where id = new.fk_Sessao_id);
+       
 	insert into log_ingressos_vendidos values
     (DEFAULT, @Numero_Compra, @Tipo_Ingresso, @Titulo_Filme, @Numero_Sala, @Tres_D, @DataHorario);
 end;
 // DELIMITER ;
+
+drop trigger log_ingresso_inserido;
+
+-- TESTE:
+select * from ingresso;
+select * from log_ingressos_vendidos;
+INSERT INTO Ingresso VALUES (DEFAULT, '0001', 12, 1);

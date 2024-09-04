@@ -54,11 +54,11 @@ INSERT INTO Cinema VALUES
 (default, 'Cine Curitiba', 18.00, 5);
 
 INSERT INTO Filme VALUES
-(DEFAULT, '2024-01-01', '2h30m', '2024-06-01', 'O Grande Romance', 1, 1),
-(DEFAULT, '2024-02-15', '1h45m', '2024-07-15', 'Riso Certo', 2, 2),
-(DEFAULT, '2024-03-20', '1h40m', '2024-08-20', 'Medo Sobrenatural', 3, 3),
-(DEFAULT, '2024-04-25', '2h00m', '2024-09-25', 'Aventura no Espaço', 4, 6),
-(DEFAULT, '2024-05-30', '2h10m', '2024-10-30', 'Drama em Paris', 7, 7);
+(DEFAULT, 'O Grande Romance', '2024-01-01', '2h30m', '2024-06-01', 1, 1),
+(DEFAULT, 'Riso Certo', '2024-02-15', '1h45m', '2024-07-15', 2, 2),
+(DEFAULT, 'Medo Sobrenatural', '2024-03-20', '1h40m', '2024-08-20', 3, 3),
+(DEFAULT, 'Aventura no Espaço', '2024-04-25', '2h00m', '2024-09-25', 4, 5),
+(DEFAULT, 'Drama em Paris', '2024-05-30', '2h10m', '2024-10-30', 3, 2);
 
 INSERT INTO Assentos VALUES
 (DEFAULT, 'A1', 1),
@@ -73,22 +73,24 @@ INSERT INTO Assentos VALUES
 (DEFAULT, 'E2', 5);
 
 INSERT INTO Sessao VALUES
-(DEFAULT, 1, '2024-01-01 19:00:00', 1, 1, 1),
-(DEFAULT, 0, '2024-02-15 20:00:00', 2, 2, 2),
-(DEFAULT, 1, '2024-03-20 21:00:00', 3, 3, 3),
-(DEFAULT, 0, '2024-04-25 18:00:00', 4, 4, 4),
-(DEFAULT, 1, '2024-05-30 17:00:00', 5, 5, 5);
+(DEFAULT, 1, '2024-01-01 19:00:00', 11, 1, 1),
+(DEFAULT, 0, '2024-02-15 20:00:00', 12, 2, 2),
+(DEFAULT, 1, '2024-03-20 21:00:00', 13, 3, 3),
+(DEFAULT, 0, '2024-04-25 18:00:00', 14, 4, 4),
+(DEFAULT, 1, '2024-05-30 17:00:00', 15, 5, 5);
 
 INSERT INTO Compra VALUES
-('0001', 1, 1),
-('0002', 2, 2),
-('0003', 3, 3),
-('0004', 4, 1),
-('0005', 5, 2);
+(0001, 1, 1),
+(0002, 2, 2),
+(0003, 3, 3),
+(0004, 4, 1),
+(0005, 5, 2);
+
+select * from sessao;
 
 INSERT INTO Ingresso VALUES
-(DEFAULT, '0001', 1, 1),
-(DEFAULT, '0002', 2, 2),
-(DEFAULT, '0003', 3, 3),
-(DEFAULT, '0004', 4, 4),
-(DEFAULT, '0005', 1, 2);
+(DEFAULT, 0001, 7, 1),
+(DEFAULT, 0002, 8, 2),
+(DEFAULT, 0003, 9, 3),
+(DEFAULT, 0004, 10, 4),
+(DEFAULT, 0005, 11, 2);
