@@ -54,13 +54,26 @@ module.exports = {
             attributes: ['IDEndereco', 'Logradouro', 'Numero', 'CEP', 'Cidade']
         });
 
-        console.log(enderecos);
-
 
         res.render('../views/adm/cinemasadm', {cinemas, enderecos});
     },
     
     async pagcinemasadmPost(req, res){
         res.render('../views/adm/cinemasadm');
+    },
+    
+    async pagsessaoadmGet(req, res){
+        const cinemas = await cinemaLocal.findAll({
+            raw: true,
+            attributes: ['IDCinemaLocal', 'Nome', 'Preco', 'Foto']
+        });
+        const enderecos = await endereco.findAll({
+            raw: true,
+            attributes: ['IDEndereco', 'Logradouro', 'Numero', 'CEP', 'Cidade']
+        });
+        res.render('../views/adm/sessoes', {cinemas, enderecos});
+    },
+    async pagsessaoadmPost(req, res){
+        res.render('../views/adm/sessoes');
     }
 }
