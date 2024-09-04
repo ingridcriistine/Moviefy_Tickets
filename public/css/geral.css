@@ -111,7 +111,7 @@ select:hover {
 
 .card-filme {
     width: 220px;
-    height: 400px; 
+    height: auto; 
     display: flex;
     margin: 1%;
     flex-direction: column;

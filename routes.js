@@ -14,6 +14,9 @@ route.get('/index', home.pagInicialGet);
 route.post('/', home.pagInicialPost);
 route.post('/index', home.pagInicialPost);
 
+route.get('/filmesAdm', home.pagfilmesadmGet);
+route.post('/filmesAdm', home.pagfilmesadmPost);
+
 route.get('/franquia', padrao.franquia);
 route.get('/genero', padrao.genero);
 route.get('/assento', padrao.assento);
