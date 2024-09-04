@@ -20,11 +20,13 @@ create table log_historico_filmes (
 	IDFilme INTEGER PRIMARY KEY AUTO_INCREMENT,
     Titulo VARCHAR(255),
     Data_Estreia DATE,
-    Data_Saida DATE
+    Data_Saida DATE,
+    Status_Filme VARCHAR(255)
 ) DEFAULT CHARSET = utf8;
 
 create table log_historico_compras (
-	Numero_Compra VARCHAR(10) PRIMARY KEY AUTO_INCREMENT,
+	IDCompra INTEGER PRIMARY KEY AUTO_INCREMENT,
+	Numero_Compra INTEGER,
 	Nome_Cliente VARCHAR(255),
     Sobrenome_Cliente VARCHAR(255),
     Email VARCHAR(255),

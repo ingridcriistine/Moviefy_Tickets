@@ -88,8 +88,6 @@ CREATE TABLE Assentos (
 		ON UPDATE CASCADE
 ) DEFAULT CHARSET = utf8;
 
-drop table Sessao;
-
 CREATE TABLE Sessao (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
     tresD BIT,
