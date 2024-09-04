@@ -46,7 +46,7 @@
                 <% for (let i = 0; i < filmes.length; i++) { %>
                 <a href="">
                     <div class="card card-filme">
-                        <img src="img/padrao-filme.jfif" class="card-img-top" alt="...">
+                        <img src="img/<%= filmes[i].Foto %>" class="card-img-top" alt="...">
                         <h5 class="card-title"><%= filmes[i].Titulo %></h5>
                         <div class="card-body">
                             <p class="card-text"><%= filmes[i].DataEstreia%></p>
