@@ -31,9 +31,9 @@
         <main>
             
 
-            <form action="/registrarCinema" method="post">
+            <form action="/registrarCinema" method="post" enctype="multipart/form-data"> 
                 <label id="perfil-cinema" for="files-imagem"><img id="labelCinema" src="../img/padrao-cinema.jfif" alt="Foto do cinema"></label>
-                <input id="files-imagem" type="file" name="foto">
+                <input id="files-imagem" type="file" name="foto" onchange="UpdateImgCinema()">
 
                 <div class="perguntas">
                     <label for="">Nome</label><br>
