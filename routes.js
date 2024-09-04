@@ -51,7 +51,6 @@ route.get('/ingresso', cadastro.ingresso);
 route.post('/ingresso', cadastro.ingressoInsert);
 
 route.get('/sala', cadastro.sala);
-route.post('/sala', cadastro.salaInsert);
 
 route.get('/newSessao', cadastro.sessao);
 route.post('/newSessao', cadastro.sessaoInsert);

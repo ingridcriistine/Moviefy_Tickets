@@ -14,10 +14,4 @@ const sala = database.define('Salas', {
         allowNull: false
     }
 })
-
-sala.belongsTo(cinema, {
-    constraint: true,
-    foreignKey: 'IDCinema'
-});
-
 module.exports = sala;
