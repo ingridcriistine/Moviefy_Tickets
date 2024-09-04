@@ -13,9 +13,6 @@ function mostrarSenha(num) {
     }
 }
 
-
-// const modal = false;
-
 //alterar imagem do input de cadastro de filme
 function UpdateImgFilme(){
 
@@ -57,4 +54,19 @@ function UpdateImgCinema(){
         console.log(reader.result);
     }
 };
+
+//botão de quantidade
+//barra de pesquisa
+
+//atualizar cadastro
+
+function atualizarCadastro() {
+    const modalPerfil = getElementById("modal-atualizar-perfil");
+    const cancelar = getElementById("cancelar-atualizacao");
+    const backgroundModal = getElementById("background-modal");
+    
+    modalPerfil.style.display = 'block';
+    modalPerfil.style.z = 3;
+    backgroundModal.style.opacity = 0.9;
+}
 

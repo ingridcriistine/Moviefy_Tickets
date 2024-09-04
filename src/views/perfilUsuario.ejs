@@ -39,7 +39,7 @@
             </nav>
         </header>
 
-        <main>
+        <main id="background-modal">
             <section id="perfil">
                 <div class="titulo-perfil">
                     <h3><b>Meu perfil</b></h3>
@@ -50,7 +50,7 @@
                         <div class="img-perfil">
                             <img src="/img/login.png" alt="">
                         </div>
-                        <a href="">Atualizar cadastro</a>
+                        <a href="" onclick="atualizarCadastro()">Atualizar cadastro</a>
                         <a href="">Alterar senha</a>
                         <div class="a-red">
                             <a href="">Deletar conta</a>
@@ -59,6 +59,37 @@
                     </div>
 
                     <form>
+                        <div class="perguntas">
+                            <h3><b>Minhas informações</b></h3>
+                            <div class="sections">
+                                <div class="data">
+                                    <label for="">Nome</label>
+                                    <input type="text" placeholder="Nome">
+                                </div>   
+                                <div class="data">
+                                    <label for="">Sobrenome</label>
+                                    <input type="text" placeholder="Sobrenome">
+                                </div>   
+                            </div>
+                            <div class="sections">
+                                <div class="data">
+                                    <label for="">Data de nascimento</label>
+                                    <input type="date">
+                                </div>   
+                                <div class="data">
+                                    <label for="">CPF</label>
+                                    <input type="num" placeholder="XXX.XXX.XXX-XX">
+                                </div>   
+                            </div>
+
+                            <div class="data">
+                                <label for="">Email</label>
+                                <input type="email" placeholder="user@email">
+                            </div>
+                        </div>
+                    </form>
+
+                    <form id="modal-atualizar-perfil" style="display: none;">
                         <div class="perguntas">
                             <h3><b>Minhas informações</b></h3>
                             <div class="sections">
