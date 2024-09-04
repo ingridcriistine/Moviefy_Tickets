@@ -35,8 +35,10 @@ const filme = database.define('Filmes', {
 filme.belongsTo(genero, {
         constraint: true,
         foreignKey: 'IDGenero'
-    },
-    classificacao, {
+    }
+);
+
+filme.belongsTo(classificacao, {
         constraint: true,
         foreignKey: 'IDClassificacao'
     }
