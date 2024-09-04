@@ -54,8 +54,6 @@ module.exports = {
             attributes: ['IDEndereco', 'Logradouro', 'Numero', 'CEP', 'Cidade']
         });
 
-        console.log(enderecos);
-
 
         res.render('../views/adm/cinemasadm', {cinemas, enderecos});
     },
