@@ -42,7 +42,7 @@ route.post('/compra', cadastro.compraInsert);
 route.get('/endereco', cadastro.endereco);
 
 route.get('/registrarFilme', cadastro.filme);
-route.post('/registrarFilme', cadastro.filmeInsert);
+route.post('/registrarFilme', multer(config).single('foto'), cadastro.filmeInsert);
 
 route.get('/ingresso', cadastro.ingresso);
 route.post('/ingresso', cadastro.ingressoInsert);

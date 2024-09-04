@@ -225,12 +225,18 @@ module.exports = {
     async filmeInsert (req, res) {
         const dados = req.body;
 
+        let foto = '../img/padrao-filme.jfif';
+        
+        if (req.file) {
+            foto = req.file.filename;
+        }
+
         await filme.create({
             Titulo: dados.titulo,
             DataEstreia: dados.dataEstreia,
             DataSaida: dados.dataSaida,
             Duracao: dados.duracao,
-            Foto: 'padrao-filme.jfif',
+            Foto: foto,
             IDGenero: dados.genero,
             IDClassificacao: dados.classificacao
         })

@@ -14,24 +14,47 @@ function mostrarSenha(num) {
 }
 
 
-let photo = document.getElementById('labelFilme');
-let file = document.getElementById('files-imagem');     
-let modal = false;
+// const modal = false;
 
-// file.addEventListener('change', () => {
+//alterar imagem do input de cadastro de filme
+function UpdateImgFilme(){
 
-//     if (file.files.length == 0) {
-//         return;
-//     }
+    const labelFilme = document.getElementById('labelFilme');
+    const imgFilme= document.getElementById('files-imagem');   
 
-//     let reader = new FileReader();
+    if (imgFilme.files.length == 0) {
+        return;
+    }
 
-//     reader.readAsDataURL(file.files[0]);
+    let reader = new FileReader();
+
+    reader.readAsDataURL(imgFilme.files[0]);
     
 
-//     reader.onload = () => {
-//         photo.src = reader.result;
-//         console.log(reader.result);
-//     }
-// });
+    reader.onload = () => {
+        labelFilme.src = reader.result;
+        console.log(reader.result);
+    }
+};
+
+//alterar imagem do input de cadastro do cinema
+function UpdateImgCinema(){
+
+    const labelCinema = document.getElementById('labelCinema');
+    const imgCinema = document.getElementById('files-imagem');  
+
+    if (imgCinema.files.length == 0) {
+        return;
+    }
+
+    let reader = new FileReader();
+
+    reader.readAsDataURL(imgCinema.files[0]);
+    
+
+    reader.onload = () => {
+        labelCinema.src = reader.result;
+        console.log(reader.result);
+    }
+};
 
