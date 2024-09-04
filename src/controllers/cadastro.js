@@ -38,10 +38,16 @@ module.exports = {
     async cinemaLocalInsert(req, res) {
         const dados = req.body;
 
+        let foto = '../img/padrao-cinema.jfif';
+        
+        if (req.file) {
+            foto = req.file.filename;
+        }
+
         await cinemaLocal.create({
             Nome: dados.nome,
             Preco: dados.preco,
-            Foto: 'padrao-cinema.png',
+            Foto: foto,
             IDFranquia: dados.franquia
         });
 

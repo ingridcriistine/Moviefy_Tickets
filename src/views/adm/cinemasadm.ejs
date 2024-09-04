@@ -33,7 +33,7 @@
         <main>
 
             <div class="registros">
-                <form action="/registrarcinema">
+                <form class="registros" action="/registrarcinema">
                     <button>Registrar Cinema</button>
                 </form>
             </div>
@@ -42,7 +42,7 @@
                 <% for (let i =0; i < cinemas.length; i++) {%>
                     <a class="link-cinema" href="">
                         <div class="cinemas">
-                            <img id="imagem-cinema" src="https://th.bing.com/th/id/OIP.7uAaNRUbqnAIYNGJ7qyXlwHaFj?rs=1&pid=ImgDetMain" alt="">
+                            <img id="imagem-cinema" src="<%= cinemas[i].Foto %>" alt="">
                             <div>
                                 <p id="editar-texto"><%= cinemas[i].Nome %></p>
                                 <p><%= enderecos[i].Logradouro %></p>
