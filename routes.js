@@ -40,7 +40,7 @@ route.get('/endereco', cadastro.endereco);
 route.post('/endereco', cadastro.enderecoInsert);
 
 route.get('/registrarFilme', cadastro.filme);
-route.post('/registrarFilme', cadastro.filmeInsert);
+route.post('/registrarFilme', multer(config).single('foto'), cadastro.filmeInsert);
 
 route.get('/ingresso', cadastro.ingresso);
 route.post('/ingresso', cadastro.ingressoInsert);
