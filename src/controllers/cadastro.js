@@ -16,6 +16,7 @@ const pagamento = require('../model/pagamento')
 const tipoCliente = require('../model/tipoCliente')
 const tipoIngresso = require('../model/tipoIngresso');
 const { raw } = require('express');
+const { where } = require('sequelize');
 
 module.exports = {
     async cinemaLocal(req, res) {
@@ -43,6 +44,19 @@ module.exports = {
             Foto: 'padrao-cinema.png',
             IDFranquia: dados.franquia
         });
+
+        const cinemas = await cinemaLocal.findOne({
+            raw: true,
+            order:[['createdAt','DESC']]
+        })
+
+        await endereco.create({
+            Logradouro: dados.logradouro,
+            Numero: dados.numeroLocal,
+            CEP: dados.cep,
+            Cidade: dados.cidade,
+            IDCinemaLocal: cinemas.IDCinemaLocal
+        })
 
         res.redirect('/');
     },
@@ -176,19 +190,17 @@ module.exports = {
         res.render('../views/adm/registrarCinema', {enderecos, cinemas});
     },
 
-    async enderecoInsert () {
-        const dados = req.body;
+    // async enderecoInsert (req, IDCinema) {
+    //     const dados = req.body;
 
-        await endereco.create({
-            Logradouro: dados.logradouro,
-            numero: dados.numero,
-            CEP: dados.cep,
-            Cidade: dados.cidade,
-            IDCinemaLocal: dados.cinema
-        })
-
-        res.redirect('../views/cinemasAdm');
-    },
+    //     await endereco.create({
+    //         Logradouro: dados.logradouro,
+    //         numero: dados.numero,
+    //         CEP: dados.cep,
+    //         Cidade: dados.cidade,
+    //         IDCinemaLocal: IDCinema
+    //     })
+    // },
 
     async filme (req, res) {
 
