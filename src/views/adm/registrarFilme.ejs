@@ -31,9 +31,9 @@
         <main>
             
 
-            <form action="/registrarFilme" method="post">
-                <label id="perfil-filme" for="files-imagem"><img id="labelFilme" src="../img/padrao-filme.jfif" alt="Capa do filme"></label>
-                <input id="files-imagem" type="file">
+            <form action="/registrarFilme" method="post" enctype="multipart/form-data">
+                <label id="perfil-filme" for="files-imagem"><img id="labelFilme" src="../img/padrao-filme.jfif" alt="Capa do filme" accept="image/*"></label>
+                <input id="files-imagem" name="foto" type="file" onchange="UpdateImgFilme()">
 
                 <div class="perguntas">
                     <label for="titulo">Título</label><br>
@@ -54,7 +54,7 @@
                         <div class="select">
                             <label for="classificacao">Classificação indicativa</label>
                             <select name="classificacao" class="form-select" id="classificacao">
-                                <option hidden>Selecionar</option>
+                                <option value="0" hidden>Selecionar</option>
                                 <% for (let i = 0; i < classificacoes.length; i++) { %>
                                     <option value='<%= classificacoes[i].IDClassificacao %>'><%= classificacoes[i].Idade %></option>
                                 <% } %>
@@ -63,7 +63,7 @@
                         <div class="select">
                             <label for="genero">Gênero</label>
                             <select name="genero" id="genero" class="form-select">
-                                <option hidden>Selecionar</option>
+                                <option hidden value="0">Selecionar</option>
                                 <% for (let i = 0; i < generos.length; i++) { %>
                                     <option value='<%= generos[i].IDGenero %>'><%= generos[i].Nome %></option>
                                 <% } %>
