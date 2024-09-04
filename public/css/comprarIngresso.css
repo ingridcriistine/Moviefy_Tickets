@@ -1,0 +1,161 @@
+main {
+    display: flex;
+    padding: 50px;
+    gap: 5%;
+}
+
+#detalhes {
+    width: 70%;
+    background-color: antiquewhite;
+    padding: 30px;
+}
+
+#pedido {
+    width: 25%;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#etapa1, #etapa2, #etapa3 {
+    margin-bottom: 7%;
+}
+
+.titulo-etapa {
+    display: flex;
+    align-items: center;
+    gap: 4%;
+}
+
+.titulo-etapa h6 {
+    font-size: 20px;
+}
+
+.num-etapa {
+    background-color: aliceblue;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.assentos {
+    background-color: rgb(166, 166, 233);
+    width: 80%;
+    height: 500px;
+    border-radius: 10px;
+    padding: 20px;
+    margin-left: 10%;
+}
+
+.ingresso {
+    padding: 20px;
+    margin-left: 5%;
+}
+
+.num-etapa h5 {
+    font-size: 30px;
+}
+
+
+.detalhes-ingresso {
+    width: 100%;
+}
+
+.detalhes-ingresso p {
+    padding: 3px;
+    margin: 0px;
+    font-size: 15px;
+}
+
+.detalhes-ingresso b {
+    font-size: 16px;
+}
+
+.card-ingresso {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    height: 80px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.preco-ingresso {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preco-ingresso p {
+    font-size: 20px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.preco-ingresso button {
+    width: 20px;
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+}
+
+.pagamento {
+    padding: 20px;
+    margin-left: 10%;
+}
+
+#pedido img {
+    width: 30%;
+    height: 200px;
+    border: 1px solid black;
+    margin: 5%;
+}
+
+.section-pedido {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+hr {
+    width: 60%;
+    padding: 10px;
+    margin: 0;
+}
+
+.tipo-ingresso {
+    align-self: flex-start;
+    margin-left: 25%;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.btn-pedido {
+    width: 60%;
+    height: 40px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.total-compra {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.tipo-ingresso .section-pedido {
+    width: 100%;
+}
