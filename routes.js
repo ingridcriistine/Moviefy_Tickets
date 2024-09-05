@@ -60,4 +60,7 @@ route.get('/sala', cadastro.sala);
 route.get('/newSessao', cadastro.sessao);
 route.post('/newSessao', cadastro.sessaoInsert);
 
+route.get('/perfil', cadastro.perfilUsuario);
+route.post('/perfil', cadastro.perfilUsuario);
+
 module.exports = route;

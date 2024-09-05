@@ -46,9 +46,10 @@
                 </div>
                 
                 <div class="user">
+                    <% for (let i =0; i < clientes.length; i++) {%>
                     <div class="menu-perfil">
                         <div class="img-perfil">
-                            <img src="/img/login.png" alt="">
+                            <img src="<%= clientes[i].Foto %>" alt="">
                         </div>
                         <a href="" onclick="atualizarCadastro()">Atualizar cadastro</a>
                         <a href="">Alterar senha</a>
@@ -64,59 +65,54 @@
                             <div class="sections">
                                 <div class="data">
                                     <label for="">Nome</label>
-                                    <input type="text" placeholder="Nome">
+                                    <input type="text" value="<%= clientes[i].Nome %>">
                                 </div>   
                                 <div class="data">
-                                    <label for="">Sobrenome</label>
-                                    <input type="text" placeholder="Sobrenome">
+                                    <label for="">CPF</label>
+                                    <input type="text" value="<%= clientes[i].CPF %>"> 
                                 </div>   
                             </div>
                             <div class="sections">
                                 <div class="data">
                                     <label for="">Data de nascimento</label>
-                                    <input type="date">
+                                    <input type="date" value="<%= clientes[i].DataNascimento %>">
                                 </div>   
                                 <div class="data">
-                                    <label for="">CPF</label>
-                                    <input type="num" placeholder="XXX.XXX.XXX-XX">
-                                </div>   
-                            </div>
-
-                            <div class="data">
-                                <label for="">Email</label>
-                                <input type="email" placeholder="user@email">
+                                    <label for="">Email</label>
+                                    <input type="email" value="<%= clientes[i].Email%>">
+                                </div>
                             </div>
                         </div>
                     </form>
+                    <% } %>
 
-                    <form id="modal-atualizar-perfil" style="display: none;">
+                    <form id="modal-atualizar-perfil" style="display: none;" action="/perfilUsuario/<%= clientes.IDCliente %>" method="post" enctype="multipart/form-data">
                         <div class="perguntas">
                             <h3><b>Minhas informações</b></h3>
                             <div class="sections">
                                 <div class="data">
                                     <label for="">Nome</label>
-                                    <input type="text" placeholder="Nome">
+                                    <input type="text" value="<%= clientes[i].Nome %>" name="nome">
                                 </div>   
                                 <div class="data">
-                                    <label for="">Sobrenome</label>
-                                    <input type="text" placeholder="Sobrenome">
+                                    <label for="">CPF</label>
+                                    <input type="text" value="<%= clientes[i].CPF %>" name="cpf"> 
                                 </div>   
                             </div>
                             <div class="sections">
                                 <div class="data">
                                     <label for="">Data de nascimento</label>
-                                    <input type="date">
+                                    <input type="date" value="<%= clientes[i].DataNascimento %>" name="dataNascimento">
                                 </div>   
                                 <div class="data">
-                                    <label for="">CPF</label>
-                                    <input type="num" placeholder="XXX.XXX.XXX-XX">
-                                </div>   
+                                    <label for="">Email</label>
+                                    <input type="email" value="<%= clientes[i].Email%>" name="email">
+                                </div>
                             </div>
-
-                            <div class="data">
-                                <label for="">Email</label>
-                                <input type="email" placeholder="user@email">
-                            </div>
+                        </div>
+                        <div class="btns">
+                            <button class="btn btn-forms" type="submit">ATUALIZAR</button>
+                            <button class="btn btn-forms btn-del" type="submit" name="envio" value="Excluir">EXCLUIR</button>
                         </div>
                     </form>
                 </div>
