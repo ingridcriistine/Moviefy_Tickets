@@ -25,10 +25,15 @@ insert into Franquia values ('Cinemark', GETDATE(), GETDATE()), ('UCI', GETDATE(
 
 select * from franquia;
 
-insert into Salas values(1, GETDATE(), GETDATE(), 1), (3, GETDATE(), GETDATE(), 1), (6, GETDATE(), GETDATE(), 1);
+insert into Salas values(1, GETDATE(), GETDATE()), (3, GETDATE(), GETDATE()), (6, GETDATE(), GETDATE());
 
 select * from CinemaLocals;
 
 select * from Enderecos;
 
+select * from Clientes;
+
 SELECT [IDCinemaLocal], [Nome], [Preco], [Foto], [createdAt], [updatedAt], [IDFranquia] FROM [CinemaLocals] AS [CinemaLocal] ORDER BY [CinemaLocal].[createdAt] DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY;
+
+
+ SELECT [IDCliente], [Nome], [DataNascimento], [CPF], [Email], [Senha], [Foto], [IDTipo] FROM [Clientes] AS [Clientes] WHERE [Clientes].[Email] = N'admin@moviefy.com' ORDER BY [Clientes].[IDCliente] OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY;

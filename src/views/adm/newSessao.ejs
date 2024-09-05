@@ -36,7 +36,7 @@
                     <div class="sections">
                         <div class="select">
                             <label for="">Filme</label>
-                            <select class="form-select">
+                            <select class="form-select" name="filmeCinema" >
                                 <option hidden>Selecionar</option>
                                 <% for (let i = 0; i < filmes.length; i++) { %>
                                     <option value="<% filmes[i].IDFilme %>"><%= filmes[i].Titulo %></option>
@@ -45,7 +45,7 @@
                         </div>
                         <div class="select">
                             <label for="">Local</label>
-                            <select class="form-select">
+                            <select class="form-select"  name="cinemaLocalid">
                                 <option hidden>Selecioinar</option>
                                 <% for (let i = 0; i < cinemas.length; i++) { %>
                                     <option value="<% cinemas[i].IDCinemaLocal %>"><%= cinemas[i].Nome %></option>
@@ -57,11 +57,11 @@
                     <div class="sections">
                         <div class="data">
                             <label for="">Data de estreia</label>
-                            <input type="date">
+                            <input type="date" name="data">
                         </div>   
                         <div class="select">
                             <label for="">Sala</label>
-                            <select class="form-select">
+                            <select class="form-select" name="salaCinema" >
                                 <option hidden>Selecionar</option>
                                 <% for (let i = 0; i < salas.length; i++) { %>
                                     <option value="<% salas[i].IDSala %>"><%= salas[i].Numero %></option>
@@ -73,16 +73,16 @@
                     <div class="sections lastLine">
                         <div class="select sessaochecks">
                             <label for="">Horário</label>
-                            <input style="text-align: center;" id="duration" type="time" placeholder="Duração do filme em mminutos">
+                            <input name="hora" style="text-align: center;" id="duration" type="time" placeholder="Duração do filme em mminutos">
                         </div>
                         <div class="select sessaochecks">
                             <label>Categoria:</label>
                             
                             <div>
-                                <input type="radio" class="btn-check" name="options-base" id="optionD1" autocomplete="off" value="1" checked>
+                                <input type="radio" class="btn-check" name="optionsbase" id="optionD1" autocomplete="off" value="1">
                                 <label class="btn" for="optionD1">3D</label>
                                 
-                                <input type="radio" class="btn-check" name="options-base" id="optionD2" autocomplete="off"  value="0">
+                                <input type="radio" class="btn-check" name="optionsbase" id="optionD2" autocomplete="off"  value="0">
                                 <label class="btn" for="optionD2">2D</label>
                             </div>
                         </div>
@@ -91,10 +91,10 @@
                             <label>Linguagem:</label>
     
                             <div>
-                                <input  value="0" type="radio" class="btn-check" name="options-linguagem" id="optionLinguagem1" autocomplete="off">
+                                <input  value="0" type="radio" class="btn-check" name="optionslinguagem" id="optionLinguagem1" autocomplete="off">
                                 <label class="btn" for="optionLinguagem1">Legendado</label>
         
-                                <input value="1" type="radio" class="btn-check" name="options-linguagem" id="optionLinguagem2" autocomplete="off">
+                                <input value="1" type="radio" class="btn-check" name="optionslinguagem" id="optionLinguagem2" autocomplete="off">
                                 <label class="btn" for="optionLinguagem2">Dublado</label>
                             </div>
                         </div>

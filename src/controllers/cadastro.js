@@ -55,12 +55,14 @@ module.exports = {
             order:[['createdAt','DESC']]
         })
 
+        console.log(cinemas.IDCinemaLocal);
+
         await endereco.create({
             Logradouro: dados.logradouro,
             Numero: dados.numeroLocal,
             CEP: dados.cep,
             Cidade: dados.cidade,
-            IDCinemaLocal: cinemas.IDCinemaLocal
+            IDCinema: cinemas.IDCinemaLocal
         })
 
         res.redirect('/');
@@ -188,7 +190,7 @@ module.exports = {
 
         const sessoes = await sessao.findAll({
             raw: true,
-            attributes: ['IDSessao']
+            attributes: ['IDSessao', 'IDCinema', 'IDFilme', 'IDSala']
         });
        
         res.render('../views/adm/newSessao', {sessoes, cinemas, salas, filmes});
@@ -200,12 +202,14 @@ module.exports = {
         console.log(dados)
 
         await sessao.create({
-            TresD: dados.tresD,
-            Dublado: dados.linguagem,
-            Ativa: dados.ativa,
+            TresD: dados.optionslinguagem,
+            Dublado: dados.optionsbase,
+            Ativa: 1,
+            Hora: dados.hora,
             Data: dados.data,
-            IDCinemaLocal: dados.cinemaLocal,
-            IDSala: dados.sala
+            IDCinema: dados.cinemaLocalid,
+            IDSala: dados.salaCinema,
+            IDFilme: dados.filmeCinema
         });
 
         res.redirect('/');
@@ -225,18 +229,6 @@ module.exports = {
 
         res.render('../views/adm/registrarCinema', {enderecos, cinemas});
     },
-
-    // async enderecoInsert (req, IDCinema) {
-    //     const dados = req.body;
-
-    //     await endereco.create({
-    //         Logradouro: dados.logradouro,
-    //         numero: dados.numero,
-    //         CEP: dados.cep,
-    //         Cidade: dados.cidade,
-    //         IDCinemaLocal: IDCinema
-    //     })
-    // },
 
     async filme (req, res) {
 
