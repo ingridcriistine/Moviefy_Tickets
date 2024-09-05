@@ -3,6 +3,7 @@ const classificacao = require('../model/classificacao');
 const cinemaLocal = require('../model/cinemaLocal');
 const endereco = require('../model/endereco');
 const sala = require('../model/sala');
+const cliente = require('../model/cliente');
 const { where } = require('sequelize');
 
 module.exports = {
@@ -82,5 +83,22 @@ module.exports = {
     },
     async pagsessaoadmPost(req, res){
         res.render('../views/adm/sessoes');
+    },
+    async pagLoginGet(req, res){
+        res.render('../views/login');
+    },
+    
+    async pagLoginPost(req, res){
+        res.render('../views/login');
+    },
+    async pagIndexCliGet(req, res){
+        res.render('../views/index');
+    },
+    
+    async pagIndexCliPost(req, res){
+
+
+
+        res.render('../views/index');
     }
 }

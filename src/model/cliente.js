@@ -18,7 +18,7 @@ const cliente = database.define('Clientes', {
         allowNull: false
     }, 
     CPF: {
-        type: Sequelize.STRING(10),
+        type: Sequelize.STRING(20),
         allowNull: false
     },
     Email: {

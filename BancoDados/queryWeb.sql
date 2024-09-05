@@ -3,6 +3,8 @@ drop database MoviefyTickets;
 
 insert into ClassificacoesIndicativas values ( 'L', getdate(), getdate()), ( '10', getdate(), getdate()), ( '12', getdate(), getdate()), ( '16', getdate(), getdate()), ( '18', getdate(), getdate());
 
+insert into TipoClientes values ('Administrador', GETDATE(), getdate()), ('Usuário', getdate(), getdate());
+
 select * from ClassificacoesIndicativas;
 
 insert into Generos values ( 'Romance', getdate(), getdate()),

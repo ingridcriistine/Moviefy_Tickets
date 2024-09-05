@@ -78,11 +78,37 @@ module.exports = {
             attributes: ['IDTipoCliente', 'Tipo']
         });
 
-        res.render('../views/index', {clientes, tiposCliente});
+        res.render('../views/login', {clientes, tiposCliente});
+    },
+    async VerificarEntrada(req, res) {
+
+        dados = req.body;
+
+        const clientes = await cliente.findOne({
+            raw: true,
+            attributes: ['IDCliente', 'Nome', 'DataNascimento', 'CPF', 'Email', 'Senha', 'Foto', 'IDTipo'],
+            where: {Email: dados.emailEntrada}
+        });
+
+        if (clientes) {
+            if (dados.senhaEntrada === clientes.Senha) {
+                console.log(clientes);
+
+                if (clientes.IDTipo === 1) {
+                    return res.redirect('/');
+                } else {
+                    return res.redirect('/cliente');
+                }
+            }  
+        } 
+        res.redirect ('/login');
     },
 
     async clienteInsert(req, res) {
         const dados = req.body;
+
+        let admin = false;
+        let idadmin = 2;
 
         let foto = '../imgs/icon-default.png';
 
@@ -90,6 +116,10 @@ module.exports = {
             foto = req.file.filename;
          }
  
+         if (dados.email === 'admin@moviefy.com') {
+            idadmin = 1
+            admin = true;
+        };
 
         await cliente.create({
             Nome: dados.nome,
@@ -98,10 +128,14 @@ module.exports = {
             Email: dados.email,
             Senha: dados.senha,
             Foto: foto,
-            IDTipo: dados.tipoCliente
+            IDTipo: idadmin
         });
-
-        res.redirect('/');
+        
+        if (admin) {
+            res.redirect('/');
+        } else {
+            res.redirect('/cliente');
+        }
     },
 
     async compra(req, res) {
