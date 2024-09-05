@@ -36,19 +36,19 @@
                     <div class="sections">
                         <div class="select">
                             <label for="">Filme</label>
-                            <select class="form-select" name="filmeCinema" >
+                            <select name="filmeCinema"  class="form-select" >
                                 <option hidden>Selecionar</option>
                                 <% for (let i = 0; i < filmes.length; i++) { %>
-                                    <option value="<% filmes[i].IDFilme %>"><%= filmes[i].Titulo %></option>
+                                    <option value='<%=filmes[i].IDFilme %>'><%= filmes[i].Titulo %></option>
                                 <% } %>
                             </select>
                         </div>
                         <div class="select">
                             <label for="">Local</label>
-                            <select class="form-select"  name="cinemaLocalid">
+                            <select name="cinemaLocalid" class="form-select">
                                 <option hidden>Selecioinar</option>
                                 <% for (let i = 0; i < cinemas.length; i++) { %>
-                                    <option value="<% cinemas[i].IDCinemaLocal %>"><%= cinemas[i].Nome %></option>
+                                    <option value='<%=cinemas[i].IDCinemaLocal %>'><%= cinemas[i].Nome %></option>
                                 <% } %>
                             </select>
                         </div>
@@ -61,10 +61,10 @@
                         </div>   
                         <div class="select">
                             <label for="">Sala</label>
-                            <select class="form-select" name="salaCinema" >
+                            <select name="salaCinema" class="form-select">
                                 <option hidden>Selecionar</option>
                                 <% for (let i = 0; i < salas.length; i++) { %>
-                                    <option value="<% salas[i].IDSala %>"><%= salas[i].Numero %></option>
+                                    <option value='<%=salas[i].IDSala %>'><%= salas[i].Numero %></option>
                                 <% } %>
                             </select>
                         </div>   
