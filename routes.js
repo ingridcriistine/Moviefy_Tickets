@@ -5,6 +5,7 @@ const multer = require("multer");
 
 const config = require('./src/config/multer');
 const home = require('./src/controllers/home');
+const editar = require('./src/controllers/editar');
 const padrao = require('./src/controllers/padrao');
 const cadastro = require('./src/controllers/cadastro');
 
@@ -60,7 +61,12 @@ route.get('/sala', cadastro.sala);
 route.get('/newSessao', cadastro.sessao);
 route.post('/newSessao', cadastro.sessaoInsert);
 
-route.get('/perfil', cadastro.perfilUsuario);
-route.post('/perfil', cadastro.perfilUsuario);
+route.get('/perfilUsuario', home.pagPerfilGet);
+route.post('/perfilUsuario', home.pagPerfilPost);
+
+// ----- editar -------
+
+route.get('/editarFilme/:id', editar.filmes);
+route.post('/editarFilme/:id', editar.adicionarFilme);
 
 module.exports = route;

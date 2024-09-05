@@ -81,9 +81,11 @@ module.exports = {
 
         res.render('../views/adm/sessoes', {cinemas, enderecos, salas});
     },
+
     async pagsessaoadmPost(req, res){
         res.render('../views/adm/sessoes');
     },
+
     async pagLoginGet(req, res){
         res.render('../views/login');
     },
@@ -91,14 +93,33 @@ module.exports = {
     async pagLoginPost(req, res){
         res.render('../views/login');
     },
+
     async pagIndexCliGet(req, res){
         res.render('../views/index');
     },
     
     async pagIndexCliPost(req, res){
-
-
-
         res.render('../views/index');
+    },
+
+    async pagIndexCliGet(req, res){
+        res.render('../views/index');
+    },
+    
+    async pagIndexCliPost(req, res){
+        res.render('../views/index');
+    },
+
+    async pagPerfilGet(req, res){
+        const clientes = await cliente.findOne({
+            raw: true,
+            attributes: ['IDCliente', 'Nome', 'DataNascimento', 'CPF', 'Email', 'Senha', 'Foto', 'IDTipo']
+        });
+
+        res.render('../views/perfilUsuario', {clientes});
+    },
+    
+    async pagPerfilPost(req, res){
+        res.render('../views/perfilUsuario');
     }
 }
