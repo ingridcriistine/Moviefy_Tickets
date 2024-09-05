@@ -11,7 +11,6 @@ const franquia = require('../model/franquia')
 const genero = require('../model/genero')
 const assento = require('../model/assento')
 const classificacao = require('../model/classificacao')
-const linguagem = require('../model/linguagem')
 const pagamento = require('../model/pagamento')
 const tipoCliente = require('../model/tipoCliente')
 const tipoIngresso = require('../model/tipoIngresso');
@@ -19,74 +18,77 @@ const { raw } = require('express');
 
 module.exports = {
     
-    async clientes(req, res) {
+    async filmes(req, res) {
 
         const parametro = req.params.id;
         console.log(parametro);
 
-        const clientes = await cliente.findByPk(parametro, {
+        const filmes = await filme.findByPk(parametro, {
             raw: true,
-            attributes: ['IDCliente', 'Nome', 'DataNascimento', 'CPF', 'Email', 'Senha', 'Foto', 'IDTipo']
+            attributes: ['IDFilme', 'Titulo', 'DataEstreia', 'DataSaida',  'Duracao', 'Foto', 'IDGenero', 'IDClassificacao']
         });
 
-        const tiposCliente = await tipoCliente.findAll({
+        const classificacoes = await classificacao.findAll({
             raw: true,
-            attributes: ['IDTipoCliente', 'Tipo']
+            attributes: ['IDClassificacao', 'Idade']
         });
 
-        res.render('../views/editarPerfil', {clientes, tiposCliente});
+        const generos = await genero.findAll({
+            raw: true,
+            attributes: ['IDGenero', 'Nome']
+        });
+
+        res.render('../views/adm/editarFilme', {filmes, generos, classificacoes});
     },
 
-    async adicionarCliente(req, res){
+    async adicionarFilme(req, res){
 
         const dados = req.body;
         const id = req.params.id;
 
         if (dados.envio == 'Excluir') {
 
-            const antigaFoto = await cliente.findAll({
+            const antigaFoto = await filme.findAll({
                 raw: true,
                 attributes: ['Foto'],
-                where: { IDCliente: id }
+                where: { IDFilme: id }
             });
 
-            if (antigaFoto[0].Foto != 'icon-default.png') fs.unlink(`public/imgs/${antigaFoto[0].Foto}`, ( err => { if(err) console.log(err); } ));
+            if (antigaFoto[0].Foto != 'padrao-filme.jfif') fs.unlink(`public/img/${antigaFoto[0].Foto}`, ( err => { if(err) console.log(err); } ));
 
-            await cliente.destroy({ where: { IDCliente: id } });
+            await filme.destroy({ where: { IDFilme: id } });
             res.redirect('/');
             return;
         }
 
         if (req.file) {
-            const antigaFoto = await cliente.findAll({
+            const antigaFoto = await filme.findAll({
                 raw: true,
                 attributes: ['Foto'],
-                where: { IDCliente: id }
+                where: { IDFilme: id }
             });
 
-            if (antigaFoto[0].Foto != 'icon-default.png') fs.unlink(`public/imgs/${antigaFoto[0].Foto}`, ( err => { if(err) console.log(err); } ));
+            if (antigaFoto[0].Foto != 'padrao-filme.jfif') fs.unlink(`public/img/${antigaFoto[0].Foto}`, ( err => { if(err) console.log(err); } ));
 
-            await cliente.update(
+            await filme.update(
                 {Foto: req.file.filename},
-                {where: { IDCliente: id }}
+                {where: { IDFilme: id }}
             );
         }
 
-        await cliente.update({
-            Nome: dados.nome,
-            DataNascimento: dados.dataNascimento,
-            CPF: dados.cpf,
-            Email: dados.email,
-            Senha: dados.senha,
+        await filme.update({
+            Titulo: dados.titulo,
+            DataEstreia: dados.dataEstreia,
+            DataSaida: dados.dataSaida,
+            Duracao: dados.duracao,
             Foto: foto,
-            IDTipo: dados.tipoCliente
+            IDGenero: dados.genero,
+            IDClassificacao: dados.classificacao
         },
         {
-            where: { IDCliente: id }
+            where: { IDFilme: id }
         });
 
-        console.log(dados);
-
-        res.redirect('/');
+        res.redirect('/filmesAdm');
     },
 }

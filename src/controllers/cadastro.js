@@ -82,6 +82,7 @@ module.exports = {
 
         res.render('../views/login', {clientes, tiposCliente});
     },
+
     async VerificarEntrada(req, res) {
 
         dados = req.body;
