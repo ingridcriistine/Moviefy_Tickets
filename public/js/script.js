@@ -5,11 +5,11 @@ function mostrarSenha(num) {
 
     if(senha.type === "password") {
         senha.type = "text";
-        imgSenha.src = '/public/img/hide.png';
+        imgSenha.src = '/img/hide.png';
     }
     else {
         senha.type = "password";
-        imgSenha.src = '/public/img/show.png';
+        imgSenha.src = '/img/show.png';
     }
 }
 
