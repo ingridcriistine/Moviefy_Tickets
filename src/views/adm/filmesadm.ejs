@@ -52,10 +52,10 @@
                             <p class="card-text"><%= filmes[i].DataEstreia%></p>
                             <p class="classificacao"><%= filmes[i].Idade%></a>
                         </div>
-                        <div class="edicoes">
+                        <form action="/DeletarFilme/<%= filmes[i].IDFilme %>" method="post"  class="edicoes" enctype="multipart/form-data">
                             <a id="button-editar" href="/editarFilme/<%= filmes[i].IDFilme %>">editar</a>
-                            <a href=""><img src="../img/trash.png" alt=""></a>
-                        </div>
+                            <button type="submit"   value="Excluir" name="envio"><img src="../img/trash.png" alt=""></button>
+                        </form>
                     </div>
                 </a>
                 <% } %>

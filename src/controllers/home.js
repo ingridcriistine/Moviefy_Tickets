@@ -6,6 +6,10 @@ const sala = require('../model/sala');
 const cliente = require('../model/cliente');
 const { where } = require('sequelize');
 
+const fs = require("fs");
+const { param } = require('../../routes');
+const { get } = require('http');
+
 module.exports = {
     async pagInicialGet(req, res){
         const filmes = await filme.findAll({
@@ -40,10 +44,10 @@ module.exports = {
         res.render('../views/adm/filmesadm', {filmes});
     },
     
-    async pagfilmesadmPost(req, res){
+    async pagfilmesadmPost(req, res){  
+
         res.render('../views/adm/filmesadm');
     },
-    
     async pagcinemasadmGet(req, res){
 
         const cinemas = await cinemaLocal.findAll({

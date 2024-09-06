@@ -16,12 +16,14 @@ const tipoCliente = require('../model/tipoCliente')
 const tipoIngresso = require('../model/tipoIngresso');
 const { raw } = require('express');
 
+const fs = require("fs");
+const { param } = require('../../routes');
+
 module.exports = {
     
     async filmes(req, res) {
 
         const parametro = req.params.id;
-        console.log(parametro);
 
         const filmes = await filme.findByPk(parametro, {
             raw: true,
@@ -46,20 +48,6 @@ module.exports = {
         const dados = req.body;
         const id = req.params.id;
 
-        if (dados.envio == 'Excluir') {
-
-            const antigaFoto = await filme.findAll({
-                raw: true,
-                attributes: ['Foto'],
-                where: { IDFilme: id }
-            });
-
-            if (antigaFoto[0].Foto != 'padrao-filme.jfif') fs.unlink(`public/img/${antigaFoto[0].Foto}`, ( err => { if(err) console.log(err); } ));
-
-            await filme.destroy({ where: { IDFilme: id } });
-            res.redirect('/');
-            return;
-        }
 
         if (req.file) {
             const antigaFoto = await filme.findAll({
@@ -70,18 +58,19 @@ module.exports = {
 
             if (antigaFoto[0].Foto != 'padrao-filme.jfif') fs.unlink(`public/img/${antigaFoto[0].Foto}`, ( err => { if(err) console.log(err); } ));
 
+            
             await filme.update(
                 {Foto: req.file.filename},
                 {where: { IDFilme: id }}
             );
         }
 
+
         await filme.update({
             Titulo: dados.titulo,
             DataEstreia: dados.dataEstreia,
             DataSaida: dados.dataSaida,
             Duracao: dados.duracao,
-            Foto: foto,
             IDGenero: dados.genero,
             IDClassificacao: dados.classificacao
         },

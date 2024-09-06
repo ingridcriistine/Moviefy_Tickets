@@ -30,9 +30,9 @@
         </header>
         
         <main>
-            <form action="/editarFilme" method="post">
-                <label id="perfil-filme" for="files-imagem"><img id="labelFilme" src="../img/<%= filmes.Foto %>" alt="Capa do filme"></label>
-                <input id="files-imagem" name="foto" type="file">
+            <form action="/editarFilme/<%= filmes.IDFilme %>" method="post" enctype="multipart/form-data">
+                <label id="perfil-filme" for="files-imagem"><img id="labelFilme" src="../img/<%= filmes.Foto %>" alt="Capa do filme" accept="image/*"></label>
+                <input id="files-imagem" name="foto" type="file" onchange="UpdateImgFilme()">
 
                 <div class="perguntas">
                     <label for="">Título</label><br>

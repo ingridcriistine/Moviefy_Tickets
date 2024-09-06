@@ -5,6 +5,7 @@ const multer = require("multer");
 
 const config = require('./src/config/multer');
 const home = require('./src/controllers/home');
+const excluir = require('./src/controllers/excluir');
 const editar = require('./src/controllers/editar');
 const padrao = require('./src/controllers/padrao');
 const cadastro = require('./src/controllers/cadastro');
@@ -20,6 +21,8 @@ route.post('/cliente', home.pagIndexCliPost);
 
 route.get('/filmesAdm', home.pagfilmesadmGet);
 route.post('/filmesAdm', home.pagfilmesadmPost);
+
+route.post('/DeletarFilme/:id', multer(config).single('foto'), excluir.deletarFilme);
 
 route.get('/cinemasAdm', home.pagcinemasadmGet);
 route.post('/cinemasAdm', home.pagcinemasadmPost);
@@ -37,6 +40,7 @@ route.get('/tipoCliente', padrao.tipoCliente);
 route.get('/tipoIngresso', padrao.tipoIngresso);
 
 /*Cadastros*/
+
 route.get('/registrarCinema', cadastro.cinemaLocal);
 route.post('/registrarCinema', multer(config).single('foto'), cadastro.cinemaLocalInsert);
 
@@ -67,6 +71,6 @@ route.post('/perfilUsuario', home.pagPerfilPost);
 // ----- editar -------
 
 route.get('/editarFilme/:id', editar.filmes);
-route.post('/editarFilme/:id', editar.adicionarFilme);
+route.post('/editarFilme/:id', multer(config).single('foto'), editar.adicionarFilme);
 
 module.exports = route;

@@ -270,7 +270,7 @@ module.exports = {
             IDClassificacao: dados.classificacao
         })
 
-        res.redirect('/');
+        res.redirect('/filmesAdm');
     },
 
     async ingresso (req, res) {
