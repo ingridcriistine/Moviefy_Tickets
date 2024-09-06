@@ -32,8 +32,7 @@
             </nav>
         </header>
         <main>
-            
-            <div class="tituloButton">
+            <div class="tituloButton" style="margin-bottom: 0px;">
                 <h3>Cinemas</h3>
                 <div class="registros">
                     <form class="registros" action="/registrarcinema">
@@ -41,17 +40,19 @@
                     </form>
                 </div>
             </div>
-            <section id="cinemas">
+            <section id="cinemas" style="margin-top: 10px;">
                 <div class="cards-cinemas">
                     <% for (let i =0; i < cinemas.length; i++) {%>
-                    <a class="link-cinema" href="">
-                        <div class="card card-cinema" style="display: flex; flex-direction: row; padding-top: 5px; justify-content: flex-start;">
-                                <img id="imagem-cinema" src="<%= cinemas[i].Foto %>" alt="">
-                                <div>
-                                    <h4 id="editar-texto"><b><%= cinemas[i].Nome %></b></h4>
-                                    <p id="editar-texto"><%= enderecos[i].Logradouro %></p>
+                        <a href="">
+                            <div class="card card-cinema" style="justify-content: space-between;">
+                                <div class="box-titulos">
+                                    <img src="img/<%= cinemas[i].Foto %>" alt="" id="imagem-cinema">
+                                    <div class="titulos-cinemas">
+                                        <h4><b><%= cinemas[i].Nome %></b></h4>
+                                        <p><%= enderecos[i].Logradouro %></p>
+                                    </div>
                                 </div>
-                                <div>
+                                <div class="btns-cinema">
                                     <form action="" style="display: flex; flex-direction: row; padding-top: 0px;">
                                         <button><img id="trash" src="../img/trash.png" alt=""></button>
                                     </form>
@@ -60,16 +61,7 @@
                                     </form>
                                 </div>
                             </div>
-                            <div>
-                                <form action="">
-                                    <button><img id="trash" src="../img/trash.png" alt=""></button>
-                                </form>
-                                <form action="editarCinema.html">
-                                    <button><img  id="lapis" src="../img/vector.png" alt=""></button>
-                                </form>
-                            </div>
-                        </div>
-                    </a>
+                        </a>
                     <%}%>
                 </div>
             </section>

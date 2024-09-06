@@ -3,34 +3,6 @@ a {
     color: white;
 }
 
-.cinemas {
-    display: flex;
-    flex-direction: row;
-    background-color: #ffdae0;
-    padding: 3% 0 3% 0;
-    align-items: center;
-    justify-content: space-around;
-    margin-right: 2%;
-    margin-bottom: 2%;
-    border-radius: 10px;
-}
-
-section {
-    margin-top: 5%;
-    display: grid;
-    grid-template-columns: 50% 50%;
-}
-
-#imagem-cinema {
-    width: 30%;
-    border-radius: 10%;
-    margin: 0 5% 0 5%;
-}
-
-.cinemas p {
-    color: black;
-}
-
 #editar-texto {
     margin-left: 15%;
     margin-right: 30%;
@@ -38,22 +10,16 @@ section {
 }
 
 #lapis {
-    width: 80%;
-    margin-left: 280%;
+    width: 140%;
 }
 
 #trash {
-    width: 80%;
+    width: 140%;
     margin-bottom: 15px;
-    margin-left: 300%;
 }
 
 #lapis:hover, #trash:hover  {
-    width: 100%;
-}
-
-.imagens-editar a{
-    margin: 50% 0 50% 0;
+    width: 170%;
 }
 
 button {
@@ -61,6 +27,13 @@ button {
     border: none;
 }
 
-.link-cinema {
-    width: 100%;
+.btns-cinema {
+    display: flex;
+    flex-direction: column;
 }
+
+.box-titulos {
+    display: flex;
+    align-items: center;
+}
+

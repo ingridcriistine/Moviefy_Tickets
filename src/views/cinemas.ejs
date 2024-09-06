@@ -52,51 +52,17 @@
                 <hr>
 
                 <div class="cards-cinemas">
-                    <a href="">
-                        <div class="card card-cinema">
-                            <img src="" alt="">
-                            <div class="titulos-cinemas">
-                                <h4><b>Cinema</b></h4>
-                                <p>Endereço lalalalalalal</p>
+                        <% for (let i =0; i < cinemas.length; i++) {%>
+                        <a href="">
+                            <div class="card card-cinema">
+                                <img src="img/<%= cinemas[i].Foto %>" alt="" id="imagem-cinema">
+                                <div class="titulos-cinemas">
+                                    <h4><b><%= cinemas[i].Nome %></b></h4>
+                                    <p><%= enderecos[i].Logradouro %></p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="card card-cinema">
-                            <img src="" alt="">
-                            <div class="titulos-cinemas">
-                                <h4><b>Cinema</b></h4>
-                                <p>Endereço lalalalalalal</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="card card-cinema">
-                            <img src="" alt="">
-                            <div class="titulos-cinemas">
-                                <h4><b>Cinema</b></h4>
-                                <p>Endereço lalalalalalal</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="card card-cinema">
-                            <img src="" alt="">
-                            <div class="titulos-cinemas">
-                                <h4><b>Cinema</b></h4>
-                                <p>Endereço lalalalalalal</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="card card-cinema">
-                            <img src="" alt="">
-                            <div class="titulos-cinemas">
-                                <h4><b>Cinema</b></h4>
-                                <p>Endereço lalalalalalal</p>
-                            </div>
-                        </div>
-                    </a>
+                        </a>
+                    <%}%>
                 </div>
             </section>
         </main>

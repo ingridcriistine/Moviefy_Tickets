@@ -21,6 +21,12 @@
     border:  none;
 }
 
+#imagem-cinema {
+    width: 20%;
+    border-radius: 10%;
+    margin: 0 5% 0 5%;
+}
+
 input:focus {
     outline: none;
 }
@@ -40,9 +46,9 @@ input:focus {
 
 .card-cinema {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
-    height: 110px;
+    height: auto;
     background-color: #dfe9f8;
-    padding-top: 20px;
+    padding: 2%;
 }

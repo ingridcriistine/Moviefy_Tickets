@@ -59,96 +59,20 @@
                 </div>
 
                 <div class="cards-filmes">
-                    <a href="">
-                        <div class="card card-filme">
-                            <img src="" class="card-img-top" alt="...">
-                            <h5 class="card-title">Card title</h5>
-                            <div class="card-body">
-                                <p class="card-text">Some quick</p>
-                                <p class="classificacao">L</a>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="card card-filme">
-                            <img src="" class="card-img-top" alt="...">
-                            <h5 class="card-title">Card title</h5>
-                            <div class="card-body">
-                                <p class="card-text">Some quick</p>
-                                <p class="classificacao">L</a>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="card card-filme">
-                            <img src="" class="card-img-top" alt="...">
-                            <h5 class="card-title">Card title</h5>
-                            <div class="card-body">
-                                <p class="card-text">Some quick</p>
-                                <p class="classificacao">L</a>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="card card-filme">
-                            <img src="" class="card-img-top" alt="...">
-                            <h5 class="card-title">Card title</h5>
-                            <div class="card-body">
-                                <p class="card-text">Some quick</p>
-                                <p class="classificacao">L</a>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="card card-filme">
-                            <img src="" class="card-img-top" alt="...">
-                            <h5 class="card-title">Card title</h5>
-                            <div class="card-body">
-                                <p class="card-text">Some quick</p>
-                                <p class="classificacao">L</a>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="card card-filme">
-                            <img src="" class="card-img-top" alt="...">
-                            <h5 class="card-title">Card title</h5>
-                            <div class="card-body">
-                                <p class="card-text">Some quick</p>
-                                <p class="classificacao">L</a>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="card card-filme">
-                            <img src="" class="card-img-top" alt="...">
-                            <h5 class="card-title">Card title</h5>
-                            <div class="card-body">
-                                <p class="card-text">Some quick</p>
-                                <p class="classificacao">L</a>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="card card-filme">
-                            <img src="" class="card-img-top" alt="...">
-                            <h5 class="card-title">Card title</h5>
-                            <div class="card-body">
-                                <p class="card-text">Some quick</p>
-                                <p class="classificacao">L</a>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="card card-filme">
-                            <img src="" class="card-img-top" alt="...">
-                            <h5 class="card-title">Card title</h5>
-                            <div class="card-body">
-                                <p class="card-text">Some quick</p>
-                                <p class="classificacao">L</a>
-                            </div>
-                        </div>
-                    </a>
+                    <% for (let i = 0; i < filmes.length; i++) { %>
+                        <% if ('2024-09-11' <= filmes[i].DataEstreia) { %>
+                            <a href="">
+                                <div class="card card-filme">
+                                    <img src="img/<%= filmes[i].Foto %>" class="card-img-top" alt="...">
+                                    <h5 class="card-title"><%= filmes[i].Titulo %></h5>
+                                    <div class="card-body">
+                                        <p class="card-text"><%= filmes[i].DataEstreia%></p>
+                                        <p class="classificacao"><%= filmes[i].Idade%></a>
+                                    </div>
+                                </div>
+                            </a>
+                        <% } %>
+                    <% } %>
                 </div>
             </section>
         </main>
