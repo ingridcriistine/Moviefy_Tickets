@@ -39,6 +39,7 @@ route.get('/pagamento', padrao.pagamento);
 route.get('/tipoCliente', padrao.tipoCliente);
 route.get('/tipoIngresso', padrao.tipoIngresso);
 
+
 /*Cadastros*/
 
 route.get('/registrarCinema', cadastro.cinemaLocal);

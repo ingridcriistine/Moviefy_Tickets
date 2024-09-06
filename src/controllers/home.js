@@ -4,6 +4,7 @@ const cinemaLocal = require('../model/cinemaLocal');
 const endereco = require('../model/endereco');
 const sala = require('../model/sala');
 const cliente = require('../model/cliente');
+const sessao = require('../model/sessao');
 const { where } = require('sequelize');
 
 const fs = require("fs");
@@ -82,6 +83,11 @@ module.exports = {
             raw: true,
             attributes: ['IDSala', 'Numero']
         });
+ 
+        const sessoes = await sessao.findAll({
+            raw: true,
+            attributes: ['IDSessao', 'TresD', 'Ativa', 'Data', 'Hora', 'IDFilme', 'IDCinema', 'IDLinguagem', 'IDSala']
+        })
 
         res.render('../views/adm/sessoes', {cinemas, enderecos, salas});
     },
@@ -125,5 +131,9 @@ module.exports = {
     
     async pagPerfilPost(req, res){
         res.render('../views/perfilUsuario');
-    }
+    },
+
+    // -------------------------------- CLIENTE ----------------------------------
+
+
 }
