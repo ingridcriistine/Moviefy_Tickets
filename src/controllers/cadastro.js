@@ -213,7 +213,7 @@ module.exports = {
             IDFilme: dados.filmeCinema
         });
 
-        res.redirect('/');
+        res.redirect('/sessoesAdm');
     },
 
     async endereco (req, res) {
@@ -287,7 +287,7 @@ module.exports = {
         
         const sessoes = await sessao.findAll({
             raw: true,
-            attributes: ['IDSessao', 'TresD', 'Ativa', 'Data', 'Hora', 'IDFilme', 'IDCinema', 'IDLinguagem', 'IDSala']
+            attributes: ['IDSessao', 'TresD', 'Ativa', 'Data', 'Hora', 'IDFilme', 'IDCinema', 'IDSala']
         })
         
         const compras = await compra.findAll({

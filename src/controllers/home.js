@@ -70,26 +70,20 @@ module.exports = {
     },
     
     async pagsessaoadmGet(req, res){
-        const cinemas = await cinemaLocal.findAll({
-            raw: true,
-            attributes: ['IDCinemaLocal', 'Nome', 'Preco', 'Foto']
-        });
-        const enderecos = await endereco.findAll({
-            raw: true,
-            attributes: ['IDEndereco', 'Logradouro', 'Numero', 'CEP', 'Cidade']
-        });
 
-        const salas = await sala.findAll({
-            raw: true,
-            attributes: ['IDSala', 'Numero']
-        });
- 
         const sessoes = await sessao.findAll({
             raw: true,
-            attributes: ['IDSessao', 'TresD', 'Ativa', 'Data', 'Hora', 'IDFilme', 'IDCinema', 'IDLinguagem', 'IDSala']
-        })
+            attributes: ['IDSessao', 'Dublado', 'TresD', 'Ativa', 'Data', 'Hora', 'IDFilme', 'IDCinema', 'IDSala', 'Filme.Titulo', 'Filme.Foto', 'Sala.Numero', 'CinemaLocal.Nome'],
+            include:[
+                {model: filme},
+                {model: sala},
+                {model: cinemaLocal}
+            ]
+        });
 
-        res.render('../views/adm/sessoes', {cinemas, enderecos, salas});
+        console.log(sessoes);
+
+        res.render('../views/adm/sessoes', {sessoes});
     },
 
     async pagsessaoadmPost(req, res){
