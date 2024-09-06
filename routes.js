@@ -16,9 +16,40 @@ route.get('/index', home.pagInicialGet);
 route.post('/', home.pagInicialPost);
 route.post('/index', home.pagInicialPost);
 
+route.get('/indexAnonimo', home.pagIndexAnonimoGet);
+route.post('/indexAnonimo', home.pagIndexAnonimoPost);
+
+
+// -------------------------------- CLIENTE ----------------------------------
 route.get('/cliente', home.pagIndexCliGet);
 route.post('/cliente', home.pagIndexCliPost);
 
+route.get('/filmesBreve', home.pagFilmesBreveGet);
+route.post('/filmesBreve', home.pagFilmesBrevePost);
+
+route.get('/filmesCartaz', home.pagFilmesCartazGet);
+route.post('/filmesCartaz', home.pagFilmesCartazPost);
+
+route.get('/cinemas', home.pagCinemasGet);
+route.post('/cinemas', home.pagCinemasPost);
+
+route.get('/perfilUsuario', home.pagPerfilUsuarioGet);
+route.post('/perfilUsuario', home.pagPerfilUsuarioPost);
+
+route.get('/detalhesFilme/: id', home.pagDetalhesFilmeGet);
+route.post('/detalhesFilme/: id', home.pagDetalhesFilmePost);
+
+route.get('/detalhesCinema/: id', home.pagDetalhesCinemaGet);
+route.post('/detalhesCinema/: id', home.pagDetalhesCinemaPost);
+
+route.get('/comprarIngresso', home.pagComprarIngressoGet);
+route.post('/comprarIngresso', home.pagComprarIngressoPost);
+
+route.get('/pagamento', home.pagPagamentoGet);
+route.post('/pagamento', home.pagPagamentoPost);
+
+
+// ---------------------------------- ADM ------------------------------------
 route.get('/filmesAdm', home.pagfilmesadmGet);
 route.post('/filmesAdm', home.pagfilmesadmPost);
 
@@ -40,8 +71,7 @@ route.get('/tipoCliente', padrao.tipoCliente);
 route.get('/tipoIngresso', padrao.tipoIngresso);
 
 
-/*Cadastros*/
-
+// ------------------------------ CADASTROS --------------------------------
 route.get('/registrarCinema', cadastro.cinemaLocal);
 route.post('/registrarCinema', multer(config).single('foto'), cadastro.cinemaLocalInsert);
 
@@ -66,11 +96,8 @@ route.get('/sala', cadastro.sala);
 route.get('/newSessao', cadastro.sessao);
 route.post('/newSessao', cadastro.sessaoInsert);
 
-route.get('/perfilUsuario', home.pagPerfilGet);
-route.post('/perfilUsuario', home.pagPerfilPost);
 
-// ----- editar -------
-
+// -------------------------------- EDITAR ----------------------------------
 route.get('/editarFilme/:id', editar.filmes);
 route.post('/editarFilme/:id', multer(config).single('foto'), editar.adicionarFilme);
 
