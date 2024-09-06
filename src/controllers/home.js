@@ -141,7 +141,16 @@ module.exports = {
     },
 
     async pagFilmesBreveGet(req, res) {
-        res.render('../views/filmesBreve');
+
+        const filmes = await filme.findAll({
+            raw: true,
+            attributes: ['IDFilme', 'Titulo', 'DataEstreia', 'DataSaida',  'Duracao', 'Foto','ClassificacoesIndicativa.Idade'],
+            include:{
+                model: classificacao
+            }
+        })
+
+        res.render('../views/filmesBreve', {filmes});
     },
 
     async pagFilmesBrevePost(req, res) {
@@ -149,7 +158,16 @@ module.exports = {
     },
 
     async pagFilmesCartazGet(req, res) {
-        res.render('../views/filmesCartaz');
+
+        const filmes = await filme.findAll({
+            raw: true,
+            attributes: ['IDFilme', 'Titulo', 'DataEstreia', 'DataSaida',  'Duracao', 'Foto','ClassificacoesIndicativa.Idade'],
+            include:{
+                model: classificacao
+            }
+        })
+
+        res.render('../views/filmesCartaz', {filmes});
     },
 
     async pagFilmesCartazPost(req, res) {
@@ -157,7 +175,19 @@ module.exports = {
     },
 
     async pagCinemasGet(req, res) {
-        res.render('../views/cinemas');
+
+        const cinemas = await cinemaLocal.findAll({
+            raw: true,
+            attributes: ['IDCinemaLocal', 'Nome', 'Preco', 'Foto']
+        });
+
+        const enderecos = await endereco.findAll({
+            raw: true,
+            attributes: ['IDEndereco', 'Logradouro', 'Numero', 'CEP', 'Cidade']
+        });
+
+
+        res.render('../views/cinemas', {cinemas, enderecos});
     },
 
     async pagCinemasPost(req, res) {
