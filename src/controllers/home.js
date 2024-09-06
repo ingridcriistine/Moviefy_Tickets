@@ -12,6 +12,7 @@ const { param } = require('../../routes');
 const { get } = require('http');
 
 module.exports = {
+    
     async pagInicialGet(req, res){
         const filmes = await filme.findAll({
             raw: true,
@@ -33,6 +34,24 @@ module.exports = {
         res.render('../views/adm/indexadm');
     },
     
+    async pagLoginGet(req, res){
+        res.render('../views/login');
+    },
+    
+    async pagLoginPost(req, res){
+        res.render('../views/login');
+    },
+
+    async pagIndexAnonimoGet(req, res) {
+        res.render('../views/indexAnonimo');
+    },
+
+    async pagIndexAnonimoPost(req, res) {
+        res.render('../views/indexAnonimo');
+    },
+
+    // -------------------------------- ADM ----------------------------------
+
     async pagfilmesadmGet(req, res){
         const filmes = await filme.findAll({
             raw: true,
@@ -49,6 +68,7 @@ module.exports = {
 
         res.render('../views/adm/filmesadm');
     },
+
     async pagcinemasadmGet(req, res){
 
         const cinemas = await cinemaLocal.findAll({
@@ -96,14 +116,9 @@ module.exports = {
         res.render('../views/adm/sessoes');
     },
 
-    async pagLoginGet(req, res){
-        res.render('../views/login');
-    },
-    
-    async pagLoginPost(req, res){
-        res.render('../views/login');
-    },
 
+    // -------------------------------- CLIENTE ----------------------------------
+    
     async pagIndexCliGet(req, res){
         res.render('../views/index');
     },
@@ -111,16 +126,8 @@ module.exports = {
     async pagIndexCliPost(req, res){
         res.render('../views/index');
     },
-
-    async pagIndexCliGet(req, res){
-        res.render('../views/index');
-    },
     
-    async pagIndexCliPost(req, res){
-        res.render('../views/index');
-    },
-
-    async pagPerfilGet(req, res){
+    async pagPerfilUsuarioGet(req, res){
         const clientes = await cliente.findOne({
             raw: true,
             attributes: ['IDCliente', 'Nome', 'DataNascimento', 'CPF', 'Email', 'Senha', 'Foto', 'IDTipo']
@@ -129,11 +136,68 @@ module.exports = {
         res.render('../views/perfilUsuario', {clientes});
     },
     
-    async pagPerfilPost(req, res){
+    async pagPerfilUsuarioPost(req, res){
         res.render('../views/perfilUsuario');
     },
 
-    // -------------------------------- CLIENTE ----------------------------------
+    async pagFilmesBreveGet(req, res) {
+        res.render('../views/filmesBreve');
+    },
 
+    async pagFilmesBrevePost(req, res) {
+        res.render('../views/filmesBreve');
+    },
 
+    async pagFilmesCartazGet(req, res) {
+        res.render('../views/filmesCartaz');
+    },
+
+    async pagFilmesCartazPost(req, res) {
+        res.render('../views/filmesCartaz');
+    },
+
+    async pagCinemasGet(req, res) {
+        res.render('../views/cinemas');
+    },
+
+    async pagCinemasPost(req, res) {
+        res.render('../views/cinemas');
+    },
+
+    async pagDetalhesFilmeGet(req, res) {
+        res.render('../views/detalhesFilme');
+    },
+
+    async pagDetalhesFilmePost(req, res) {
+        res.render('../views/detalhesFilme');
+    },
+
+    async pagDetalhesCinemaGet(req, res) {
+        res.render('../views/detalhesCinema');
+    },
+
+    async pagDetalhesCinemaPost(req, res) {
+        res.render('../views/detalhesCinema');
+    },
+
+    async pagComprarIngressoGet(req, res) {
+        res.render('../views/comprarIngresso');
+    },
+
+    async pagComprarIngressoPost(req, res) {
+        res.render('../views/comprarIngresso');
+    },
+
+    async pagComprarIngressoGet(req, res) {
+        res.render('../views/comprarIngresso');
+    },
+
+    async pagPagamentoGet(req, res) {
+        res.render('../views/pagamento');
+    },
+
+    async pagPagamentoPost(req, res) {
+        res.render('../views/pagamento');
+    }
+ 
 }
