@@ -115,6 +115,7 @@ select:hover {
     display: flex;
     margin: 1%;
     flex-direction: column;
+    background-color: white;
 }
 
 .card-img-top {
