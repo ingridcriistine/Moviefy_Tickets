@@ -71,3 +71,52 @@ function atualizarCadastro() {
 }
 
 //nome usuario 
+
+//dark mode
+const body = document.getElementById("body");
+const main = document.getElementById("main");
+const homeTituloFilme = document.getElementById("home-titulo-filme");
+const homeTituloFranquia = document.getElementById("home-titulo-franquia");
+const carousel = document.getElementById("carouselExampleCards");
+const setaFilme = document.getElementById("seta-titulo-filme");
+const setaFranquia = document.getElementById("seta-titulo-franquia");
+
+function darkMode() {
+    
+    let cardFilme;
+    const lightActive = body.style.backgroundColor == "white";
+    
+    if(lightActive) {
+        body.style.backgroundColor = "#0d1117";
+        body.style.color = "white";
+        main.style.color = "white";
+        homeTituloFilme.style.color = "white";
+        homeTituloFranquia.style.color = "white";
+        setaFilme.style.fill = "white";
+        setaFranquia.style.fill = "white";
+        carousel.className = "carousel carousel-filmes slide";
+        
+        for(let i = 1; i < 10; i++) {
+            cardFilme = document.getElementById(`card-filme${i}`);
+            cardFilme.style.background = "#953C4C";
+        }
+    }
+    
+    else {
+        carousel.className = "carousel carousel-filmes carousel-dark slide";
+        body.style.backgroundColor = "white";
+        body.style.color = "black";
+        main.style.color = "black";
+        homeTituloFilme.style.color = "black";
+        homeTituloFranquia.style.color = "black";
+        setaFilme.style.fill = "black";
+        setaFranquia.style.fill = "black";
+        lightActive = true;
+        
+        for(let i = 1; i < 10; i++) {
+            cardFilme = document.getElementById(`card-filme${i}`);
+            cardFilme.style.background = "white";
+        }
+    }
+    
+}
