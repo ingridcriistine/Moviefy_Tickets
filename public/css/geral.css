@@ -20,7 +20,7 @@ a {
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    z-index: 1;
+    z-index: 10;
     width: 100%;
     top: 0;
 }
@@ -41,8 +41,9 @@ a {
 .nav-login {
     color: white;
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
-    margin-right: 50px;
     width: 12%;
 }
 
@@ -84,7 +85,7 @@ a {
     display: flex;
     margin-right: 50px;
     align-items: center;
-    width: 15%;
+    width: 25%;
 }
 
 .localidades img {
@@ -129,7 +130,7 @@ select:hover {
 }
 
 .card-title {
-    margin: 20px 0px 0px 15px;
+    margin: 20px 10px 0px 15px;
     color: black;
 }
 
@@ -144,6 +145,7 @@ select:hover {
 
 .classificacao {
     width: 10%;
+    height: auto;
     background-color: antiquewhite;
     padding: 0 5px 0 5px;
     border-radius: 2px;
@@ -290,4 +292,120 @@ footer hr {
 
 .menu-simples a {
     text-decoration: none;
+}
+
+
+/*---------------RESPONSIVIDADE-------------------*/
+/*Celular*/
+@media only screen and (max-width: 699px) {
+
+    /*HEADER*/
+    .menu {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .titulo {
+        margin: 0 0 10px 0;
+    }
+    .nav-login {
+        width: 100%;
+    }
+    .nav-login a {
+        font-size: 13px;
+    }
+    .nav-login img {
+        width: 15px;
+        height: 15px;
+        margin-top: 6px;
+    }
+    .sub-menu {
+        align-items: center;
+        height: 70px;
+        margin: 140px 0 20px 0;
+        padding: 20px;
+    }
+    .titulos {
+        display: flex;
+        gap: 40px;
+        margin-left: 0px;
+        font-size: 18px;
+    }
+    .localidades {
+        margin-right: 0px;
+        width: 40%;
+        height: 50px;
+    }
+    .form-select {
+        height: 30px;
+        font-size: 12px;
+    }
+
+    /*CARD*/
+    .card-filme {
+        width: 40%;
+    }
+    .card-title {
+        font-size: 18px;
+    }
+
+    /*BTNS-FIXOS*/
+    .btns-fixos {
+        position: fixed;
+        left: 93%;
+        top: 55%;
+        z-index: 10;
+    }
+    #img-theme {
+        width: 70%;
+    }
+    
+    #icon-back {
+        width: 80%;
+    }
+    #btn-back, #btn-theme {
+        width: 30px;
+        height: 30px;
+    } 
+
+    /*FOOTER*/
+    footer {
+        height: auto;
+    }
+    .inicio {
+        width: 100%;
+        padding-left: 15px;
+    }
+    .links-rodape {
+        flex-direction: column;
+        margin-left: 50px;
+    }
+    .redes {
+        width: 30%;
+    }
+    .redes img{
+        width: 20%;
+    }
+    footer .titulo {
+        padding: 20px;
+    }
+    .rodape-menu, .rodape-institucional, .rodape-politicas, .rodape-central {
+        margin: 50px 0 0 0;
+    } 
+}
+
+/*Tablet*/
+@media screen and (min-width: 500px) and (max-width: 899px) {
+
+}
+
+/*Notebook*/
+@media screen and (min-width: 900px) and (max-width: 1299px) {
+
+}
+
+/*Computadores*/
+@media screen and (min-width: 1300px) {
+    body {
+
+    }
 }
