@@ -125,6 +125,6 @@ module.exports = {
             where: { IDFilme: id }
         });
 
-        res.redirect('/filmesAdm');
+        res.redirect('/cinemasAdm');
     },
 }

@@ -36,8 +36,8 @@ route.post('/cinemas', home.pagCinemasPost);
 route.get('/perfilUsuario', home.pagPerfilUsuarioGet);
 route.post('/perfilUsuario', home.pagPerfilUsuarioPost);
 
-route.get('/detalhesFilme/: id', home.pagDetalhesFilmeGet);
-route.post('/detalhesFilme/: id', home.pagDetalhesFilmePost);
+route.get('/detalhesFilme/:id', home.pagDetalhesFilmeGet);
+route.post('/detalhesFilme/:id', home.pagDetalhesFilmePost);
 
 route.get('/detalhesCinema/: id', home.pagDetalhesCinemaGet);
 route.post('/detalhesCinema/: id', home.pagDetalhesCinemaPost);
