@@ -109,7 +109,7 @@ function darkMode() {
         btnBack.style.backgroundColor = "#0d1117";
         btnBack.style.borderColor = "white";
         
-        for(let i = 1; i < 10; i++) {
+        for(let i = 0; i < 10; i++) {
             cardFilme = document.getElementById(`card-filme${i}`);
             cardTitle = document.getElementById(`card-title${i}`);
             cardText = document.getElementById(`card-text${i}`);
@@ -139,7 +139,7 @@ function darkMode() {
         btnBack.style.backgroundColor = "white";
         btnBack.style.borderColor = "black";
         
-        for(let i = 1; i < 10; i++) {
+        for(let i = 0; i < 10; i++) {
             cardFilme = document.getElementById(`card-filme${i}`);
             cardTitle = document.getElementById(`card-title${i}`);
             cardText = document.getElementById(`card-text${i}`);

@@ -5,6 +5,7 @@ const endereco = require('../model/endereco');
 const sala = require('../model/sala');
 const cliente = require('../model/cliente');
 const sessao = require('../model/sessao');
+const generos = require('../model/genero');
 const { where } = require('sequelize');
 
 const fs = require("fs");
@@ -44,7 +45,17 @@ module.exports = {
     },
 
     async pagIndexAnonimoGet(req, res) {
-        res.render('../views/indexAnonimo');
+
+        const filmes = await filme.findAll({
+            raw: true,
+            attributes: ['IDFilme', 'Titulo', 'DataEstreia', 'DataSaida',  'Duracao', 'Foto','ClassificacoesIndicativa.Idade', 'Genero.Nome'],
+            include:[
+                {model: classificacao}, 
+                {model: generos}
+            ]
+        });
+
+        res.render('../views/indexAnonimo', {filmes});
     },
 
     async pagIndexAnonimoPost(req, res) {
@@ -110,7 +121,17 @@ module.exports = {
     // -------------------------------- CLIENTE ----------------------------------
     
     async pagIndexCliGet(req, res){
-        res.render('../views/index');
+        
+        const filmes = await filme.findAll({
+            raw: true,
+            attributes: ['IDFilme', 'Titulo', 'DataEstreia', 'DataSaida',  'Duracao', 'Foto','ClassificacoesIndicativa.Idade', 'Genero.Nome'],
+            include:[
+                {model: classificacao}, 
+                {model: generos}
+            ]
+        });
+
+        res.render('../views/index', {filmes});
     },
     
     async pagIndexCliPost(req, res){
@@ -185,7 +206,17 @@ module.exports = {
     },
 
     async pagDetalhesFilmeGet(req, res) {
-        res.render('../views/detalhesFilme');
+
+        const filmes = await filme.findAll({
+            raw: true,
+            attributes: ['IDFilme', 'Titulo', 'DataEstreia', 'DataSaida',  'Duracao', 'Foto','ClassificacoesIndicativa.Idade', 'Genero.Nome'],
+            include:[
+                {model: classificacao}, 
+                {model: generos}
+            ]
+        });
+
+        res.render('../views/detalhesFilme', {filmes});
     },
 
     async pagDetalhesFilmePost(req, res) {

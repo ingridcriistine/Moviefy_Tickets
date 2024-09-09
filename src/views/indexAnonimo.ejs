@@ -87,124 +87,52 @@
                       <div class="carousel-item active">
                         <div class="lista-filmes row">
                             <div class="cards-filmes">
-                                <a href="">
-                                    <div class="card card-filme" id="card-filme1">
-                                        <img src="" class="card-img-top" alt="...">
-                                        <h5 class="card-title" id="card-title1">Card title</h5>
-                                        <div class="card-body">
-                                            <p class="card-text" id="card-text1">Some quick</p>
-                                            <p class="classificacao" id="card-class1">L</a>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="">
-                                    <div class="card card-filme" id="card-filme2">
-                                        <img src="" class="card-img-top" alt="...">
-                                        <h5 class="card-title" id="card-title2">Card title</h5>
-                                        <div class="card-body">
-                                            <p class="card-text" id="card-text2">Some quick</p>
-                                            <p class="classificacao" id="card-class2">L</a>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="">
-                                    <div class="card card-filme" id="card-filme3">
-                                        <img src="" class="card-img-top" alt="...">
-                                        <h5 class="card-title" id="card-title3">Card title</h5>
-                                        <div class="card-body">
-                                            <p class="card-text" id="card-text3">Some quick</p>
-                                            <p class="classificacao" id="card-class3">L</a>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="">
-                                    <div class="card card-filme" id="card-filme4">
-                                        <img src="" class="card-img-top" alt="...">
-                                        <h5 class="card-title" id="card-title4">Card title</h5>
-                                        <div class="card-body">
-                                            <p class="card-text" id="card-text4">Some quick</p>
-                                            <p class="classificacao" id="card-class4">L</a>
-                                        </div>
-                                    </div>
-                                </a>
+                                <% if (filmes.length >= 4) {%>
+                                    <% for (let i = 0; i < 4; i++) {%>
+                                        <a href="/login">
+                                            <div class="card card-filme" id="card-filme<%= i+1 %>">
+                                                <img src="img/<%= filmes[i].Foto %>" class="card-img-top" alt="...">
+                                                <h5 class="card-title" id="card-title<%= i+1 %>"><%= filmes[i].Titulo %></h5>
+                                                <div class="card-body">
+                                                    <p class="card-text" id="card-text<%= i+1 %>"><%= filmes[i].Nome %></p>
+                                                    <p class="classificacao" id="card-class<%= i+1 %>"><%= filmes[i].Idade %></a>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    <%}%>
+                                <%}%>
                             </div>
                         </div>
                       </div>
-                      <div class="carousel-item">
-                        <div class="lista-filmes row" >
-                            <div class="cards-filmes">
-                                <a href="">
-                                    <div class="card card-filme" id="card-filme5">
-                                        <img src="" class="card-img-top" alt="...">
-                                        <h5 class="card-title" id="card-title5">Card title</h5>
-                                        <div class="card-body">
-                                            <p class="card-text" id="card-text5">Some quick</p>
-                                            <p class="classificacao" id="card-class5">L</a>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="">
-                                    <div class="card card-filme" id="card-filme6">
-                                        <img src="" class="card-img-top" alt="...">
-                                        <h5 class="card-title" id="card-title6">Card title</h5>
-                                        <div class="card-body">
-                                            <p class="card-text" id="card-text6">Some quick</p>
-                                            <p class="classificacao" id="card-class6">L</a>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="">
-                                    <div class="card card-filme" id="card-filme7">
-                                        <img src="" class="card-img-top" alt="...">
-                                        <h5 class="card-title" id="card-title7">Card title</h5>
-                                        <div class="card-body">
-                                            <p class="card-text" id="card-text7">Some quick</p>
-                                            <p class="classificacao" id="card-class7">L</a>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href=""></a>
-                                    <div class="card card-filme" id="card-filme8">
-                                        <img src="" class="card-img-top" alt="...">
-                                        <h5 class="card-title" id="card-title8">Card title</h5>
-                                        <div class="card-body">
-                                            <p class="card-text" id="card-text8">Some quick</p>
-                                            <p class="classificacao" id="card-class8">L</a>
-                                        </div>
-                                    </div>
-                                </a>
+                      <% if (filmes.length >= 8 ) {%>
+                        <div class="carousel-item">
+                            <div class="lista-filmes row" >
+                                <div class="cards-filmes">
+                                    <% for (let i = 4; i < 9; i++) {%>
+                                        <a href="/login">
+                                            <div class="card card-filme" id="card-filme<%= i+1 %>">
+                                                <img src="img/<%= filmes[i].Foto %>" class="card-img-top" alt="...">
+                                                <h5 class="card-title" id="card-title<%= i+1 %>"><%= filmes[i].Titulo %></h5>
+                                                <div class="card-body">
+                                                    <p class="card-text" id="card-text<%= i+1 %>"><%= filmes[i].Nome %></p>
+                                                    <p class="classificacao" id="card-class<%= i+1 %>"><%= filmes[i].Idade %></a>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    <%}%>
+                                </div>
                             </div>
-                      </div>
-                    </div>
-            </section>
-
-            <section id="home-franquias">
-                <div class="home-section-titulo">
-                    <a href="/login" id="home-titulo-franquia">
-                        <h3><b>Franquias</b></h3>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-chevron-right seta" viewBox="0 0 16 16" id="seta-titulo-franquia">
-                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
-                        </svg>
-                    </a>
-                </div>
-
-                <div class="lista-franquias">
-                    <div class="box-franquia">
-                        <a href="">
-                            <div class="box-img-franquia">
-                                <img src="" alt="">
-                            </div>
-                        </a>
-                        <h3>Franquia</h3>
-                    </div>
-                    <div class="box-franquia">
-                        <a href="">
-                            <div class="box-img-franquia">
-                                <img src="" alt="">
-                            </div>
-                        </a>
-                        <h3>Franquia</h3>
-                    </div>
+                        </div>
+                    <%}%>
+                    <button class="carousel-control-prev btn-prev" type="button" data-bs-target="#carouselExampleCards" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next btn-next" type="button" data-bs-target="#carouselExampleCards" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
                 </div>
             </section>
         </main>
