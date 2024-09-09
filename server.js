@@ -1,6 +1,13 @@
 const express = require('express');
 const routes = require('./routes');
 const app = express();
+const session = require("express-session");
+
+app.use(session({
+    secret: '123456',
+    saveUninitialized: true,
+    resave: false
+}));
 
 app.use(express.urlencoded({ extended: true }));
 
