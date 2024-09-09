@@ -57,7 +57,6 @@ function UpdateImgCinema(){
 
 //botão de quantidade
 
-//barra de pesquisa
 
 
 //atualizar cadastro
@@ -155,5 +154,27 @@ function darkMode() {
         
         lightActive = true;
     }
-    
+}
+
+//modal perfil
+const perfil = document.getElementById("perfil");
+const modalPerfil = document.getElementById("modal-perfil");
+const bgModal = document.getElementById("background-modal");
+const tituloModal = document.getElementById("titulo-modal");
+const userModal = document.getElementById("user-modal");
+
+function atualizarCadastro() {
+    perfil.style.display = "none";
+    modalPerfil.style.display = "block";
+    modalPerfil.style.zIndex = "10";
+    modalPerfil.style.marginLeft = "5%";
+    modalPerfil.style.marginTop = "10%";
+    modalPerfil.style.width = "100%";
+    userModal.style.boxShadow = "black 0px 10px 10px";
+    tituloModal.style.boxShadow = "black 0px 10px 10px";
+}
+
+function cancelar() {
+    perfil.style.display = "flex";
+    modalPerfil.style.display = "none";
 }

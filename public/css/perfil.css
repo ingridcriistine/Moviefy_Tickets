@@ -34,7 +34,10 @@
     justify-content: center;
     width: 40%;
     font-size: 18px;
-    gap: 7px;
+}
+
+.menu-perfil p {
+    margin: 2px;
 }
 
 .menu-perfil a {
@@ -98,4 +101,23 @@
 
 .adm-bloco {
     padding: 2%;
+}
+
+.btn-modal-atualizar, .btn-modal-cancelar {
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.btn-modal-atualizar {
+    background-color: rgb(49, 119, 9);
+    color: white;
+}
+
+.btn-modal-cancelar {
+    background-color: rgb(119, 9, 9);
+    color: white;
 }
