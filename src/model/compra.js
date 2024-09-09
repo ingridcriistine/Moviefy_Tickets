@@ -10,16 +10,18 @@ const compra = database.define('Compras', {
         allowNull: false,
         primaryKey: true
     }
-})
+});
 
-compra.belongsTo(
-    pagamento, {
-        constraint: true,
-        foreignKey: 'IDPagamento',
-        allowNull: true
-    },
-    cliente, {
-        constraint: true,
-        foreignKey: 'IDCliente'
-    }
-)
+compra.belongsTo(pagamento,{
+    constraint: true,
+    foreignKey: 'IDPagamento',
+    onDelete: 'cascade'
+});
+
+compra.belongsTo(cliente, {
+    constraint: true,
+    foreignKey: 'IDCliente',
+    onDelete: 'cascade'
+});
+
+module.exports = compra;

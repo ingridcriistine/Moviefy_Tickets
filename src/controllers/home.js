@@ -22,12 +22,13 @@ module.exports = {
             }
         });
 
-        const cinemas = await cinemaLocal.findAll({
+        const enderecos = await endereco.findAll({
             raw: true,
-            attributes: ['IDCinemaLocal', 'Nome', 'Preco', 'Foto']
+            attributes: ['Logradouro', 'CinemaLocal.Nome', 'CinemaLocal.Foto', 'IDCinema'],
+            include: [{model: cinemaLocal}]
         });
 
-        res.render('../views/adm/indexadm', {filmes, cinemas});
+        res.render('../views/adm/indexadm', {filmes, enderecos});
     },
     
     async pagInicialPost(req, res){
@@ -71,18 +72,13 @@ module.exports = {
 
     async pagcinemasadmGet(req, res){
 
-        const cinemas = await cinemaLocal.findAll({
-            raw: true,
-            attributes: ['IDCinemaLocal', 'Nome', 'Preco', 'Foto']
-        });
-
         const enderecos = await endereco.findAll({
             raw: true,
-            attributes: ['IDEndereco', 'Logradouro', 'Numero', 'CEP', 'Cidade']
+            attributes: ['Logradouro', 'CinemaLocal.Nome', 'CinemaLocal.Foto', 'IDCinema'],
+            include: [{model: cinemaLocal}]
         });
 
-
-        res.render('../views/adm/cinemasadm', {cinemas, enderecos});
+        res.render('../views/adm/cinemasadm', {enderecos});
     },
     
     async pagcinemasadmPost(req, res){

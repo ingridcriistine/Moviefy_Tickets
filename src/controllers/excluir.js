@@ -32,5 +32,30 @@ async deletarFilme(req, res){
     }
 
     res.redirect('/filmesAdm');
+},
+async deletarCinema(req, res){      
+    const dados = req.body;
+    const id = req.params.id;
+
+    console.log('hdsfds')
+    
+    if (dados.envio == 'Excluir') {
+
+        console.log('hdsfds')
+
+        const antigaFoto = await cinemaLocal.findAll({
+            raw: true,
+            attributes: ['Foto'],
+            where: { IDCinemaLocal: id }
+        });
+
+        if (antigaFoto[0].Foto != 'padrao-cinema.jfif') fs.unlink(`../img/${antigaFoto[0].Foto}`, ( err => { if(err) console.log(err); } ));
+
+        await cinemaLocal.destroy({ where: { IDCinemaLocal: id} });
+        res.redirect('/cinemasAdm');
+        return;
+    }
+
+    res.redirect('/cinemasAdm');
 }
 }

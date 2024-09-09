@@ -37,7 +37,7 @@ module.exports = {
     async cinemaLocalInsert(req, res) {
         const dados = req.body;
 
-        let foto = '../img/padrao-cinema.jfif';
+        let foto = 'padrao-cinema.jfif';
         
         if (req.file) {
             foto = req.file.filename;
@@ -55,7 +55,7 @@ module.exports = {
             order:[['createdAt','DESC']]
         })
 
-        console.log(cinemas.IDCinemaLocal);
+        console.log(cinemas.Foto);
 
         await endereco.create({
             Logradouro: dados.logradouro,

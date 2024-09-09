@@ -34,13 +34,15 @@ const filme = database.define('Filmes', {
 
 filme.belongsTo(genero, {
         constraint: true,
-        foreignKey: 'IDGenero'
+        foreignKey: 'IDGenero',
+        onDelete:  'cascade'
     }
 );
 
 filme.belongsTo(classificacao, {
         constraint: true,
-        foreignKey: 'IDClassificacao'
+        foreignKey: 'IDClassificacao',
+        onDelete:  'cascade'
     }
 );
 

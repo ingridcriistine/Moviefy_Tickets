@@ -35,17 +35,20 @@ const sessao = database.define('Sessao', {
 
 sessao.belongsTo(filme, {
     constraint: true,
-    foreignKey: 'IDFilme'
+    foreignKey: 'IDFilme',
+    onDelete:  'cascade'
 });
 
 sessao.belongsTo(cinema, {
     constraint: true,
-    foreignKey: 'IDCinema'
+    foreignKey: 'IDCinema',
+    onDelete:  'cascade'
 });
 
 sessao.belongsTo(sala, {
     constraint: true,
-    foreignKey: 'IDSala'
+    foreignKey: 'IDSala',
+    onDelete:  'cascade'
 });
 
 module.exports = sessao;

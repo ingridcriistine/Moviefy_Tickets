@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize');
 const database = require('../config/bd');
+const compra = require('./compra');
 const tipo = require('./tipoIngresso');
 const sessao = require('./sessao');
 const assento = require('./assento');
-const compra = require('./compra');
 
 const ingresso = database.define('Ingresso', {
     IDIngresso: {
@@ -15,21 +15,27 @@ const ingresso = database.define('Ingresso', {
 })
 
 ingresso.belongsTo(tipo, {
-        constraint: true,
-        foreignKey: 'IDTipo'
-    },
-    assento, {
-        constraint: true,
-        foreignKey: 'IDAssento'
-    },
-    sessao, {
-        constraint: true,
-        foreignKey: 'IDSessao'
-    },
-    compra, {
-        constraint: true,
-        foreignKey: 'NumeroCompra'
-    }
-);
+    constraint: true,
+    foreignKey: 'IDTipo',
+    onDelete: 'cascade'
+});
+
+ingresso.belongsTo(assento, {
+    constraint: true,
+    foreignKey: 'IDAssento',
+    onDelete: 'cascade'
+})
+
+ingresso.belongsTo(sessao, {
+    constraint: true,
+    foreignKey: 'IDSessao',
+    onDelete: 'cascade'
+})
+
+ingresso.belongsTo(compra, {
+    constraint: true,
+    foreignKey: 'NumeroCompra',
+    onDelete: 'cascade'
+})
 
 module.exports = ingresso;

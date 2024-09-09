@@ -54,6 +54,7 @@ route.get('/filmesAdm', home.pagfilmesadmGet);
 route.post('/filmesAdm', home.pagfilmesadmPost);
 
 route.post('/DeletarFilme/:id', multer(config).single('foto'), excluir.deletarFilme);
+route.post('/DeletarCinema/:id', multer(config).single('foto'), excluir.deletarCinema);
 
 route.get('/cinemasAdm', home.pagcinemasadmGet);
 route.post('/cinemasAdm', home.pagcinemasadmPost);
@@ -100,5 +101,8 @@ route.post('/newSessao', cadastro.sessaoInsert);
 // -------------------------------- EDITAR ----------------------------------
 route.get('/editarFilme/:id', editar.filmes);
 route.post('/editarFilme/:id', multer(config).single('foto'), editar.adicionarFilme);
+
+route.get('/editarCinema/:id', editar.cinemas);
+route.post('/editarCinema/:id', multer(config).single('foto'), editar.adicionarCinema);
 
 module.exports = route;
