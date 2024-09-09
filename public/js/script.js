@@ -80,6 +80,10 @@ const homeTituloFranquia = document.getElementById("home-titulo-franquia");
 const carousel = document.getElementById("carouselExampleCards");
 const setaFilme = document.getElementById("seta-titulo-filme");
 const setaFranquia = document.getElementById("seta-titulo-franquia");
+const iconTheme = document.getElementById("img-theme");
+const btnTheme = document.getElementById("btn-theme");
+const iconBack = document.getElementById("icon-back");
+const btnBack = document.getElementById("btn-back");
 
 function darkMode() {
     
@@ -95,10 +99,16 @@ function darkMode() {
         setaFilme.style.fill = "white";
         setaFranquia.style.fill = "white";
         carousel.className = "carousel carousel-filmes slide";
+        iconTheme.src = "/public/img/light-mode-white.png";
+        btnTheme.style.backgroundColor = "#0d1117";
+        btnTheme.style.borderColor = "white";
+        iconBack.src = "/public/img/seta-white.png";
+        btnBack.style.backgroundColor = "#0d1117";
+        btnBack.style.borderColor = "white";
         
         for(let i = 1; i < 10; i++) {
             cardFilme = document.getElementById(`card-filme${i}`);
-            cardFilme.style.background = "#953C4C";
+            cardFilme.style.backgroundColor = "#953C4C";
         }
     }
     
@@ -111,12 +121,18 @@ function darkMode() {
         homeTituloFranquia.style.color = "black";
         setaFilme.style.fill = "black";
         setaFranquia.style.fill = "black";
-        lightActive = true;
+        iconTheme.src = "/public/img/dark-mode-black.png";
+        btnTheme.style.backgroundColor = "white";
+        btnTheme.style.borderColor = "black";
+        iconBack.src = "/public/img/seta-black.png";
+        btnBack.style.backgroundColor = "white";
+        btnBack.style.borderColor = "black";
         
         for(let i = 1; i < 10; i++) {
             cardFilme = document.getElementById(`card-filme${i}`);
-            cardFilme.style.background = "white";
+            cardFilme.style.backgroundColor = "white";
         }
+        lightActive = true;
     }
     
 }
