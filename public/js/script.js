@@ -56,7 +56,9 @@ function UpdateImgCinema(){
 };
 
 //botão de quantidade
+
 //barra de pesquisa
+
 
 //atualizar cadastro
 

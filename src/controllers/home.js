@@ -6,7 +6,7 @@ const sala = require('../model/sala');
 const cliente = require('../model/cliente');
 const sessao = require('../model/sessao');
 const generos = require('../model/genero');
-const { where } = require('sequelize');
+const { where,Op } = require('sequelize');
 
 const fs = require("fs");
 const { param } = require('../../routes');
@@ -165,7 +165,20 @@ module.exports = {
     },
 
     async pagFilmesBrevePost(req, res) {
-        res.render('../views/filmesBreve');
+
+        const dados = req.body.pesquisa;
+        console.log(dados);
+
+        const filmes = await filme.findAll({
+            raw: true,
+            attributes: ['IDFilme', 'Titulo', 'DataEstreia', 'DataSaida',  'Duracao', 'Foto','ClassificacoesIndicativa.Idade'],
+            include:{
+                model: classificacao
+            },
+            where: {Titulo:{[Op.like]:`%${dados}%`}}
+        })
+
+        res.render('../views/filmesBreve', {filmes});
     },
 
     async pagFilmesCartazGet(req, res) {
@@ -182,7 +195,19 @@ module.exports = {
     },
 
     async pagFilmesCartazPost(req, res) {
-        res.render('../views/filmesCartaz');
+        const dados = req.body.pesquisa;
+        console.log(dados);
+
+        const filmes = await filme.findAll({
+            raw: true,
+            attributes: ['IDFilme', 'Titulo', 'DataEstreia', 'DataSaida',  'Duracao', 'Foto','ClassificacoesIndicativa.Idade'],
+            include:{
+                model: classificacao
+            },
+            where: {Titulo:{[Op.like]:`%${dados}%`}}
+        })
+
+        res.render('../views/filmesCartaz', {filmes});
     },
 
     async pagCinemasGet(req, res) {
@@ -207,15 +232,18 @@ module.exports = {
 
     async pagDetalhesFilmeGet(req, res) {
 
-        const filmes = await filme.findAll({
+        const id = req.params.id;
+
+        const filmes = await filme.findOne({
             raw: true,
-            attributes: ['IDFilme', 'Titulo', 'DataEstreia', 'DataSaida',  'Duracao', 'Foto','ClassificacoesIndicativa.Idade', 'Genero.Nome'],
+            attributes: ['IDFilme', 'Titulo', 'DataEstreia', 'DataSaida',  'Foto', 'Duracao', 'ClassificacoesIndicativa.Idade', 'Genero.Nome'],
             include:[
                 {model: classificacao}, 
                 {model: generos}
-            ]
-        });
-
+            ],
+            where: {IDFilme : id}}
+        );
+        
         res.render('../views/detalhesFilme', {filmes});
     },
 

@@ -5,14 +5,15 @@
 
 .box-filme {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     width: 55%;
     height: 320px;
-    margin: 5% 0 0 15%;
+    margin: 5% 0 0 10%;
 }
 
 .box-filme img {
-    width: 50%;
+    width: 280px;
+    height: 400px;
     margin-right: 10%;
     border: 1px solid black;
     border-radius: 10px;
@@ -27,8 +28,9 @@
 
 .caracteristicas-filme {
     display: flex;
-    width: 50%;
+    width: 100%;
     align-self: start;
+    gap: 30px;
 }
 
 .caracteristicas-filme img {
