@@ -4,6 +4,7 @@ const cinemaLocal = require('../model/cinemaLocal');
 const endereco = require('../model/endereco');
 const sala = require('../model/sala');
 const cliente = require('../model/cliente');
+const sessao = require('../model/sessao');
 const { where } = require('sequelize');
 
 const fs = require("fs");
@@ -36,12 +37,8 @@ async deletarFilme(req, res){
 async deletarCinema(req, res){      
     const dados = req.body;
     const id = req.params.id;
-
-    console.log('hdsfds')
     
     if (dados.envio == 'Excluir') {
-
-        console.log('hdsfds')
 
         const antigaFoto = await cinemaLocal.findAll({
             raw: true,
@@ -57,5 +54,18 @@ async deletarCinema(req, res){
     }
 
     res.redirect('/cinemasAdm');
+},
+async deletarSessao(req, res){      
+    const dados = req.body;
+    const id = req.params.id;
+    
+    if (dados.envio == 'Excluir') {
+
+        await sessao.destroy({ where: { IDSessao: id} });
+        res.redirect('/sessoesAdm');
+        return;
+    }
+
+    res.redirect('/sessoesAdm');
 }
 }

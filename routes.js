@@ -53,9 +53,6 @@ route.post('/pagamento', home.pagPagamentoPost);
 route.get('/filmesAdm', home.pagfilmesadmGet);
 route.post('/filmesAdm', home.pagfilmesadmPost);
 
-route.post('/DeletarFilme/:id', multer(config).single('foto'), excluir.deletarFilme);
-route.post('/DeletarCinema/:id', multer(config).single('foto'), excluir.deletarCinema);
-
 route.get('/cinemasAdm', home.pagcinemasadmGet);
 route.post('/cinemasAdm', home.pagcinemasadmPost);
 
@@ -104,5 +101,11 @@ route.post('/editarFilme/:id', multer(config).single('foto'), editar.adicionarFi
 
 route.get('/editarCinema/:id', editar.cinemas);
 route.post('/editarCinema/:id', multer(config).single('foto'), editar.adicionarCinema);
+
+// -------------------------------- DELETAR ----------------------------------
+
+route.post('/DeletarFilme/:id', multer(config).single('foto'), excluir.deletarFilme);
+route.post('/DeletarCinema/:id', multer(config).single('foto'), excluir.deletarCinema);
+route.post('/DeletarSessao/:id', multer(config).single('foto'), excluir.deletarSessao);
 
 module.exports = route;

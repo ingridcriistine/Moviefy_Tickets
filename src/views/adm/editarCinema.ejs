@@ -3,14 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="author" content="Ingrid">
-        <title>Editar Cinema</title>
+        <title>Moviefy Tickets | Home</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link rel="stylesheet" href="/public/css/geral.css">
+        <link rel="stylesheet" href="../css/geral.css">
         
-        <link rel="stylesheet" href="/public/css/indexadm.css">
-        <link rel="stylesheet" href="/public/css/registrar.css">
-        <script src="../../../public/js/script.js"></script>
+        <link rel="stylesheet" href="../css/indexadm.css">
+        <link rel="stylesheet" href="../css/registrar.css">
+        <script src="../js/script.js"></script>
     </head>
 
     <body>
@@ -23,64 +23,65 @@
             </nav>
             <nav class="sub-menu">
                 <div class="titulos">
-                    <a href="cinemasadm.html">◀</a>
+                    <a href="/cinemasAdm">◀</a>
                     <p>Editar Cinema</p>
                 </div>
             </nav>
         </header>
-        
         <main>
-            <form action="cinemasadm.html">
-                <label id="perfil-cinema" for="files-imagem"><img id="labelCinema" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOoGqCfA6Btgcnyx6rUs8QB3yC_ud7b6rePw&s" alt="Foto do cinema"></label>
-                <input id="files-imagem" type="file">
+            
+
+            <form action="/registrarCinema" method="post" enctype="multipart/form-data"> 
+                <label id="perfil-cinema" for="files-imagem"><img id="labelCinema" src="../img/padrao-cinema.jfif" alt="Foto do cinema" accept="image/*"></label>
+                <input id="files-imagem" type="file" name="foto" onchange="UpdateImgCinema()">
 
                 <div class="perguntas">
                     <label for="">Nome</label><br>
-                    <input style="width: 100%;" type="text" placeholder="Nome do local">
+                    <input style="width: 100%;" type="text" placeholder="Nome do local" name="nome">
                     
                     <div class="sections">
                         <div class="select">
                             <label for="">Franquia</label>
-                            <select class="form-select">
+                            <select class="form-select" name="franquia">
                                 <option hidden>Selecionar Franquia</option>
-                                <option value="0">Curitiba</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <% for (let i = 0; i < franquias.length; i++) { %>
+                                    <option value='<%= franquias[i].IDFranquia %>'><%= 
+                                        franquias[i].Nome %></option>
+                                <% } %>
                             </select>
                         </div>   
                         <div class="data">
                             <label for="">Preço do ingresso</label>
-                            <input type="number" step="0.01" placeholder="R$0.00">
+                            <input type="number" step="0.01" placeholder="R$0.00" name="preco">
                         </div>   
                     </div>
                     
                     <div class="sections">
                         <div id="logradouro"  class="endereco">
                             <label for="">Logradouro</label>
-                            <input type="text" placeholder="Rua/Av ...">
+                            <input type="text" placeholder="Rua/Av ..." name="logradouro">
                         </div>   
                         
                         <div  id="cep" class="endereco">
                             <label for="">CEP</label>
-                            <input type="text" placeholder="XXXXX-XXX">
+                            <input type="text" placeholder="XXXXX-XXX" name="cep">
                         </div>   
                     </div>
                     
                     <div class="sections">
                         <div class="endereco">
                             <label for="">Número</label>
-                            <input type="number" placeholder="Número do local">
+                            <input type="number" name="numeroLocal" placeholder="Número do local">
                         </div>   
                         
                         <div class="endereco">
                             <label for="">Cidade</label>
-                            <input type="text" placeholder="Cidade do local">
+                            <input type="text" name="cidade" placeholder="Cidade do local">
                         </div>   
                     </div>
                     
                     <div id="butaoun">
-                        <button id="registro">Editar</button>
+                        <button type="submit" id="registro">Editar</button>
                     </div>
                 </div>
             </form>

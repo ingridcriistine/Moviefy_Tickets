@@ -63,10 +63,10 @@
                                 <p class="card-text">Sala: <%= sessoes[i].Numero %></p>
                                 <p class="card-text"><%= sessoes[i].Hora.toString().substring(16,21) %></a>
                             </div>
-                            <div class="edicoes">
+                            <form class="edicoes" action="DeletarSessao/<%= sessoes[i].IDSessao%>" method="post" >
                                 <a id="button-editar" href="">editar</a>
-                                <a href=""><img src="../img/trash.png" alt=""></a>
-                            </div>
+                                <button href="" type="submit" name="envio" value="Excluir"><img src="../img/trash.png" alt=""></button>
+                            </form>
                         </div>
                     </a>
                 <%}%>

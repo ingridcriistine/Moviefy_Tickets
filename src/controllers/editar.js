@@ -85,9 +85,18 @@ module.exports = {
 
         const parametro = req.params.id;
 
-       
+        const franquias = await franquia.findAll({
+            raw: true,
+            attributes: ['IDFranquia', 'Nome']
+        });
 
-        res.render('../views/adm/editarCinema');
+        const enderecos = await endereco.findAll({
+            raw: true,
+            attributes: ['Logradouro', 'CinemaLocal.Nome', 'CinemaLocal.Foto', 'IDCinema'],
+            include: [{model: cinemaLocal}]
+        });
+
+        res.render('../views/adm/editarCinema', {enderecos, franquias});
     },
 
     async adicionarCinema(req, res){
@@ -97,34 +106,29 @@ module.exports = {
 
 
         if (req.file) {
-            const antigaFoto = await filme.findAll({
+            const antigaFoto = await cinemaLocal.findAll({
                 raw: true,
                 attributes: ['Foto'],
-                where: { IDFilme: id }
+                where: { IDCinemaLocal: id }
             });
 
-            if (antigaFoto[0].Foto != 'padrao-filme.jfif') fs.unlink(`public/img/${antigaFoto[0].Foto}`, ( err => { if(err) console.log(err); } ));
+            if (antigaFoto[0].Foto != 'padrao-cinema.jfif') fs.unlink(`public/img/${antigaFoto[0].Foto}`, ( err => { if(err) console.log(err); } ));
 
             
-            await filme.update(
+            await cinemaLocal.update(
                 {Foto: req.file.filename},
-                {where: { IDFilme: id }}
+                {where: { IDCinemaLocal: id }}
             );
         }
 
 
-        await filme.update({
-            Titulo: dados.titulo,
-            DataEstreia: dados.dataEstreia,
-            DataSaida: dados.dataSaida,
-            Duracao: dados.duracao,
-            IDGenero: dados.genero,
-            IDClassificacao: dados.classificacao
+        await cinemaLocal.update({
+            Nome: dados.nome,
+            Preco: dados.preco,
+            IDFranquia: dados.franquia
         },
         {
-            where: { IDFilme: id }
+            where: { IDCinemaLocal: id }
         });
-
-        res.redirect('/cinemasAdm');
-    },
+    }
 }
