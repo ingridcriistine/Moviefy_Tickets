@@ -22,6 +22,11 @@ main {
     align-items: center;
 }
 
+.btn-next, .btn-prev {
+    width: 10%;
+    margin: 5px;
+}
+
 #home-filmes, #home-franquias {
     width: 100%;
 }
@@ -46,7 +51,8 @@ main {
 .lista-filmes {
     display: flex;
     justify-content: space-between;
-    margin: 1% 9% 4% 5%;
+    align-items: center;
+    margin: 1% 9% 4% 9%;
 }
 
 .lista-filmes a {

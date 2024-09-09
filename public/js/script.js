@@ -88,10 +88,13 @@ const btnBack = document.getElementById("btn-back");
 function darkMode() {
     
     let cardFilme;
+    let cardTitle;
+    let cardText;
+    let cardClass;
     const lightActive = body.style.backgroundColor == "white";
     
     if(lightActive) {
-        body.style.backgroundColor = "#0d1117";
+        body.style.backgroundColor = "rgb(23, 28, 37)";
         body.style.color = "white";
         main.style.color = "white";
         homeTituloFilme.style.color = "white";
@@ -108,7 +111,15 @@ function darkMode() {
         
         for(let i = 1; i < 10; i++) {
             cardFilme = document.getElementById(`card-filme${i}`);
-            cardFilme.style.backgroundColor = "#953C4C";
+            cardTitle = document.getElementById(`card-title${i}`);
+            cardText = document.getElementById(`card-text${i}`);
+            cardClass = document.getElementById(`card-class${i}`);
+            cardFilme.style.backgroundColor = "#282d33";
+            cardFilme.style.borderColor = "white";
+            cardFilme.style.color = "white";
+            cardTitle.style.color = "white";
+            cardText.style.color = "white";
+            cardClass.style.color = "white";
         }
     }
     
@@ -130,8 +141,16 @@ function darkMode() {
         
         for(let i = 1; i < 10; i++) {
             cardFilme = document.getElementById(`card-filme${i}`);
+            cardTitle = document.getElementById(`card-title${i}`);
+            cardText = document.getElementById(`card-text${i}`);
+            cardClass = document.getElementById(`card-class${i}`);
             cardFilme.style.backgroundColor = "white";
+            cardFilme.style.borderColor = "black";
+            cardTitle.style.color = "black";
+            cardText.style.color = "black";
+            cardClass.style.color = "black";
         }
+        
         lightActive = true;
     }
     
