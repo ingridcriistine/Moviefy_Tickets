@@ -1,7 +1,3 @@
-body {
-    
-}
-
 main {
     display: flex;
     flex-direction: column;
@@ -20,6 +16,11 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.btn-next, .btn-prev {
+    width: 10%;
+    margin: 5px;
 }
 
 #home-filmes, #home-franquias {
@@ -46,7 +47,8 @@ main {
 .lista-filmes {
     display: flex;
     justify-content: space-between;
-    margin: 1% 9% 4% 5%;
+    align-items: center;
+    margin: 1% 9% 4% 9%;
 }
 
 .lista-filmes a {
@@ -94,4 +96,56 @@ main {
 
 .box-franquia h3 {
     font-size: 20px;
+}
+
+
+
+/*---------------RESPONSIVIDADE-------------------*/
+/*Celular*/
+@media only screen and (max-width: 499px) {
+     /*CARROSSEL*/
+     .carousel-geral {
+        display: none;
+    }
+    .btn-next, .btn-prev {
+        width: 5%;
+        margin: 15px;
+    }
+    .home-section-titulo h3 {
+        font-size: 18px;
+    }
+
+    /*CARDS*/
+    .lista-filmes {
+        margin: 1% 6% 4% 6%;
+    }
+    .cards-filmes {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .lista-franquias {
+        justify-content: center;
+    }
+    
+    .box-franquia {
+        width: 50%;
+    }
+    
+}
+
+/*Tablet*/
+@media screen and (min-width: 500px) and (max-width: 899px) {
+
+}
+
+/*Notebook*/
+@media screen and (min-width: 900px) and (max-width: 1299px) {
+
+}
+
+/*Computadores*/
+@media screen and (min-width: 1300px) {
+    body {
+
+    }
 }
