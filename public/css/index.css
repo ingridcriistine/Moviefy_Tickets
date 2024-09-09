@@ -14,7 +14,7 @@ main {
 }
 
 .carousel-geral {
-    height: 400px;
+    height: 50%;
     margin-bottom: 20px;
     background-color: antiquewhite;
     display: flex;
