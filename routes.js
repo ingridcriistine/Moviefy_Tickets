@@ -102,6 +102,9 @@ route.post('/editarFilme/:id', multer(config).single('foto'), editar.adicionarFi
 route.get('/editarCinema/:id', editar.cinemas);
 route.post('/editarCinema/:id', multer(config).single('foto'), editar.adicionarCinema);
 
+route.get('/editarSessao/:id', editar.sessao);
+route.post('/editarSessao/:id', editar.adicionarSessao);
+
 // -------------------------------- DELETAR ----------------------------------
 
 route.post('/DeletarFilme/:id', multer(config).single('foto'), excluir.deletarFilme);
