@@ -56,9 +56,9 @@
                                     <form action="/DeletarCinema/<%= enderecos[i].IDCinema %>"  method="post"  enctype="multipart/form-data" style="display: flex; flex-direction: row; padding-top: 0px;">
                                         <button  name="envio" value="Excluir" type="submit"><img id="trash" src="../img/trash.png"></button>
                                     </form>
-                                    <form action="/editarCinema/<%= enderecos[i].IDCinema %>" method="post" enctype="multipart/form-data">
-                                        <button type="submit"><img  id="lapis" src="../img/vector.png" alt=""></button>
-                                    </form>
+                                    <div >
+                                        <a href="/editarCinema/<%= enderecos[i].IDCinema %>" type="submit"><img  id="lapis" src="../img/vector.png" alt=""></a>
+                                    </div>
                                 </div>
                             </div>
                         </a>

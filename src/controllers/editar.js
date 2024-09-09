@@ -42,7 +42,6 @@ module.exports = {
 
         res.render('../views/adm/editarFilme', {filmes, generos, classificacoes});
     },
-
     async adicionarFilme(req, res){
 
         const dados = req.body;
@@ -65,7 +64,6 @@ module.exports = {
             );
         }
 
-
         await filme.update({
             Titulo: dados.titulo,
             DataEstreia: dados.dataEstreia,
@@ -85,20 +83,19 @@ module.exports = {
 
         const parametro = req.params.id;
 
-        const franquias = await franquia.findAll({
+        const franquias = await franquia.findAll( {
             raw: true,
             attributes: ['IDFranquia', 'Nome']
         });
 
-        const enderecos = await endereco.findAll({
+        const enderecos = await endereco.findByPk(parametro, {
             raw: true,
-            attributes: ['Logradouro', 'CinemaLocal.Nome', 'CinemaLocal.Foto', 'IDCinema'],
+            attributes: ['Logradouro', 'CinemaLocal.Nome', 'CinemaLocal.Foto', 'IDCinema', 'Numero', 'Cidade', 'CEP', 'IDEndereco', 'CinemaLocal.Preco', 'CinemaLocal.IDFranquia'],
             include: [{model: cinemaLocal}]
         });
 
         res.render('../views/adm/editarCinema', {enderecos, franquias});
     },
-
     async adicionarCinema(req, res){
 
         const dados = req.body;
@@ -130,5 +127,56 @@ module.exports = {
         {
             where: { IDCinemaLocal: id }
         });
+
+        res.redirect('/cinemasAdm');
+    },
+
+    async sessao(req, res) {
+
+        const parametro = req.params.id;
+
+        const cinemas = await cinemaLocal.findAll({
+            raw: true,
+            attributes: ['IDCinemaLocal', 'Nome']
+        });
+
+        const salas = await sala.findAll({
+            raw: true,
+            attributes: ['IDSala', 'Numero']
+        });
+
+        const filmes = await filme.findAll({
+            raw: true,
+            attributes: ['IDFilme', 'Titulo']
+        })
+
+        const sessoes = await sessao.findByPk(parametro, {
+            raw: true,
+            attributes: ['IDSessao', 'IDCinema', 'IDFilme', 'IDSala']
+        });
+
+        res.render('../views/adm/editarSessao', {sessoes, cinemas, salas, filmes});
+    },
+
+    async adicionarSessao(req, res){
+
+        const dados = req.body;
+        const id = req.params.id;
+
+        await sessao.update({
+            TresD: dados.optionslinguagem,
+            Dublado: dados.optionsbase,
+            Ativa: 1,
+            Hora: dados.hora,
+            Data: dados.data,
+            IDCinema: dados.cinemaLocalid,
+            IDSala: dados.salaCinema,
+            IDFilme: dados.filmeCinema
+        },
+        {
+            where: { IDSessao: id }
+        });
+
+        res.redirect('/sessoesAdm');
     }
 }

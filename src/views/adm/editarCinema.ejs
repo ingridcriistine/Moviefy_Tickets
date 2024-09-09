@@ -31,13 +31,13 @@
         <main>
             
 
-            <form action="/registrarCinema" method="post" enctype="multipart/form-data"> 
+            <form action="/editarCinema/<%= enderecos.IDCinema %>" method="post" enctype="multipart/form-data"> 
                 <label id="perfil-cinema" for="files-imagem"><img id="labelCinema" src="../img/padrao-cinema.jfif" alt="Foto do cinema" accept="image/*"></label>
                 <input id="files-imagem" type="file" name="foto" onchange="UpdateImgCinema()">
 
                 <div class="perguntas">
                     <label for="">Nome</label><br>
-                    <input style="width: 100%;" type="text" placeholder="Nome do local" name="nome">
+                    <input style="width: 100%;" type="text" placeholder="Nome do local" name="nome" value="<%= enderecos.Nome%>">
                     
                     <div class="sections">
                         <div class="select">
@@ -45,38 +45,38 @@
                             <select class="form-select" name="franquia">
                                 <option hidden>Selecionar Franquia</option>
                                 <% for (let i = 0; i < franquias.length; i++) { %>
-                                    <option value='<%= franquias[i].IDFranquia %>'><%= 
+                                    <option value='<%= franquias[i].IDFranquia %>' <%= enderecos.IDFranquia == franquias[i].IDFranquia ? 'selected' : ''%>><%= 
                                         franquias[i].Nome %></option>
                                 <% } %>
                             </select>
                         </div>   
                         <div class="data">
                             <label for="">Preço do ingresso</label>
-                            <input type="number" step="0.01" placeholder="R$0.00" name="preco">
+                            <input type="number" step="0.01" placeholder="R$0.00" name="preco" value="<%= enderecos.Preco%>">
                         </div>   
                     </div>
                     
                     <div class="sections">
                         <div id="logradouro"  class="endereco">
                             <label for="">Logradouro</label>
-                            <input type="text" placeholder="Rua/Av ..." name="logradouro">
+                            <input type="text" placeholder="Rua/Av ..." name="logradouro" value="<%= enderecos.Logradouro%>">
                         </div>   
                         
                         <div  id="cep" class="endereco">
                             <label for="">CEP</label>
-                            <input type="text" placeholder="XXXXX-XXX" name="cep">
+                            <input type="text" placeholder="XXXXX-XXX" name="cep" value="<%= enderecos.CEP %>">
                         </div>   
                     </div>
                     
                     <div class="sections">
                         <div class="endereco">
                             <label for="">Número</label>
-                            <input type="number" name="numeroLocal" placeholder="Número do local">
+                            <input type="number" name="numeroLocal" placeholder="Número do local" value="<%= enderecos.Numero%>">
                         </div>   
                         
                         <div class="endereco">
                             <label for="">Cidade</label>
-                            <input type="text" name="cidade" placeholder="Cidade do local">
+                            <input type="text" name="cidade" placeholder="Cidade do local" value="<%= enderecos.Cidade%>">
                         </div>   
                     </div>
                     

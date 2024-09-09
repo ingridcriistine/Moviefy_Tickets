@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Ingrid">
+        <title>Moviefy Tickets | Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/geral.css">
+        
+        <link rel="stylesheet" href="../css/indexadm.css">
+        <link rel="stylesheet" href="../css/registrar.css">
+        <script src="../js/script.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <nav class="menu">
+                <a href="/index"><h2 class="titulo"><i>Moviefy Tickets</i></h2></a>
+                <div class="nav-login">
+                    <a href="">Nome adm</a>
+                </div>
+            </nav>
+            <nav class="sub-menu">
+                <div class="titulos">
+                    <a href="/sessoesAdm">◀</a>
+                    <p>Editar Sessão</p>
+                </div>
+            </nav>
+        </header>
+        <main>
+            
+            
+            <form action="/editarSessao/ <%= sessoes.IDSessao %>" method="post">
+                <div class="perguntas">
+                    <div class="sections">
+                        <div class="select">
+                            <label for="">Filme</label>
+                            <select name="filmeCinema"  class="form-select" >
+                                <% for (let i = 0; i < filmes.length; i++) { %>
+                                    <option value='<%=filmes[i].IDFilme %>'  <%= filmes[i].IDFilme == sessoes.IDFilme ? 'selected' : ''%>><%= filmes[i].Titulo %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                        <div class="select">
+                            <label for="">Local</label>
+                            <select name="cinemaLocalid" class="form-select">
+                                <option hidden>Selecioinar</option>
+                                <% for (let i = 0; i < cinemas.length; i++) { %>
+                                    <option value='<%=cinemas[i].IDCinemaLocal %>' <%= cinemas[i].IDCinema == sessoes.IDCinema ? 'selected' : ''%>><%= cinemas[i].Nome %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="sections">
+                        <div class="data">
+                            <label for="">Data de estreia</label>
+                            <input type="date" name="data" value="<%= sessoes.Data%>">
+                        </div>   
+                        <div class="select">
+                            <label for="">Sala</label>
+                            <select name="salaCinema" class="form-select">
+                                <% for (let i = 0; i < salas.length; i++) { %>
+                                    <option value='<%=salas[i].IDSala %>' <%= sessoes.IDSala == salas[i].IDSala ? 'selected' : ''%>><%= salas[i].Numero %></option>
+                                <% } %>
+                            </select>
+                        </div>   
+                    </div>
+
+                    <div class="sections lastLine">
+                        <div class="select sessaochecks">
+                            <label for="">Horário</label>
+                            <input name="hora" style="text-align: center;" id="duration" type="time" placeholder="Duração do filme em mminutos" value="<%= sessoes.Hora%>">
+                        </div>
+                        <div class="select sessaochecks">
+                            <label>Categoria:</label>
+                            
+                            <div>
+                                <input type="radio" class="btn-check" name="optionsbase" id="optionD1" autocomplete="off" value="1" <%= sessoes.TresD ? 'checked' : ''%>>
+                                <label class="btn" for="optionD1">3D</label>
+                                
+                                <input type="radio" class="btn-check" name="optionsbase" id="optionD2" autocomplete="off" <%= !sessoes.TresD ? 'checked' : ''%> value="0">
+                                <label class="btn" for="optionD2">2D</label>
+                            </div>
+                        </div>
+
+                        <div class="select sessaochecks">
+                            <label>Linguagem:</label>
+    
+                            <div>
+                                <input value="0" type="radio" class="btn-check" name="optionslinguagem" id="optionLinguagem1" autocomplete="off" <%= !sessoes.Dublado ? 'checked' : ''%>>
+                                <label class="btn" for="optionLinguagem1" >Legendado</label>
+        
+                                <input <%= sessoes.Dublado ? 'checked' : ''%> value="1" type="radio" class="btn-check" name="optionslinguagem" id="optionLinguagem2" autocomplete="off">
+                                <label class="btn" for="optionLinguagem2">Dublado</label>
+                            </div>
+                        </div>
+                    </div>    
+                    
+                    <div id="butaoun">
+                        <button id="registro">Editar</button>
+                    </div>
+                </div>
+            </form>
+        </main>
+
+        <footer class="footer-simples">
+            <p class="copyright">Copyright © 2024 Moviefy Tickets. Todos os direitos reservados.</p>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    </body>
+</html>
