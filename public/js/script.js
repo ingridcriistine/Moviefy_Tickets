@@ -102,10 +102,10 @@ function darkMode() {
         setaFilme.style.fill = "white";
         setaFranquia.style.fill = "white";
         carousel.className = "carousel carousel-filmes slide";
-        iconTheme.src = "/public/img/light-mode-white.png";
+        iconTheme.src = "/img/light-mode-white.png";
         btnTheme.style.backgroundColor = "#0d1117";
         btnTheme.style.borderColor = "white";
-        iconBack.src = "/public/img/seta-white.png";
+        iconBack.src = "/img/seta-white.png";
         btnBack.style.backgroundColor = "#0d1117";
         btnBack.style.borderColor = "white";
         
@@ -132,10 +132,10 @@ function darkMode() {
         homeTituloFranquia.style.color = "black";
         setaFilme.style.fill = "black";
         setaFranquia.style.fill = "black";
-        iconTheme.src = "/public/img/dark-mode-black.png";
+        iconTheme.src = "img/dark-mode-black.png";
         btnTheme.style.backgroundColor = "white";
         btnTheme.style.borderColor = "black";
-        iconBack.src = "/public/img/seta-black.png";
+        iconBack.src = "/img/seta-black.png";
         btnBack.style.backgroundColor = "white";
         btnBack.style.borderColor = "black";
         
