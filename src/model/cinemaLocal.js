@@ -25,7 +25,8 @@ const cinemaLocal = database.define('CinemaLocal', {
 
 cinemaLocal.belongsTo(franquia, {
     constraint: true,
-    foreignKey: 'IDFranquia'
+    foreignKey: 'IDFranquia',
+    onDelete:  'cascade'
 });
 
 module.exports = cinemaLocal;

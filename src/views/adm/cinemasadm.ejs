@@ -42,19 +42,19 @@
             </div>
             <section id="cinemas" style="margin-top: 10px;">
                 <div class="cards-cinemas">
-                    <% for (let i =0; i < cinemas.length; i++) {%>
+                    <% for (let i =0; i < enderecos.length; i++) {%>
                         <a href="">
                             <div class="card card-cinema" style="justify-content: space-between;">
                                 <div class="box-titulos">
-                                    <img src="img/<%= cinemas[i].Foto %>" alt="" id="imagem-cinema">
+                                    <img src="img/<%= enderecos[i].Foto %>" alt="<%= enderecos[i].Nome %>" id="imagem-cinema">
                                     <div class="titulos-cinemas">
-                                        <h4><b><%= cinemas[i].Nome %></b></h4>
+                                        <h4><b><%= enderecos[i].Nome %></b></h4>
                                         <p><%= enderecos[i].Logradouro %></p>
                                     </div>
                                 </div>
                                 <div class="btns-cinema">
-                                    <form action="" style="display: flex; flex-direction: row; padding-top: 0px;">
-                                        <button><img id="trash" src="../img/trash.png" alt=""></button>
+                                    <form action="/DeletarCinema/<%= enderecos[i].IDCinema %>"  method="post"  enctype="multipart/form-data" style="display: flex; flex-direction: row; padding-top: 0px;">
+                                        <button  name="envio" value="Excluir" type="submit"><img id="trash" src="../img/trash.png"></button>
                                     </form>
                                     <form action="/editarCinema">
                                         <button><img  id="lapis" src="../img/vector.png" alt=""></button>

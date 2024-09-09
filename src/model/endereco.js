@@ -29,7 +29,8 @@ const endereco = database.define('Endereco', {
 
 endereco.belongsTo(cinema, {
     constraint: true,
-    foreignKey: 'IDCinema'
+    foreignKey: 'IDCinema',
+    onDelete:  'cascade'
 });
 
 module.exports = endereco;

@@ -22,9 +22,9 @@
 }
 
 #imagem-cinema {
-    width: 20%;
+    height: 110px;
     border-radius: 10%;
-    margin: 0 5% 0 5%;
+    margin: 0 10% 0 5%;
 }
 
 input:focus {

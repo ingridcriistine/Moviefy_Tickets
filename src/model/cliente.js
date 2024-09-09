@@ -36,9 +36,9 @@ const cliente = database.define('Clientes', {
 })
 
 cliente.belongsTo(tipo, {
-        constraint: true,
-        foreignKey: 'IDTipo'
-    },
-);
+    constraint: true,
+    foreignKey: 'IDTipo',
+    onDelete:  'cascade'
+});
 
 module.exports = cliente;

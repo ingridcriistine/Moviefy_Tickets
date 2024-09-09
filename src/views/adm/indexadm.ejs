@@ -95,14 +95,14 @@
                 </div>
 
                 <div class="lista-franquias">
-                    <% for (let i = 0; i<cinemas.length; i++) {%>
+                    <% for (let i = 0; i<enderecos.length; i++) {%>
                     <div class="box-franquia">
                         <a href="">
                             <div class="box-img-franquia">
-                                <img src="<% cinemas[i].Foto %>" alt="">
+                                <img src="img/<%= enderecos[i].Foto %>" alt="">
                             </div>
                         </a>
-                        <h3><%= cinemas[i].Nome %></h3>
+                        <h3><%= enderecos[i].Nome %></h3>
                     </div>
                     <%}%>
                 </div>

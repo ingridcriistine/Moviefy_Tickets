@@ -80,4 +80,51 @@ module.exports = {
 
         res.redirect('/filmesAdm');
     },
+    
+    async cinemas(req, res) {
+
+        const parametro = req.params.id;
+
+       
+
+        res.render('../views/adm/editarCinema');
+    },
+
+    async adicionarCinema(req, res){
+
+        const dados = req.body;
+        const id = req.params.id;
+
+
+        if (req.file) {
+            const antigaFoto = await filme.findAll({
+                raw: true,
+                attributes: ['Foto'],
+                where: { IDFilme: id }
+            });
+
+            if (antigaFoto[0].Foto != 'padrao-filme.jfif') fs.unlink(`public/img/${antigaFoto[0].Foto}`, ( err => { if(err) console.log(err); } ));
+
+            
+            await filme.update(
+                {Foto: req.file.filename},
+                {where: { IDFilme: id }}
+            );
+        }
+
+
+        await filme.update({
+            Titulo: dados.titulo,
+            DataEstreia: dados.dataEstreia,
+            DataSaida: dados.dataSaida,
+            Duracao: dados.duracao,
+            IDGenero: dados.genero,
+            IDClassificacao: dados.classificacao
+        },
+        {
+            where: { IDFilme: id }
+        });
+
+        res.redirect('/cinemasAdm');
+    },
 }
