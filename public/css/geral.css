@@ -130,6 +130,7 @@ select:hover {
 }
 
 .card-title {
+    width: 80%;
     margin: 20px 10px 0px 15px;
     color: black;
 }
