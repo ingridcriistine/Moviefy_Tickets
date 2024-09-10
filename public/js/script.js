@@ -166,15 +166,19 @@ const userModal = document.getElementById("user-modal");
 function atualizarCadastro() {
     perfil.style.display = "none";
     modalPerfil.style.display = "block";
-    modalPerfil.style.zIndex = "10";
     modalPerfil.style.marginLeft = "5%";
-    modalPerfil.style.marginTop = "10%";
+    modalPerfil.style.marginTop = "9%";
     modalPerfil.style.width = "100%";
     userModal.style.boxShadow = "black 0px 10px 10px";
-    tituloModal.style.boxShadow = "black 0px 10px 10px";
+    tituloModal.style.boxShadow = "black 0px 5px 5px";
+    // bgModal.style.opacity = "0.5";
+    // bgModal.style.zIndex = "0";
+    // modalPerfil.style.zIndex = "10";
+    // modalPerfil.style.opacity = "1";
 }
 
 function cancelar() {
     perfil.style.display = "flex";
     modalPerfil.style.display = "none";
+    // bgModal.style.opacity = "1";
 }

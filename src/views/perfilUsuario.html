@@ -13,14 +13,14 @@
         <script src="/public/js/script.js" defer></script>
     </head>
 
-    <body>
+    <body id="background-modal">
         <header id="top">
             <nav class="menu-simples">
                 <a href="/cliente"><h2 class="titulo"><i>Moviefy Tickets</i></h2></a>
             </nav>
         </header>
 
-        <main id="background-modal" style="margin-top: 140px;">
+        <main style="margin-top: 140px;">
             <section id="perfil">
                 <div class="titulo-perfil">
                     <h3><b>Meu perfil</b></h3>
@@ -94,21 +94,33 @@
                             <div class="sections">
                                 <div class="data">
                                     <label for="nome">Nome</label>
-                                    <input type="text" value="<%= clientes[i].Nome %>" name="nome">
+                                    <div class="input-edicao">
+                                        <input type="text" value="<%= clientes[i].Nome %>" name="nome">
+                                        <img src="/public/img/vector.png">
+                                    </div>
                                 </div>   
                                 <div class="data">
                                     <label for="cpf">CPF</label>
-                                    <input type="text" value="<%= clientes[i].CPF %>" name="cpf"> 
+                                    <div class="input-edicao">
+                                        <input type="text" value="<%= clientes[i].CPF %>" name="cpf"> 
+                                        <img src="/public/img/vector.png">
+                                    </div>
                                 </div>   
                             </div>
                             <div class="sections">
                                 <div class="data">
                                     <label for="dataNascimento">Data de nascimento</label>
-                                    <input type="date" value="<%= clientes[i].DataNascimento %>" name="dataNascimento">
+                                    <div class="input-edicao">
+                                        <input type="date" value="<%= clientes[i].DataNascimento %>" name="dataNascimento">
+                                        <img src="/public/img/vector.png">
+                                    </div>
                                 </div>   
                                 <div class="data">
                                     <label for="email">Email</label>
-                                    <input type="email" value="<%= clientes[i].Email%>" name="email">
+                                    <div class="input-edicao">
+                                        <input type="email" value="<%= clientes[i].Email%>" name="email">
+                                        <img src="/public/img/vector.png">
+                                    </div>
                                 </div>
                             </div>
                             <button type="submit" onclick="salvarCadastro()" class="btn-modal-atualizar">Atualizar</button>    

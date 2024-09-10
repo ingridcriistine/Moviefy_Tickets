@@ -121,3 +121,20 @@
     background-color: rgb(119, 9, 9);
     color: white;
 }
+
+.input-edicao {
+    position: relative;
+    width: 95%;
+}
+
+.input-edicao img {
+    position: absolute;
+    top: 35%;
+    left: 15px;
+    width: 12px;
+}
+
+.input-edicao input {
+    width: 100%;
+    padding-left: 35px;
+}
