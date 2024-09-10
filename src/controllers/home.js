@@ -7,6 +7,7 @@ const cliente = require('../model/cliente');
 const sessao = require('../model/sessao');
 const generos = require('../model/genero');
 const franquia = require('../model/franquia');
+const pagamento = require('../model/pagamento');
 const { where,Op } = require('sequelize');
 const sequelize = require('sequelize');
 
@@ -14,6 +15,7 @@ const fs = require("fs");
 const { param } = require('../../routes');
 const { get } = require('http');
 const { now } = require('sequelize/lib/utils');
+
 
 module.exports = {
     
@@ -382,14 +384,30 @@ module.exports = {
     },
 
     async pagComprarIngressoGet(req, res) {
-        res.render('../views/comprarIngresso');
+        let id = req.params.id;
+
+        const sessoes = await sessao.findOne({
+            raw: true,
+            attributes: ['IDSessao', 'TresD', 'Ativa', 'Data', 'Hora', 'IDFilme', 'IDCinema', 'IDSala','Dublado', 'Filme.Foto', 'Filme.Titulo', 'CinemaLocal.Nome', 'Sala.Numero'],
+            include:[
+                {model: filme},
+                {model: cinemaLocal},
+                {model: sala}
+            ],
+            where: {IDSessao : id}
+        });
+
+        const pagamentos = await pagamento.findAll({
+            raw: true,
+            attributes: ['IDPagamento', 'Tipo']
+        });
+
+        console.log(sessoes);
+
+        res.render('../views/comprarIngresso', {sessoes, pagamentos});
     },
 
     async pagComprarIngressoPost(req, res) {
-        res.render('../views/comprarIngresso');
-    },
-
-    async pagComprarIngressoGet(req, res) {
         res.render('../views/comprarIngresso');
     },
 

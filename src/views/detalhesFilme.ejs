@@ -56,7 +56,7 @@
                 <h3><b>Sessões</b></h3>
                 <hr>
 
-                <div class="menu-datas">
+                <!-- <div class="menu-datas">
                     <% for (let i = 0; i < dias.length; i++) { %>
                         <a style="text-decoration: none;" href="/sessoesFilme/<%= filmes.IDFilme%>/<%= dias[i].replace('/','.').substring(0,5)%>">
                             <div class="data">
@@ -64,7 +64,7 @@
                             </div>
                         </a>
                     <% } %>
-                </div>
+                </div> -->
 
                 <div class="box-sessao">
                     <div class="sessao-titulos">
@@ -81,7 +81,7 @@
                         <div class="box-horarios">
                             <% for (let i = 0; i < sessoes.length; i++) { %>
                                 <% if (sessoes[i].Dublado && !sessoes[i].TresD) { %>
-                                    <a href=""><div class="hora"><%= sessoes[i].Data.toISOString().substring(5,10).replace('-',':') %></div></a>
+                                    <a href="/comprarIngresso/<%=sessoes[i].IDSessao%>"><div class="hora"><%= sessoes[i].Hora.toISOString().substring(11,16) %></div></a>
                                 <% } %>
                             <% } %>
                         </div>
@@ -91,7 +91,7 @@
                         <div class="box-horarios">
                             <% for (let i = 0; i < sessoes.length; i++) { %>
                                 <% if (sessoes[i].Dublado && sessoes[i].TresD) { %>
-                                    <a href=""><div class="hora"><%= sessoes[i].Data.toISOString().substring(5,10).replace('-',':') %></div></a>
+                                    <a href="/comprarIngresso/<%=sessoes[i].IDSessao%>"><div class="hora"><%= sessoes[i].Hora.toISOString().substring(11,16) %></div></a>
                                 <% } %>
                             <% } %>
                             
@@ -102,7 +102,7 @@
                         <div class="box-horarios">
                             <% for (let i = 0; i < sessoes.length; i++) { %>
                                 <% if (!sessoes[i].Dublado && !sessoes[i].TresD) { %>
-                                    <a href=""><div class="hora"><%= sessoes[i].Data.toISOString().substring(5,10).replace('-',':') %></div></a>
+                                    <a href="/comprarIngresso/<%=sessoes[i].IDSessao%>"><div class="hora"><%= sessoes[i].Hora.toISOString().substring(11,16) %></div></a>
                                 <% } %>
                             <% } %>
                         </div>
@@ -112,7 +112,7 @@
                         <div class="box-horarios">
                             <% for (let i = 0; i < sessoes.length; i++) { %>
                                 <% if (!sessoes[i].Dublado && sessoes[i].TresD) { %>
-                                    <a href=""><div class="hora"><%= sessoes[i].Data.toISOString().substring(5,10).replace('-',':') %></div></a>
+                                    <a href="/comprarIngresso/<%=sessoes[i].IDSessao%>"><div class="hora"><%= sessoes[i].Hora.toISOString().substring(11,16) %></div></a>
                                 <% } %>
                             <% } %>
                         </div>

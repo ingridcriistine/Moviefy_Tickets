@@ -39,8 +39,8 @@ route.post('/detalhesFilme/:id', home.pagDetalhesFilmePost);
 route.get('/detalhesCinema/: id', home.pagDetalhesCinemaGet);
 route.post('/detalhesCinema/: id', home.pagDetalhesCinemaPost);
 
-route.get('/comprarIngresso', home.pagComprarIngressoGet);
-route.post('/comprarIngresso', home.pagComprarIngressoPost);
+route.get('/comprarIngresso/:id', home.pagComprarIngressoGet);
+route.post('/comprarIngresso/:id', home.pagComprarIngressoPost);
 
 route.get('/pagamento', home.pagPagamentoGet);
 route.post('/pagamento', home.pagPagamentoPost);

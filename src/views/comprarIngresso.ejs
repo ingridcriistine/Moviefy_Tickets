@@ -6,9 +6,9 @@
         <title>Comprar ingresso</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link rel="stylesheet" href="/public/css/geral.css">
-        <link rel="stylesheet" href="/public/css/comprarIngresso.css">
-        <script src="/public/js/script.js" defer></script>
+        <link rel="stylesheet" href="/../css/geral.css">
+        <link rel="stylesheet" href="/../css/comprarIngresso.css">
+        <script src="/../js/script.js" defer></script>
     </head>
 
     <body>
@@ -106,35 +106,36 @@
                         <h6><b>Escolha a forma de pagamento</b></h6>
                     </div>
                     <div class="pagamento">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
-                            <label class="form-check-label" for="flexRadioDefault1">PIX</label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                            <label class="form-check-label" for="flexRadioDefault2">Cartão de débito</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                            <label class="form-check-label" for="flexRadioDefault2">Cartão de crédito</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                            <label class="form-check-label" for="flexRadioDefault2">Boleto</label>
-                        </div>
+                        <% for (let i = 0; i < pagamentos.length; i++) { %>
+                            <div class="form-check">
+                                <input value="<%= pagamentos[i].IDPagamento%>" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                                <label class="form-check-label" for="flexRadioDefault1"><%= pagamentos[i].Tipo %></label>
+                            </div>
+                        <% } %>
                     </div>
                 </section>
             </section>
 
             <section id="pedido">
                 <h4>Resumo do pedido</h4>
-                <img src="">
-                <h5><b>Filme</b></h5>
-                <h5 style="margin-bottom: 50px;">Cinema</h5>
+                <img src="/img/<%= sessoes.Foto %>">
+                <h5><b><%= sessoes.Titulo %></b></h5>
+                <h5 style="margin-bottom: 50px;"><%= sessoes.Nome%></h5>
                 <hr>
                 <div class="section-pedido">
-                    <p>SALA 5</p>
+                    <p>SALA</p>
+                    <p><%= sessoes.Numero%></p>
+                </div>
+                <hr>
+                <div class="section-pedido">
                     <p>DATA</p>
+                    <%  const data = new Date(sessoes.Data); data.setDate(data.getDate() + 1);%>
+                    <p><%= data.toLocaleDateString('pt-BR').substring(0,5) %></p>
+                </div>
+                <hr>
+                <div class="section-pedido">
+                    <p>HORA</p>
+                    <p><%= sessoes.Hora.toISOString().substring(11,16) %></p>
                 </div>
                 <hr>
                 <div class="section-pedido">
