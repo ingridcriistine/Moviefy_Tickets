@@ -1,7 +1,0 @@
-Tabelas de logs
-
-- Notificações (cadastros, remoções e edições)
-- Histórico de clientes
-- Histórico de filmes
-- Histórico de compras
-- Ingressos vendidos

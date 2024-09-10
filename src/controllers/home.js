@@ -8,6 +8,7 @@ const sessao = require('../model/sessao');
 const generos = require('../model/genero');
 const franquia = require('../model/franquia');
 const { where,Op } = require('sequelize');
+const sequelize = require('sequelize');
 
 const fs = require("fs");
 const { param } = require('../../routes');
@@ -302,7 +303,12 @@ module.exports = {
             dias.push(dia.toLocaleDateString())
         }
         console.log(dias);
-  
+
+        const sessoes = await sessao.findAll({
+            raw: true,
+            attributes: ['IDSessao', 'TresD', 'Ativa', 'Data', 'Hora', 'IDFilme', 'IDCinema', 'IDSala','Dublado'],
+            where: {IDFilme : id/*, Data: datadia.toISOString().split('T')[0]*/ },
+        })
 
         const filmes = await filme.findOne({
             raw: true,
@@ -314,13 +320,18 @@ module.exports = {
             where: {IDFilme : id}}
         );
         
-        res.render('../views/detalhesFilme', {filmes, user,dias});
+        res.render('../views/detalhesFilme', {filmes, user,dias, sessoes});
     },
 
     async pagDetalhesSessaoFilmeGet(req,res){
         let id_filme = req.params.id;
         let dia = req.params.dia;
+        if (!req.session.IDCliente){
+            res.redirect('/login')
+        }
         let id_cliente = req.session.IDCliente;
+
+        console.log(dia);
 
         const user = await cliente.findOne({
             where: { IDCliente: id_cliente },
@@ -337,13 +348,17 @@ module.exports = {
             where: {IDFilme : id_filme}}
         );
 
+        let datadia = new Date(dia.replace('.','/')+'/2024');
+
+        console.log(datadia.toISOString().split('T')[0]);
+        
         const sessoes = await sessao.findAll({
             raw: true,
-            attributes: ['IDSessao', 'TresD', 'Ativa', 'Data', 'Hora', 'IDFilme', 'IDCinema', 'IDSala'],
-            where: {IDFilme : id_filme,Data:`%${dia}%`}
+            attributes: ['IDSessao', 'TresD', 'Ativa', 'Data', 'Hora', 'IDFilme', 'IDCinema', 'IDSala','Dublado'],
+            where: {IDFilme : id_filme/*, Data: datadia.toISOString().split('T')[0]*/ },
         })
         console.log(sessoes);
-
+        
         let dias = [];
         let dia1 = now();
         for (let index = 0; index < 4; index++) {
