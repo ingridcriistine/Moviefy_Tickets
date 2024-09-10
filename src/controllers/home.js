@@ -59,7 +59,7 @@ module.exports = {
 
         const filmes = await filme.findAll({
             raw: true,
-            attributes: ['IDFilme', 'Titulo', 'DataEstreia', 'DataSaida',  'Duracao', 'Foto','ClassificacoesIndicativa.Idade', 'Genero.Nome'],
+            attributes: ['IDFilme', 'Foto', 'Titulo', 'DataEstreia', 'DataSaida',  'Duracao','ClassificacoesIndicativa.Idade', 'Genero.Nome'],
             include:[
                 {model: classificacao}, 
                 {model: generos}
