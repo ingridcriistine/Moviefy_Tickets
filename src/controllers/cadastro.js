@@ -147,9 +147,9 @@ module.exports = {
         });
         
         if (admin) {
-            res.redirect('/index');
+            res.redirect('/login');
         } else {
-            res.redirect('/cliente');
+            res.redirect('/login');
         }
     },
 
