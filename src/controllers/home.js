@@ -12,6 +12,7 @@ const { where,Op } = require('sequelize');
 const fs = require("fs");
 const { param } = require('../../routes');
 const { get } = require('http');
+const { now } = require('sequelize/lib/utils');
 
 module.exports = {
     
@@ -294,6 +295,15 @@ module.exports = {
             raw: true
         });
 
+        let dias = [];
+        let dia = now();
+        for (let index = 0; index < 4; index++) {
+            dia.setDate(dia.getDate()+1)
+            dias.push(dia.toLocaleDateString())
+        }
+        console.log(dias);
+  
+
         const filmes = await filme.findOne({
             raw: true,
             attributes: ['IDFilme', 'Titulo', 'DataEstreia', 'DataSaida',  'Foto', 'Duracao', 'ClassificacoesIndicativa.Idade', 'Genero.Nome'],
@@ -304,7 +314,44 @@ module.exports = {
             where: {IDFilme : id}}
         );
         
-        res.render('../views/detalhesFilme', {filmes, user});
+        res.render('../views/detalhesFilme', {filmes, user,dias});
+    },
+
+    async pagDetalhesSessaoFilmeGet(req,res){
+        let id_filme = req.params.id;
+        let dia = req.params.dia;
+        let id_cliente = req.session.IDCliente;
+
+        const user = await cliente.findOne({
+            where: { IDCliente: id_cliente },
+            raw: true
+        });
+
+        const filmes = await filme.findOne({
+            raw: true,
+            attributes: ['IDFilme', 'Titulo', 'DataEstreia', 'DataSaida',  'Foto', 'Duracao', 'ClassificacoesIndicativa.Idade', 'Genero.Nome'],
+            include:[
+                {model: classificacao}, 
+                {model: generos}
+            ],
+            where: {IDFilme : id_filme}}
+        );
+
+        const sessoes = await sessao.findAll({
+            raw: true,
+            attributes: ['IDSessao', 'TresD', 'Ativa', 'Data', 'Hora', 'IDFilme', 'IDCinema', 'IDSala'],
+            where: {IDFilme : id_filme,Data:`%${dia}%`}
+        })
+        console.log(sessoes);
+
+        let dias = [];
+        let dia1 = now();
+        for (let index = 0; index < 4; index++) {
+            dia1.setDate(dia1.getDate()+1)
+            dias.push(dia1.toLocaleDateString())
+        }
+
+        res.render('../views/detalhesFilme', {filmes, user, sessoes,dias});
     },
 
     async pagDetalhesFilmePost(req, res) {

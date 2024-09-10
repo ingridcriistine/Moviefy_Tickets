@@ -45,6 +45,8 @@ route.post('/comprarIngresso', home.pagComprarIngressoPost);
 route.get('/pagamento', home.pagPagamentoGet);
 route.post('/pagamento', home.pagPagamentoPost);
 
+route.get('/sessoesFilme/:id/:dia', home.pagDetalhesSessaoFilmeGet);
+
 
 // ---------------------------------- ADM ------------------------------------
 route.get('/filmesAdm', home.pagfilmesadmGet);

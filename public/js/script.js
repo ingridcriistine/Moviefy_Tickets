@@ -178,3 +178,4 @@ function cancelar() {
     perfil.style.display = "flex";
     modalPerfil.style.display = "none";
 }
+

@@ -45,7 +45,7 @@
                         <h3><b><%= filmes.Titulo %></b></h3>
                         <div class="caracteristicas-filme">
                             <p class="classificacao"><%= filmes.Idade %></a>
-                            <h4><%= filmes.Duracao %> | <%= filmes.Nome %> </h4>
+                            <h4><%= filmes.Duracao %>min | <%= filmes.Nome %> </h4>
                         </div>
                         <p> </p>
                         <a><div class="btn-trailer">Trailer</div></a>
@@ -57,18 +57,13 @@
                 <hr>
 
                 <div class="menu-datas">
-                    <div class="data">
-                        <h4><b>HOJE</b></h4>
-                        <h5>26/08</h5>
-                    </div>
-                    <div class="data">
-                        <h4><b>HOJE</b></h4>
-                        <h5>26/08</h5>
-                    </div>
-                    <div class="data">
-                        <h4><b>HOJE</b></h4>
-                        <h5>26/08</h5>
-                    </div>
+                    <% for (let i = 0; i < dias.length; i++) { %>
+                        <a style="text-decoration: none;" href="/sessoesFilme/<%= filmes.IDFilme%>/<%= dias[i].replace('/','.').substring(0,5)%>">
+                            <div class="data">
+                                <h5><%= dias[i].substring(0,5) %></h5>
+                            </div>
+                        </a>
+                    <% } %>
                 </div>
 
                 <div class="box-sessao">
