@@ -10,14 +10,11 @@ const editar = require('./src/controllers/editar');
 const padrao = require('./src/controllers/padrao');
 const cadastro = require('./src/controllers/cadastro');
 
-route.get('/', home.pagInicialGet);
 route.get('/index', home.pagInicialGet);
-
-route.post('/', home.pagInicialPost);
 route.post('/index', home.pagInicialPost);
 
-route.get('/indexAnonimo', home.pagIndexAnonimoGet);
-route.post('/indexAnonimo', home.pagIndexAnonimoPost);
+route.get('/', home.pagIndexAnonimoGet);
+route.post('/', home.pagIndexAnonimoPost);
 
 
 // -------------------------------- CLIENTE ----------------------------------

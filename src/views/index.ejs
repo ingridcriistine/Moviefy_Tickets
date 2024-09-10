@@ -17,7 +17,7 @@
                 <a href="/index"><h2 class="titulo"><i>Moviefy Tickets</i></h2></a>
                 <div class="nav-login">
                     <img src="/img/login.png" alt="Ícone de login">
-                    <a href="/perfilUsuario">Bem-vindo, <span id="nomeUser"></span>!</a>
+                    <a href="/perfilUsuario">Bem-vindo, <%= user.Nome %><span id="nomeUser"></span>!</a>
                 </div>
             </nav>
             <nav class="sub-menu">
@@ -147,22 +147,16 @@
                 </div>
 
                 <div class="lista-franquias">
+                    <% for (let i = 0; i < franquias.length; i++) { %>
                     <div class="box-franquia">
                         <a href="">
                             <div class="box-img-franquia">
                                 <img src="" alt="">
                             </div>
                         </a>
-                        <h3>Franquia</h3>
+                        <h3><%= franquias[i].Nome %></h3>
                     </div>
-                    <div class="box-franquia">
-                        <a href="">
-                            <div class="box-img-franquia">
-                                <img src="" alt="">
-                            </div>
-                        </a>
-                        <h3>Franquia</h3>
-                    </div>
+                    <% } %>
                 </div>
             </section>
 

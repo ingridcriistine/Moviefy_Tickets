@@ -93,18 +93,30 @@ module.exports = {
             where: {Email: dados.emailEntrada}
         });
 
+        console.log(clientes);
+
         if (clientes) {
             if (dados.senhaEntrada === clientes.Senha) {
-                console.log(clientes);
 
+                req.session.isLoggedIn = true;
+                req.session.IDCliente = clientes.IDCliente;
+
+                console.log(req.session.IDCliente)
+                console.log(req.session)
+                
                 if (clientes.IDTipo === 1) {
-                    return res.redirect('/');
+                    
+                    req.session.IDTipo = 1;
+                    console.log(req.session.IDTipo)
+                    return res.redirect('/index');
                 } else {
+                    req.session.IDTipo = 2;
+                    console.log(req.session.IDTipo)
                     return res.redirect('/cliente');
                 }
             }  
         } 
-        res.redirect ('/login');
+        res.redirect ('/');
     },
 
     async clienteInsert(req, res) {
@@ -135,7 +147,7 @@ module.exports = {
         });
         
         if (admin) {
-            res.redirect('/');
+            res.redirect('/index');
         } else {
             res.redirect('/cliente');
         }

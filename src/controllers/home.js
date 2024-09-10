@@ -6,6 +6,7 @@ const sala = require('../model/sala');
 const cliente = require('../model/cliente');
 const sessao = require('../model/sessao');
 const generos = require('../model/genero');
+const franquia = require('../model/franquia');
 const { where,Op } = require('sequelize');
 
 const fs = require("fs");
@@ -15,6 +16,12 @@ const { get } = require('http');
 module.exports = {
     
     async pagInicialGet(req, res){
+
+        const user = await cliente.findOne({
+            where: { IDCliente: req.session.IDCliente },
+            raw: true
+        });
+
         const filmes = await filme.findAll({
             raw: true,
             attributes: ['IDFilme', 'Titulo', 'DataEstreia', 'DataSaida',  'Duracao', 'Foto','ClassificacoesIndicativa.Idade'],
@@ -28,8 +35,10 @@ module.exports = {
             attributes: ['Logradouro', 'CinemaLocal.Nome', 'CinemaLocal.Foto', 'IDCinema'],
             include: [{model: cinemaLocal}]
         });
+        
+        console.log(cliente)
 
-        res.render('../views/adm/indexadm', {filmes, enderecos});
+        res.render('../views/adm/indexadm', {filmes, enderecos, user});
     },
     
     async pagInicialPost(req, res){
@@ -73,7 +82,12 @@ module.exports = {
             }
         })
 
-        res.render('../views/adm/filmesadm', {filmes});
+        const user = await cliente.findOne({
+            where: { IDCliente: req.session.IDCliente },
+            raw: true
+        });
+
+        res.render('../views/adm/filmesadm', {filmes, user});
     },
     
     async pagfilmesadmPost(req, res){  
@@ -83,13 +97,18 @@ module.exports = {
 
     async pagcinemasadmGet(req, res){
 
+        const user = await cliente.findOne({
+            where: { IDCliente: req.session.IDCliente },
+            raw: true
+        });
+
         const enderecos = await endereco.findAll({
             raw: true,
             attributes: ['Logradouro', 'CinemaLocal.Nome', 'CinemaLocal.Foto', 'IDCinema'],
             include: [{model: cinemaLocal}]
         });
 
-        res.render('../views/adm/cinemasadm', {enderecos});
+        res.render('../views/adm/cinemasadm', {enderecos, user});
     },
     
     async pagcinemasadmPost(req, res){
@@ -97,6 +116,11 @@ module.exports = {
     },
     
     async pagsessaoadmGet(req, res){
+
+        const user = await cliente.findOne({
+            where: { IDCliente: req.session.IDCliente },
+            raw: true
+        });
 
         const sessoes = await sessao.findAll({
             raw: true,
@@ -110,7 +134,7 @@ module.exports = {
 
         console.log(sessoes);
 
-        res.render('../views/adm/sessoes', {sessoes});
+        res.render('../views/adm/sessoes', {sessoes, user});
     },
 
     async pagsessaoadmPost(req, res){
@@ -121,7 +145,12 @@ module.exports = {
     // -------------------------------- CLIENTE ----------------------------------
     
     async pagIndexCliGet(req, res){
-        
+
+        const user = await cliente.findOne({
+            where: { IDCliente: req.session.IDCliente },
+            raw: true
+        });
+
         const filmes = await filme.findAll({
             raw: true,
             attributes: ['IDFilme', 'Titulo', 'DataEstreia', 'DataSaida',  'Duracao', 'Foto','ClassificacoesIndicativa.Idade', 'Genero.Nome'],
@@ -131,7 +160,12 @@ module.exports = {
             ]
         });
 
-        res.render('../views/index', {filmes});
+        const franquias = await franquia.findAll({
+            raw: true,
+            attributes: ['IDFranquia', 'Nome']
+        });
+
+        res.render('../views/index', {filmes, user, franquias});
     },
     
     async pagIndexCliPost(req, res){
@@ -139,12 +173,18 @@ module.exports = {
     },
     
     async pagPerfilUsuarioGet(req, res){
+        
+        const user = await cliente.findOne({
+            where: { IDCliente: req.session.IDCliente },
+            raw: true
+        });
+
         const clientes = await cliente.findOne({
             raw: true,
             attributes: ['IDCliente', 'Nome', 'DataNascimento', 'CPF', 'Email', 'Senha', 'Foto', 'IDTipo']
         });
 
-        res.render('../views/perfilUsuario', {clientes});
+        res.render('../views/perfilUsuario', {clientes, user});
     },
     
     async pagPerfilUsuarioPost(req, res){
@@ -152,6 +192,11 @@ module.exports = {
     },
 
     async pagFilmesBreveGet(req, res) {
+
+        const user = await cliente.findOne({
+            where: { IDCliente: req.session.IDCliente },
+            raw: true
+        });
 
         const filmes = await filme.findAll({
             raw: true,
@@ -161,7 +206,7 @@ module.exports = {
             }
         })
 
-        res.render('../views/filmesBreve', {filmes});
+        res.render('../views/filmesBreve', {filmes, user});
     },
 
     async pagFilmesBrevePost(req, res) {
@@ -182,6 +227,11 @@ module.exports = {
     },
 
     async pagFilmesCartazGet(req, res) {
+        
+        const user = await cliente.findOne({
+            where: { IDCliente: req.session.IDCliente },
+            raw: true
+        });
 
         const filmes = await filme.findAll({
             raw: true,
@@ -191,7 +241,7 @@ module.exports = {
             }
         })
 
-        res.render('../views/filmesCartaz', {filmes});
+        res.render('../views/filmesCartaz', {filmes, user});
     },
 
     async pagFilmesCartazPost(req, res) {
@@ -212,6 +262,11 @@ module.exports = {
 
     async pagCinemasGet(req, res) {
 
+        const user = await cliente.findOne({
+            where: { IDCliente: req.session.IDCliente },
+            raw: true
+        });
+
         const cinemas = await cinemaLocal.findAll({
             raw: true,
             attributes: ['IDCinemaLocal', 'Nome', 'Preco', 'Foto']
@@ -223,7 +278,7 @@ module.exports = {
         });
 
 
-        res.render('../views/cinemas', {cinemas, enderecos});
+        res.render('../views/cinemas', {cinemas, enderecos, user});
     },
 
     async pagCinemasPost(req, res) {
@@ -233,6 +288,11 @@ module.exports = {
     async pagDetalhesFilmeGet(req, res) {
 
         const id = req.params.id;
+        
+        const user = await cliente.findOne({
+            where: { IDCliente: req.session.IDCliente },
+            raw: true
+        });
 
         const filmes = await filme.findOne({
             raw: true,
@@ -244,7 +304,7 @@ module.exports = {
             where: {IDFilme : id}}
         );
         
-        res.render('../views/detalhesFilme', {filmes});
+        res.render('../views/detalhesFilme', {filmes, user});
     },
 
     async pagDetalhesFilmePost(req, res) {
