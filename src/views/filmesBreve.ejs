@@ -64,7 +64,7 @@
                 <div class="cards-filmes">
                     <% for (let i = 0; i < filmes.length; i++) { %>
                         <% if ('2024-09-11' <= filmes[i].DataEstreia) { %>
-                            <a href="">
+                            <a href="/detalhesFilme/<%=filmes[i].IDFilme%>">
                                 <div class="card card-filme">
                                     <img src="img/<%= filmes[i].Foto %>" class="card-img-top" alt="...">
                                     <h5 class="card-title"><%= filmes[i].Titulo %></h5>
