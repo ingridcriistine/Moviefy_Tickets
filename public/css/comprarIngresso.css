@@ -160,3 +160,21 @@ hr {
 .tipo-ingresso .section-pedido {
     width: 100%;
 }
+
+.assentosGrid {
+    display: grid;
+    grid-template-columns: 5% 5% 5% 5%;
+}
+
+
+.assentosGrid button {
+    height: 30px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#qrcode {
+    width: 100%;
+}

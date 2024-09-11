@@ -43,9 +43,18 @@
                     <div class="titulo-etapa">
                         <div class="num-etapa"><h5><b>1</b></h5></div>
                         <h6><b>Escolha seus assentos</b></h6>
-                    </div>
+                        
+                        </div>
                     <div class="assentos">
-
+                        <div class="assentosGrid">
+                            <% let value = 0 %>
+                            <% for (let i = 0; i < 4; i++) { %>
+                                <% for (let i = 0; i < 5; i++) { %>
+                                <button onclick="selecionar(<%=assentos[value].IDAssentos%>, <%=assentos[value].Numero%>)" class="assentos" id="assento<%=assentos[value].IDAssentos%>"><%= assentos[value].Numero %></button>
+                                <%value++;%>
+                                <% } %>
+                            <% } %>
+                            </div>
                     </div>
                 </section>
                 <section id="etapa2">
@@ -54,49 +63,13 @@
                         <h6><b>Selecione o tipo de ingresso</b></h6>
                     </div>
                     <div class="ingresso">
-                        <div class="card-ingresso">
-                            <div class="detalhes-ingresso">
-                                <p><b>Inteira 3D</b></p>
-                                <p>R$ 0,00</p>
-                            </div>
-                            <div class="preco-ingresso">
-                                <button class="btn-qtd">-</button>
-                                <p>0</p>
-                                <button class="btn-qtd">+</button>
-                            </div>
-                        </div>
-                        <div class="card-ingresso">
-                            <div class="detalhes-ingresso">
-                                <p><b>Inteira 2D</b></p>
-                                <p>R$ 0,00</p>
-                            </div>
-                            <div class="preco-ingresso">
-                                <button class="btn-qtd">-</button>
-                                <p>0</p>
-                                <button class="btn-qtd">+</button>
-                            </div>
-                        </div>
-                        <div class="card-ingresso">
-                            <div class="detalhes-ingresso">
-                                <p><b>Meia 3D</b></p>
-                                <p>R$ 0,00</p>
-                            </div>
-                            <div class="preco-ingresso">
-                                <button class="btn-qtd">-</button>
-                                <p>0</p>
-                                <button class="btn-qtd">+</button>
-                            </div>
-                        </div>
-                        <div class="card-ingresso">
-                            <div class="detalhes-ingresso">
-                                <p><b>Meia 2D</b></p>
-                                <p>R$ 0,00</p>
-                            </div>
-                            <div class="preco-ingresso">
-                                <button class="btn-qtd">-</button>
-                                <p>0</p>
-                                <button class="btn-qtd">+</button>
-                            </div>
+                        <div class="pagamento">
+                            <% for (let i = 0; i < tiposIngresso.length; i++) { %>
+                                <div class="form-check">
+                                    <input onclick="selecionarTipo(<%= tiposIngresso[i].Porcentagem%>, <%= sessoes.Preco%>)" value="<%= tiposIngresso[i].IDTipoIngresso%>" class="form-check-input" type="radio" name="flexRadioIngresso" id="flexRadioIngresso">
+                                    <label class="form-check-label" for="flexRadioIngresso"><%= tiposIngresso[i].Tipo %></label>
+                                </div>
+                            <% } %>
                         </div>
                     </div>
                 </section>
@@ -108,7 +81,7 @@
                     <div class="pagamento">
                         <% for (let i = 0; i < pagamentos.length; i++) { %>
                             <div class="form-check">
-                                <input value="<%= pagamentos[i].IDPagamento%>" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                                <input value="<%= pagamentos[i].IDPagamento%>" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1"><%= pagamentos[i].Tipo %></label>
                             </div>
                         <% } %>
@@ -140,27 +113,38 @@
                 <hr>
                 <div class="section-pedido">
                     <p>Assentos</p>
-                    <p>A1, A2</p>
+                    <p id="escolhaAssento"></p>
                 </div>
-                <hr>
-                <div class="tipo-ingresso">
-                    <p>Ingressos</p>
-                    <div class="section-pedido">
-                        <p>3x Meia</p>
-                        <p>R$ 0,00</p>
-                    </div>
-                </div>
+                
+               
                 <div class="total-compra">
                     <hr>
                     <div class="section-pedido" style="margin-bottom: 50px;">
                         <p>Total</p>
-                        <p>R$ 0,00</p>
+                        <p id="tipoIngr"></p>
                     </div>
-                    <button type="submit" class="btn-pedido">Pagamento</button>
-                    <button type="reset" class="btn-pedido">Cancelar</button>
+                    <button type="button" class="btn-pedido" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="">Pagamento</button>
+                    <a href="/cliente" type="reset" class="btn-pedido" style="text-align: center; text-decoration: none; color: red;">Cancelar</a>
                 </div>
             </section>
                 
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Aguardando pagamento</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Abra o aplicativo do seu banco e escaneie o QR Code abaixo.</p>
+                      <img id="qrcode" src="/img/qrcode.jpeg" alt="QrCode">
+                    </div>
+                    <div class="modal-footer">
+                      <a href="/pagamentoConcluido" type="a" class="btn btn-secondary" >Close</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </main>
 
         <footer>
