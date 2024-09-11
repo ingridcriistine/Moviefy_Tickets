@@ -30,8 +30,8 @@ route.post('/filmesCartaz', home.pagFilmesCartazPost);
 route.get('/cinemas', home.pagCinemasGet);
 route.post('/cinemas', home.pagCinemasPost);
 
-route.get('/perfilUsuario', home.pagPerfilUsuarioGet);
-route.post('/perfilUsuario', home.pagPerfilUsuarioPost);
+route.get('/perfilUsuario/:id', home.pagPerfilUsuarioGet);
+route.post('/perfilUsuario/:id', home.pagPerfilUsuarioPost);
 
 route.get('/detalhesFilme/:id', home.pagDetalhesFilmeGet);
 route.post('/detalhesFilme/:id', home.pagDetalhesFilmePost);

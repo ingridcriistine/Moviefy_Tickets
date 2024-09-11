@@ -24,7 +24,7 @@
 #imagem-cinema {
     height: 110px;
     border-radius: 10%;
-    margin: 0 10% 0 5%;
+    margin: 0 1% 0 5%;
 }
 
 input:focus {
@@ -41,7 +41,6 @@ input:focus {
 .cards-cinemas a {
     text-decoration: none;
     width: 45%;
-    margin: 1%;
 }
 
 .card-cinema {

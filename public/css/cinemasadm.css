@@ -10,7 +10,7 @@ a {
 }
 
 #lapis {
-    width: 140%;
+    width: 90%;
 }
 
 #trash {
@@ -30,10 +30,13 @@ button {
 .btns-cinema {
     display: flex;
     flex-direction: column;
+    width: 50px;
 }
 
 .box-titulos {
     display: flex;
     align-items: center;
+    width: 1500px;
+    color: black;
 }
 

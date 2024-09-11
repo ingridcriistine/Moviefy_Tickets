@@ -27,11 +27,10 @@
                 </div>
                 
                 <div class="user">
-                    <% for (let i = 0; i < clientes.length; i++) {%>
                     <div class="menu-perfil">
-                        <div class="img-perfil">
-                            <img src="img/<%= clientes[i].Foto %>" alt="">
-                        </div>
+                        <!-- <div class="img-perfil">
+                            <img src="img/<%= clientes.Foto %>" alt="">
+                        </div> -->
                         <p onclick="atualizarCadastro()">Atualizar cadastro</p>
                         <p onclick="alterarSenha()">Alterar senha</p>
                         <div class="a-red">
@@ -46,21 +45,21 @@
                             <div class="sections">
                                 <div class="data">
                                     <label for="nome">Nome</label>
-                                    <input type="text" value="<%= clientes[i].Nome %>" name="nome">
+                                    <input type="text" value="<%= user.Nome %>" name="nome">
                                 </div>   
                                 <div class="data">
                                     <label for="cpf">CPF</label>
-                                    <input type="text" value="<%= clientes[i].CPF %>" name="cpf"> 
+                                    <input type="text" value="<%= user.CPF %>" name="cpf"> 
                                 </div>   
                             </div>
                             <div class="sections">
                                 <div class="data">
                                     <label for="dataNascimento">Data de nascimento</label>
-                                    <input type="date" value="<%= clientes[i].DataNascimento %>" name="dataNascimento">
+                                    <input type="date" value="<%= user.DataNascimento %>" name="dataNascimento">
                                 </div>   
                                 <div class="data">
                                     <label for="email">Email</label>
-                                    <input type="email" value="<%= clientes[i].Email%>" name="email">
+                                    <input type="email" value="<%= user.Email%>" name="email">
                                 </div>
                             </div>
                         </div>
