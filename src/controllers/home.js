@@ -8,6 +8,8 @@ const sessao = require('../model/sessao');
 const generos = require('../model/genero');
 const franquia = require('../model/franquia');
 const pagamento = require('../model/pagamento');
+const assento = require('../model/assento');
+const tipoIngresso = require('../model/tipoIngresso');
 const { where,Op } = require('sequelize');
 const sequelize = require('sequelize');
 
@@ -388,7 +390,7 @@ module.exports = {
 
         const sessoes = await sessao.findOne({
             raw: true,
-            attributes: ['IDSessao', 'TresD', 'Ativa', 'Data', 'Hora', 'IDFilme', 'IDCinema', 'IDSala','Dublado', 'Filme.Foto', 'Filme.Titulo', 'CinemaLocal.Nome', 'Sala.Numero'],
+            attributes: ['IDSessao', 'TresD', 'Ativa', 'Data', 'Hora', 'IDFilme', 'IDCinema', 'IDSala','Dublado', 'Filme.Foto', 'Filme.Titulo', 'CinemaLocal.Nome', 'Sala.Numero', 'CinemaLocal.Preco'],
             include:[
                 {model: filme},
                 {model: cinemaLocal},
@@ -397,6 +399,16 @@ module.exports = {
             where: {IDSessao : id}
         });
 
+        const assentos = await assento.findAll({
+            raw: true,
+            attributes: ['IDAssentos', 'Numero']
+        });
+
+        const tiposIngresso = await tipoIngresso.findAll({
+            raw: true,
+            attributes: ['IDTipoIngresso', 'Tipo', 'Porcentagem']
+        })
+
         const pagamentos = await pagamento.findAll({
             raw: true,
             attributes: ['IDPagamento', 'Tipo']
@@ -404,7 +416,7 @@ module.exports = {
 
         console.log(sessoes);
 
-        res.render('../views/comprarIngresso', {sessoes, pagamentos});
+        res.render('../views/comprarIngresso', {sessoes, pagamentos, assentos, tiposIngresso});
     },
 
     async pagComprarIngressoPost(req, res) {
@@ -417,6 +429,14 @@ module.exports = {
 
     async pagPagamentoPost(req, res) {
         res.render('../views/pagamento');
+    },
+
+    async pagPagamentoConcluidoGet(req, res) {
+        res.render('../views/pagamentoConcluido');
+    },
+
+    async pagPagamentoConcluidoPost(req, res) {
+        res.render('../views/pagamentoConcluido');
     }
  
 }

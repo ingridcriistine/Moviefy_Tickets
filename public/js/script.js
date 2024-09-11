@@ -178,7 +178,30 @@ function atualizarCadastro() {
 }
 
 function cancelar() {
+
     perfil.style.display = "flex";
     modalPerfil.style.display = "none";
 }
 
+let aconteceu = false;
+function selecionar(value, numero, preco) {
+    let id = 'assento' + value
+
+    if (aconteceu) {
+        return;
+    } else {
+        const assento = document.getElementById(id); 
+        const escolha = document.getElementById('escolhaAssento'); 
+        
+        assento.style.backgroundColor='red';
+        escolha.innerHTML = numero;
+        aconteceu = true;
+    }
+}
+
+function selecionarTipo(value, preco) {
+    const tipo = document.getElementById('tipoIngr');
+    const pagamento = document.getElementById('pagar');
+    tipo.innerHTML = "R$ "+ preco*(value/100);
+    pagamento.innerHTML = "R$ "+ preco*(value/100);
+}

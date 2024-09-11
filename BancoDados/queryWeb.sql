@@ -3,16 +3,18 @@ drop database MoviefyTickets;
 
 insert into ClassificacoesIndicativas values ( 'L', getdate(), getdate()), ( '10', getdate(), getdate()), ( '12', getdate(), getdate()), ( '16', getdate(), getdate()), ( '18', getdate(), getdate());
 
-insert into TipoClientes values ('Administrador', GETDATE(), getdate()), ('Usuário', getdate(), getdate());
+insert into TipoClientes values ('Administrador', GETDATE(), getdate()), ('Usuï¿½rio', getdate(), getdate());
+
+insert into TipoClientes values ('Pix', GETDATE(), getdate()), ('CartÃ£o de crÃ©dito', getdate(), getdate());
 
 select * from ClassificacoesIndicativas;
 
 insert into Generos values ( 'Romance', getdate(), getdate()),
-( 'Comédia', getdate(), getdate()),
+( 'Comï¿½dia', getdate(), getdate()),
 ( 'Terror', getdate(), getdate()),
-( 'Ação', getdate(), getdate()),
+( 'Aï¿½ï¿½o', getdate(), getdate()),
 ( 'Aventura', getdate(), getdate()),
-( 'Ficção Científica', getdate(), getdate()),
+( 'Ficï¿½ï¿½o Cientï¿½fica', getdate(), getdate()),
 ( 'Drama', getdate(), getdate()),
 ( 'Fantasia', getdate(), getdate());
 
