@@ -17,9 +17,9 @@
     <body>
         <header>
             <nav class="menu">
-                <a href="/"><h2 class="titulo"><i>Moviefy Tickets</i></h2></a>
+                <a href="/index"><h2 class="titulo"><i>Moviefy Tickets</i></h2></a>
                 <div class="nav-login">
-                    <a href=""><%= user.Nome %></a>
+                    <a href="/perfilUsuario">Bem vindo, <%= user.Nome %> <saan id="user"></span></a>
                 </div>
             </nav>
             <nav class="sub-menu">
@@ -27,6 +27,7 @@
                     <a href="/filmesAdm">FILMES</a>
                     <a href="/cinemasAdm">CINEMAS</a>
                     <a id="selected">SESSÕES</a>
+                    <a href="/cliente">CLIENTE</a>
                 </div>
             </nav>
         </header>
@@ -61,7 +62,7 @@
                             </div>
                             <div class="card-body" style="padding: 0% 10% 0px 10%;">
                                 <p class="card-text">Sala: <%= sessoes[i].Numero %></p>
-                                <p class="card-text"><%= sessoes[i].Hora.toString().substring(16,21) %></a>
+                                <p class="card-text"><%= sessoes[i].Hora.toISOString().substring(11,16) %></a>
                             </div>
                             <form class="edicoes" action="DeletarSessao/<%= sessoes[i].IDSessao%>" method="post" >
                                 <a id="button-editar" href="/editarSessao/<%= sessoes[i].IDSessao%>">editar</a>

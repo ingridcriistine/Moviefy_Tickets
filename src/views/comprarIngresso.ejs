@@ -17,7 +17,7 @@
                 <a href="/cliente"><h2 class="titulo"><i>Moviefy Tickets</i></h2></a>
                 <div class="nav-login">
                     <img src="/img/login.png" alt="Ícone de login">
-                    <a href="/perfilUsuario">Bem-vindo, <span id="nomeUser"></span>!</a>
+                    <a href="/perfilUsuario">Bem vindo, <%= user.Nome %> <saan id="user"></span></a>
                 </div>
             </nav>
             <nav class="sub-menu">
@@ -50,7 +50,7 @@
                             <% let value = 0 %>
                             <% for (let i = 0; i < 4; i++) { %>
                                 <% for (let i = 0; i < 5; i++) { %>
-                                <button onclick="selecionar(<%=assentos[value].IDAssentos%>, <%=assentos[value].Numero%>)" class="assentos" id="assento<%=assentos[value].IDAssentos%>"><%= assentos[value].Numero %></button>
+                                <button onclick="selecionar('<%=assentos[value].IDAssentos%>', '<%=assentos[value].Numero%>')" class="assentos" id="assento<%=assentos[value].IDAssentos%>"><%= assentos[value].Numero %></button>
                                 <%value++;%>
                                 <% } %>
                             <% } %>
