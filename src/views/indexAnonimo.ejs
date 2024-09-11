@@ -89,7 +89,7 @@
                             <div class="cards-filmes">
                                 <% if (filmes.length >= 4) {%>
                                     <% for (let i = 0; i < 4; i++) {%>
-                                        <a href="/login">
+                                        <a href="/detalhesFilme/<%=filmes[i].IDFilme%>">
                                             <div class="card card-filme" id="card-filme<%= i+1 %>">
                                                 <img src="img/<%= filmes[i].Foto %>" class="card-img-top" alt="...">
                                                 <h5 class="card-title" id="card-title<%= i+1 %>"><%= filmes[i].Titulo %></h5>
@@ -108,8 +108,8 @@
                         <div class="carousel-item">
                             <div class="lista-filmes row" >
                                 <div class="cards-filmes">
-                                    <% for (let i = 4; i < 9; i++) {%>
-                                        <a href="/login">
+                                    <% for (let i = 4; i < 8; i++) {%>
+                                        <a href="/detalhesFilme/<%=filmes[i].IDFilme%>">
                                             <div class="card card-filme" id="card-filme<%= i+1 %>">
                                                 <img src="img/<%= filmes[i].Foto %>" class="card-img-top" alt="...">
                                                 <h5 class="card-title" id="card-title<%= i+1 %>"><%= filmes[i].Titulo %></h5>
@@ -133,6 +133,30 @@
                       <span class="visually-hidden">Next</span>
                     </button>
                   </div>
+                </div>
+            </section>
+
+            <section id="home-franquias">
+                <div class="home-section-titulo">
+                    <a href="/cinemas" id="home-titulo-franquia">
+                        <h3><b>Cinemas</b></h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-chevron-right seta" viewBox="0 0 16 16" id="seta-titulo-franquia">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="lista-franquias">
+                    <% for (let i = 0; i < cinemas.length; i++) { %>
+                    <div class="box-franquia">
+                        <a href="">
+                            <div class="box-img-franquia">
+                                <img src="" alt="">
+                            </div>
+                        </a>
+                        <h3><%= cinemas[i].Nome %></h3>
+                    </div>
+                    <% } %>
                 </div>
             </section>
         </main>

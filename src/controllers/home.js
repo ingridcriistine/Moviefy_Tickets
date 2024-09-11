@@ -70,7 +70,12 @@ module.exports = {
             ]
         });
 
-        res.render('../views/indexAnonimo', {filmes});
+        const cinemas = await cinemaLocal.findAll({
+            raw: true,
+            attributes: ['IDCinemaLocal', 'Nome', 'Preco', 'Foto']
+        });
+
+        res.render('../views/indexAnonimo', {filmes, cinemas});
     },
 
     async pagIndexAnonimoPost(req, res) {
@@ -166,12 +171,12 @@ module.exports = {
             ]
         });
 
-        const franquias = await franquia.findAll({
+        const cinemas = await cinemaLocal.findAll({
             raw: true,
-            attributes: ['IDFranquia', 'Nome']
+            attributes: ['IDCinemaLocal', 'Nome', 'Preco', 'Foto']
         });
 
-        res.render('../views/index', {filmes, user, franquias});
+        res.render('../views/index', {filmes, user, cinemas});
     },
     
     async pagIndexCliPost(req, res){

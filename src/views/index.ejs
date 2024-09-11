@@ -108,7 +108,7 @@
                         <div class="carousel-item">
                             <div class="lista-filmes row" >
                                 <div class="cards-filmes">
-                                    <% for (let i = 4; i < 9; i++) {%>
+                                    <% for (let i = 4; i < 8; i++) {%>
                                         <a href="/detalhesFilme/<%=filmes[i].IDFilme%>">
                                             <div class="card card-filme" id="card-filme<%= i+1 %>">
                                                 <img src="img/<%= filmes[i].Foto %>" class="card-img-top" alt="...">
@@ -147,14 +147,14 @@
                 </div>
 
                 <div class="lista-franquias">
-                    <% for (let i = 0; i < franquias.length; i++) { %>
+                    <% for (let i = 0; i < cinemas.length; i++) { %>
                     <div class="box-franquia">
                         <a href="">
                             <div class="box-img-franquia">
                                 <img src="" alt="">
                             </div>
                         </a>
-                        <h3><%= franquias[i].Nome %></h3>
+                        <h3><%= cinemas[i].Nome %></h3>
                     </div>
                     <% } %>
                 </div>
