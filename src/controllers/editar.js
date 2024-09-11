@@ -23,6 +23,11 @@ module.exports = {
     
     async filmes(req, res) {
 
+        const user = await cliente.findOne({
+            where: { IDCliente: req.session.IDCliente },
+            raw: true
+        });
+
         const parametro = req.params.id;
 
         const filmes = await filme.findByPk(parametro, {
@@ -40,12 +45,14 @@ module.exports = {
             attributes: ['IDGenero', 'Nome']
         });
 
-        res.render('../views/adm/editarFilme', {filmes, generos, classificacoes});
+        res.render('../views/adm/editarFilme', {filmes, generos, classificacoes, user});
     },
     async adicionarFilme(req, res){
 
         const dados = req.body;
         const id = req.params.id;
+
+        
 
 
         if (req.file) {
@@ -81,6 +88,11 @@ module.exports = {
     
     async cinemas(req, res) {
 
+        const user = await cliente.findOne({
+            where: { IDCliente: req.session.IDCliente },
+            raw: true
+        });
+
         const parametro = req.params.id;
 
         const franquias = await franquia.findAll( {
@@ -94,7 +106,7 @@ module.exports = {
             include: [{model: cinemaLocal}]
         });
 
-        res.render('../views/adm/editarCinema', {enderecos, franquias});
+        res.render('../views/adm/editarCinema', {enderecos, franquias, user});
     },
     async adicionarCinema(req, res){
 
@@ -133,6 +145,11 @@ module.exports = {
 
     async sessao(req, res) {
 
+        const user = await cliente.findOne({
+            where: { IDCliente: req.session.IDCliente },
+            raw: true
+        });
+
         const parametro = req.params.id;
 
         const cinemas = await cinemaLocal.findAll({
@@ -155,7 +172,7 @@ module.exports = {
             attributes: ['IDSessao', 'IDCinema', 'IDFilme', 'IDSala', 'Hora', 'Data']
         });
 
-        res.render('../views/adm/editarSessao', {sessoes, cinemas, salas, filmes});
+        res.render('../views/adm/editarSessao', {sessoes, cinemas, salas, filmes, user});
     },
 
     async adicionarSessao(req, res){
