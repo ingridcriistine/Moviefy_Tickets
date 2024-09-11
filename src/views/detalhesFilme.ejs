@@ -17,27 +17,12 @@
                 <a href="/cliente"><h2 class="titulo"><i>Moviefy Tickets</i></h2></a>
                 <div class="nav-login">
                     <img src="/../img/login.png" alt="Ícone de login">
-                    <a href="/perfilUsuario">Bem-vindo, <span id="nomeUser"></span>!</a>
-                </div>
-            </nav>
-            <nav class="sub-menu">
-                <div class="titulos">
-                    <a href="/filmesCartaz" id="selected">FILMES</a>
-                    <a href="/cinemas">CINEMAS</a>
-                </div>
-                <div class="localidades">
-                    <img src="/../img/local.png" alt="Ícone de localização">
-                    <select class="form-select">
-                        <option selected>Curitiba</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+                    <a href="/perfilUsuario">Bem vindo, <%= user.Nome %> <saan id="user"></span></a>
                 </div>
             </nav>
         </header>
 
-        <main>
+        <main style="margin-top: 70px;">
             <section id="filme">
                 <div class="box-filme">
                     <img src="/img/<%= filmes.Foto %>" alt="">
@@ -56,15 +41,7 @@
                 <h3><b>Sessões</b></h3>
                 <hr>
 
-                <!-- <div class="menu-datas">
-                    <% for (let i = 0; i < dias.length; i++) { %>
-                        <a style="text-decoration: none;" href="/sessoesFilme/<%= filmes.IDFilme%>/<%= dias[i].replace('/','.').substring(0,5)%>">
-                            <div class="data">
-                                <h5><%= dias[i].substring(0,5) %></h5>
-                            </div>
-                        </a>
-                    <% } %>
-                </div> -->
+               
 
                 <div class="box-sessao">
                     <div class="sessao-titulos">

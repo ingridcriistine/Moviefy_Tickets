@@ -18,7 +18,7 @@
             <nav class="menu">
                 <a href="/index"><h2 class="titulo"><i>Moviefy Tickets</i></h2></a>
                 <div class="nav-login">
-                    <a href="">Nome adm</a>
+                    <a href="/perfilUsuario">Bem vindo, <%= user.Nome %> <saan id="user"></span></a>
                 </div>
             </nav>
             <nav class="sub-menu">
@@ -45,7 +45,6 @@
                         <div class="select">
                             <label for="">Local</label>
                             <select name="cinemaLocalid" class="form-select">
-                                <option hidden>Selecioinar</option>
                                 <% for (let i = 0; i < cinemas.length; i++) { %>
                                     <option value='<%=cinemas[i].IDCinemaLocal %>' <%= cinemas[i].IDCinema == sessoes.IDCinema ? 'selected' : ''%>><%= cinemas[i].Nome %></option>
                                 <% } %>
@@ -56,7 +55,7 @@
                     <div class="sections">
                         <div class="data">
                             <label for="">Data de estreia</label>
-                            <input type="date" name="data" value="<%= sessoes.Data%>">
+                            <input type="date" name="data" value="<%= sessoes.Data.toISOString().substr(0,10)%>">
                         </div>   
                         <div class="select">
                             <label for="">Sala</label>
@@ -71,7 +70,7 @@
                     <div class="sections lastLine">
                         <div class="select sessaochecks">
                             <label for="">Horário</label>
-                            <input name="hora" style="text-align: center;" id="duration" type="time" placeholder="Duração do filme em mminutos" value="<%= sessoes.Hora%>">
+                            <input name="hora" style="text-align: center;" id="duration" type="time" placeholder="Duração do filme em mminutos" value="<%= sessoes.Hora.toISOString().substring(11,16) %>">
                         </div>
                         <div class="select sessaochecks">
                             <label>Categoria:</label>

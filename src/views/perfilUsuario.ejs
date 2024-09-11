@@ -28,9 +28,6 @@
                 
                 <div class="user">
                     <div class="menu-perfil">
-                        <!-- <div class="img-perfil">
-                            <img src="img/<%= clientes.Foto %>" alt="">
-                        </div> -->
                         <p onclick="atualizarCadastro()">Atualizar cadastro</p>
                         <p onclick="alterarSenha()">Alterar senha</p>
                         <div class="a-red">
@@ -55,7 +52,7 @@
                             <div class="sections">
                                 <div class="data">
                                     <label for="dataNascimento">Data de nascimento</label>
-                                    <input type="date" value="<%= user.DataNascimento %>" name="dataNascimento">
+                                    <input type="date" value="<%= user.DataNascimento.toISOString().substr(0,10) %>" name="dataNascimento">
                                 </div>   
                                 <div class="data">
                                     <label for="email">Email</label>
@@ -63,72 +60,11 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
-                    <% } %>              
+                    </form>             
                 </div>
             </section>
 
-            <section id="modal-perfil" style="display: none;">
-                <div class="titulo-perfil" style="margin-left: 0;" id="titulo-modal">
-                    <h3><b>Atualizar perfil</b></h3>
-                </div>
-                
-                <div class="user" id="user-modal">
-                    <% for (let i = 0; i < clientes.length; i++) {%>
-                    <div class="menu-perfil">
-                        <div class="img-perfil">
-                            <img src="img/<%= clientes[i].Foto %>" alt="">
-                        </div>
-                        <p onclick="atualizarCadastro()">Atualizar cadastro</p>
-                        <p onclick="alterarSenha()">Alterar senha</p>
-                        <div class="a-red">
-                            <a href="">Deletar conta</a>
-                            <a href="">Sair</a>
-                        </div>
-                    </div>
-                    
-                    <form>
-                        <div class="perguntas">
-                            <h3><b>Minhas informações</b></h3>
-                            <div class="sections">
-                                <div class="data">
-                                    <label for="nome">Nome</label>
-                                    <div class="input-edicao">
-                                        <input type="text" value="<%= clientes[i].Nome %>" name="nome">
-                                        <img src="../img/vector.png">
-                                    </div>
-                                </div>   
-                                <div class="data">
-                                    <label for="cpf">CPF</label>
-                                    <div class="input-edicao">
-                                        <input type="text" value="<%= clientes[i].CPF %>" name="cpf"> 
-                                        <img src="../img/vector.png">
-                                    </div>
-                                </div>   
-                            </div>
-                            <div class="sections">
-                                <div class="data">
-                                    <label for="dataNascimento">Data de nascimento</label>
-                                    <div class="input-edicao">
-                                        <input type="date" value="<%= clientes[i].DataNascimento %>" name="dataNascimento">
-                                        <img src="../img/vector.png">
-                                    </div>
-                                </div>   
-                                <div class="data">
-                                    <label for="email">Email</label>
-                                    <div class="input-edicao">
-                                        <input type="email" value="<%= clientes[i].Email%>" name="email">
-                                        <img src="../img/vector.png">
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="submit" onclick="salvarCadastro()" class="btn-modal-atualizar">Atualizar</button>    
-                            <button type="submit" onclick="cancelar()" class="btn-modal-cancelar">Cancelar</button>          
-                        </div>
-                    </form>
-                    <% } %>  
-                </div>
-            </section>
+            
         </main>
 
         <footer>

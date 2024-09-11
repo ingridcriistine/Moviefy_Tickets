@@ -190,12 +190,7 @@ module.exports = {
             raw: true
         });
 
-        const clientes = await cliente.findOne({
-            raw: true,
-            attributes: ['IDCliente', 'Nome', 'DataNascimento', 'CPF', 'Email', 'Senha', 'Foto', 'IDTipo']
-        });
-
-        res.render('../views/perfilUsuario', {clientes, user});
+        res.render('../views/perfilUsuario', {user});
     },
     
     async pagPerfilUsuarioPost(req, res){
@@ -251,6 +246,7 @@ module.exports = {
                 model: classificacao
             }
         })
+
 
         res.render('../views/filmesCartaz', {filmes, user});
     },
@@ -392,6 +388,7 @@ module.exports = {
 
     async pagComprarIngressoGet(req, res) {
         let id = req.params.id;
+        let id_cliente = req.session.IDCliente;
 
         const sessoes = await sessao.findOne({
             raw: true,
@@ -404,10 +401,17 @@ module.exports = {
             where: {IDSessao : id}
         });
 
+        const user = await cliente.findOne({
+            where: { IDCliente: id_cliente },
+            raw: true
+        });
+
         const assentos = await assento.findAll({
             raw: true,
             attributes: ['IDAssentos', 'Numero']
         });
+
+        console.log(assentos)
 
         const tiposIngresso = await tipoIngresso.findAll({
             raw: true,
@@ -421,7 +425,7 @@ module.exports = {
 
         console.log(sessoes);
 
-        res.render('../views/comprarIngresso', {sessoes, pagamentos, assentos, tiposIngresso});
+        res.render('../views/comprarIngresso', {sessoes, pagamentos, assentos, tiposIngresso, user});
     },
 
     async pagComprarIngressoPost(req, res) {

@@ -152,7 +152,7 @@ module.exports = {
 
         const sessoes = await sessao.findByPk(parametro, {
             raw: true,
-            attributes: ['IDSessao', 'IDCinema', 'IDFilme', 'IDSala']
+            attributes: ['IDSessao', 'IDCinema', 'IDFilme', 'IDSala', 'Hora', 'Data']
         });
 
         res.render('../views/adm/editarSessao', {sessoes, cinemas, salas, filmes});

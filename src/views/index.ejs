@@ -17,7 +17,7 @@
                 <a href="/cliente"><h2 class="titulo"><i>Moviefy Tickets</i></h2></a>
                 <div class="nav-login">
                     <img src="/img/login.png" alt="Ícone de login">
-                    <a href="/perfilUsuario/user.IDCliente">Bem-vindo, <%= user.Nome %><span id="nomeUser"></span>!</a>
+                    <a href="/perfilUsuario">Bem vindo, <%= user.Nome %> <saan id="user"></span></a>
                 </div>
             </nav>
             <nav class="sub-menu">
@@ -151,7 +151,7 @@
                     <div class="box-franquia">
                         <a href="">
                             <div class="box-img-franquia">
-                                <img src="" alt="">
+                                <img src="/img/<%= cinemas[i].Foto%>" alt="">
                             </div>
                         </a>
                         <h3><%= cinemas[i].Nome %></h3>
