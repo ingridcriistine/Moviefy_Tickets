@@ -70,7 +70,12 @@ module.exports = {
             ]
         });
 
-        res.render('../views/indexAnonimo', {filmes});
+        const cinemas = await cinemaLocal.findAll({
+            raw: true,
+            attributes: ['IDCinemaLocal', 'Nome', 'Preco', 'Foto']
+        });
+
+        res.render('../views/indexAnonimo', {filmes, cinemas});
     },
 
     async pagIndexAnonimoPost(req, res) {
@@ -250,6 +255,11 @@ module.exports = {
         const dados = req.body.pesquisa;
         console.log(dados);
 
+        const user = await cliente.findOne({
+            where: { IDCliente: req.session.IDCliente },
+            raw: true
+        });
+
         const filmes = await filme.findAll({
             raw: true,
             attributes: ['IDFilme', 'Titulo', 'DataEstreia', 'DataSaida',  'Duracao', 'Foto','ClassificacoesIndicativa.Idade'],
@@ -259,7 +269,7 @@ module.exports = {
             where: {Titulo:{[Op.like]:`%${dados}%`}}
         })
 
-        res.render('../views/filmesCartaz', {filmes});
+        res.render('../views/filmesCartaz', {filmes, user});
     },
 
     async pagCinemasGet(req, res) {

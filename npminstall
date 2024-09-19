@@ -1,3 +1,5 @@
 npm install express mssql sequelize nodemon ejs
 
 npm install multer
+
+npm install express-session

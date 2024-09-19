@@ -88,10 +88,6 @@ const btnBack = document.getElementById("btn-back");
 
 function darkMode() {
     
-    let cardFilme;
-    let cardTitle;
-    let cardText;
-    let cardClass;
     const lightActive = body.style.backgroundColor == "white";
     
     if(lightActive) {
@@ -110,11 +106,13 @@ function darkMode() {
         btnBack.style.backgroundColor = "#0d1117";
         btnBack.style.borderColor = "white";
         
-        for(let i = 0; i < 10; i++) {
-            cardFilme = document.getElementById(`card-filme${i}`);
-            cardTitle = document.getElementById(`card-title${i}`);
-            cardText = document.getElementById(`card-text${i}`);
-            cardClass = document.getElementById(`card-class${i}`);
+        for(let i = 1; i < 20; i++) {
+            let cardFilme = document.getElementById(`card-filme${i}`);
+            let cardTitle = document.getElementById(`card-title${i}`);
+            let cardText = document.getElementById(`card-text${i}`);
+            let cardClass = document.getElementById(`card-class${i}`);
+
+
             cardFilme.style.backgroundColor = "#282d33";
             cardFilme.style.borderColor = "white";
             cardFilme.style.color = "white";
@@ -140,7 +138,7 @@ function darkMode() {
         btnBack.style.backgroundColor = "white";
         btnBack.style.borderColor = "black";
         
-        for(let i = 0; i < 10; i++) {
+        for(let i = 1; i < 20; i++) {
             cardFilme = document.getElementById(`card-filme${i}`);
             cardTitle = document.getElementById(`card-title${i}`);
             cardText = document.getElementById(`card-text${i}`);
